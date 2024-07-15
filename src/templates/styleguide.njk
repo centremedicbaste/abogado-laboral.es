@@ -1,0 +1,44 @@
+---
+layout: layout/base.njk
+permalink: /styleguide/
+metaRobots: "noindex, nofollow"
+---
+<section data-scroll-section> 
+    <div class="height-sm bg-light"></div>
+    <div class="container ptr-120 front-section pbr-120">
+        <div class="fluid-4-b mb-64">Styleguide</div>
+
+        {% set variables = {
+            "c-accent": global.c_accent,
+            "c-primary": global.c_primary,
+            "c-secondary": global.c_secondary,
+            "c-gray": global.c_gray,
+            "bg-dark": global.bg_dark,
+            "c-bg-dark": global.c_bg_dark,
+            "bg-light": global.bg_light,
+            "c-bg-light": global.c_bg_light,
+            "bg-primary": global.bg_primary,
+            "btn-radius": global.btn_radius,
+            "padding-global": global.padding_global
+          } %}
+    
+<div class="row">
+    <div class="col-xs-12">
+
+        {% for key, value in variables %}
+        <div class="mini-box" style=" float:left; background-color: var(--{{ key }});">
+            --{{ key }}
+        </div>
+        {% endfor %}
+       
+
+    </div>
+</div>
+    </div>
+</section>
+
+<style>
+.red-text {
+    color: red;
+}
+</style>

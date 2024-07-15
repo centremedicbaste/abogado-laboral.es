@@ -1,0 +1,156 @@
+{
+  "base_modules": "../../../node_modules/boilerplate-modules/src/_includes/",
+  "title": "Boilerplate",
+  "lang": "es-es",
+  "footer": "",
+  "url": "https://www.boilerplate.org/",
+  "logo": "BOILERPLATE",
+  "tag_manager": "GTM-.....R",
+  "home": "Inicio",
+  "about": "Nosotros",
+  "service": "Servicios",
+  "blog": "blog",
+  "contact": "Contacta",
+  "search_console": "",
+  "empresa_legal": "nombre sl",
+  "empresa_corto": "nombre sl",
+  "website": "www.",
+  "telefono": " +34 XXX XX.",
+  "empresa_dni": "B.......",
+  "email": "SECRETARIA@boilerplate.ORG",
+  "whatsapp": "+34 XXX XX",
+  "direction": " calle del boilerplate numero 12",
+  "empresa_legal_direccion": "empresa legal direccion",
+  "direction_link": "link de direccion",
+  "contacta_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95780.4778692705!2d2.057788096174229!3d41.39276734289865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49816718e30e5%3A0x44b0fb3d4f47660a!2sBarcelona!5e0!3m2!1ses!2ses!4v1720978604702!5m2!1ses!2ses",
+  "empresa_copyright": " © 2023 Boilerplate",
+  "author": "manuel ruiz",
+  "authorweb": "design-systems.es",
+  "authorinstagram": "manuel ruiz",
+  "empresa": "the boilerplate",
+  "imageDir": "/assets/static/images/",
+  "brands": "1,2,3,4,5,6",
+  "galeria": "1,2,3,4,5,6,7,8",
+  "contact_img": "/assets/static/images/1.jpg",
+  "empresa_legal_titular": "empresa_legal_titular ",
+  "link": "design-systems.es",
+  "codigopostal": "0000",
+  "direccion": " calle",
+  "ciudad": " Andalucia",
+  "provincia": "Andalucia",
+  "actividad": " centro especial de empleo",
+  "home_image": "/assets/static/images/casa2.webp",
+  "home_video": "https://res.cloudinary.com/manuel-ruiz/video/upload/v1720639104/kwkfbucyczyfi6xxrl9m.mp4",
+  "c_accent": "#71B7D9",
+  "c_primary": "#536066",
+  "c_secondary": "#000000",
+  "c_gray": "#727272",
+  "bg_dark": "#3a5774",
+  "bg_light": "#f3f2f0",
+  "c_bg_light": "#fafafa",
+  "c_bg_dark": "#f7f6f5",
+  "bg_primary": "linear-gradient(120deg, #E14EF7 0%, #8E44F6 30%, #3D40F5 100%)",
+  "btn_radius": "0",
+  "padding-global": "16px",
+  "seo_title": "seo_title",
+  "seo_description": "seo_description",
+  "googlemaps_api": "",
+  "googlemaps_link": "",
+  "googlemaps_iframe": "",
+  "social_linkedin": " https://www.linkedin.com/",
+  "social_youtube": "https://www.youtube.com/",
+  "social_instagram": "https://www.instagram.com/",
+  "banner_title": "Contáctanos",
+  "banner_text": "¡Intenta tener tu móvil cerca de ti porque te llamaremos!",
+  "banner_claim": "Garantía de 7 días Con un correo electrónico o solicitud, recibes el 100% de tu inversión de vuelta. ",
+  "banner_button": "enviar",
+  "introCta_type": "introCta_type",
+  "introCta_title": "La mejor **web **landing optimizada del mundo",
+  "introCta_description": "introCta_description",
+  "introCta_cta": "introCta_cta",
+  "introCta_cta_link": "introCta_cta_link",
+  "introCta_image": "introCta_image",
+  "introCta_bg_image": "introCta_bg_image",
+  "why_type": "why_type",
+  "why_title": "why_title",
+  "why_description": "why_description",
+  "why_cta": "why_cta",
+  "why_cta_link": "why_cta_link",
+  "why_image": "why_image",
+  "why_bg_image": "why_bg_image",
+  "benefit_type": "benefit_type",
+  "benefit_title": "benefit_title",
+  "benefit_description": "uuu **The **boilerplate ha reinventado el marketing online, favoreciendo el acceso a una landing perfecta con creación de posts  a cualquier persona ",
+  "benefit_cta": "benefit_cta",
+  "benefit_cta_link": "benefit_cta_link",
+  "benefit_image": "benefit_image",
+  "benefit_bg_image": "benefit_bg_image",
+  "benefit": [
+    {
+      "benefit_question": "benefit_question",
+      "benefit_answer": "benefit_answer"
+    },
+    {
+      "benefit_question": "benefit_question",
+      "benefit_answer": "benefit_answer"
+    }
+  ],
+  "contact_type": "contact_type",
+  "contact_title": "contact_title",
+  "contact_description": "contact_description",
+  "contact_cta": "contact_cta",
+  "contact_cta_link": "contact_cta_link",
+  "contact_image": "contact_image",
+  "contact_bg_image": "contact_bg_image",
+  "faq_title": "faq_title",
+  "faq_description": "faq_description",
+  "services": [
+    {
+      "service_name": "Administración de fincas",
+       "service_content": "Administramos edificios residenciales, de oficinas e industriales en Andalucia.",
+       "service_img": "servicio_1"
+      },
+    {
+      "service_name": "Patrimonios inmobiliarios",
+       "service_content": "Gestionamos tus activos inmobiliarios adaptando nuestros servicios a tus necesidades...",
+       "service_img": "servicio_2"
+    },
+    {
+      "service_name": "Gestión comercial",
+       "service_content": "Alquilamos o vendemos tus propiedades, y te ayudamos a encontrar las que mejor se ajusten a tu perfil patrimonial.",
+       "service_img": "servicio_3"
+    },
+    {
+      "service_name": "Lorem ipsum dolor sit amet",
+       "service_content": "Gestionamos tus activos inmobiliarios adaptando nuestros servicios a tus necesidades...",
+       "service_img": "servicio_4"
+    }
+  ],
+  "faq": [
+    {
+      "faq_question": "faq_question",
+      "faq_answer": "faq_answer"
+    },
+    {
+      "faq_question": "faq_question",
+      "faq_answer": "faq_answer"
+    }
+  ],
+  "team": [
+    {
+      "team_img": "1.jpg",
+      "team_position": "position 1",
+      "team_name": "nombre 1"
+    },
+    {
+      "team_img": "1.jpg",
+      "team_position": "position 2",
+      "team_name": "nombre 2"
+    },
+    {
+      "team_img": "1.jpg",
+      "team_position": "position 3",
+      "team_name": "nombre 3"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "grupo": [
+    {
+      "nombre": "ejemplohtml",
+      "imagen": "/assets/static/images/restaurantes/ejemplohtml.svg"
+    }
+  ],
+  "restaurante": [
+    {
+      "nombre": "ejemplo",
+      "imagen": "foto"
+    }
+ 
+  ],
+  "elementos": [
+    {
+      "tipo": "terraza 1",
+      "links": [
+        {
+          "nombre": "ejemplo",
+          "url": "link2"
+        }
+    
+      ]
+    },
+    {
+      "tipo": "terraza 2",
+      "links": [
+        {
+          "nombre": "ejemplo",
+          "url": "link3"
+        }
+      
+      ]
+    },
+    {
+      "tipo": "terraza 3",
+      "links": [
+        {
+          "nombre": "ejemplo",
+          "url": "link3"
+        }
+
+      ]
+    }
+  ]
+}
