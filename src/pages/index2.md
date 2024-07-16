@@ -109,5 +109,3 @@ footer_4: keyword principal.
 
 ---
 
---wrap es negrita--
-^^es salto de linea, 

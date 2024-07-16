@@ -1,85 +1,119 @@
 ---
 layout: pages/_index.njk
 permalink: /
-metaTitle: Boilerplate Web para Crear Nuevas Webs
-metaDescription: Este es un boilerplate web que te ayuda a iniciar el desarrollo de nuevos sitios web rápidamente y con las mejores prácticas.
-metaKeywords: boilerplate, desarrollo web, plantillas, Eleventy, Nunjucks, SCSS, JavaScript
+metaTitle: Abogado Laboral - Expertos en Derecho Laboral y Seguridad Social
+metaDescription: Abogado Laboral cuenta con años de experiencia en derecho laboral y seguridad social, ofreciendo soluciones personalizadas para empresas y particulares.
+metaKeywords: abogado laboral, derecho laboral, seguridad social, pensiones, incapacidad, jubilación, despidos
 metaRobots: index, nofollow
-hero_title: Boilerplate Web para Nuevas Creaciones
-hero_description: Bienvenidos al Boilerplate Web
-hero_description2: Este proyecto está diseñado para facilitar la creación de nuevos sitios web, con un enfoque en la simplicidad y las mejores prácticas.
-hero_btn: COMENZAR AHORA
-introbenefits2_subtitle: Boilerplate Web. Eleventy, Nunjucks, SCSS y más.
-introbenefits2_content: El objetivo principal de este boilerplate es proporcionar una base sólida para el desarrollo de nuevos sitios web. ^^Con esta plantilla, puedes asegurar un proceso de desarrollo eficiente y estructurado, brindando servicios de ajuste y personalización según sea necesario.^^ Al menos -el 70% del código- está optimizado para ser reutilizable y adaptable con un -grado de modularidad superior al 33%-.
-introbenefits2_subcontent: Estamos orgullosos de poder ofrecer, desde la experiencia que nuestra historia inspira y nuestro presente garantiza, una excelente base que asegura nuestra mayor recompensa, la confianza y satisfacción de nuestros usuarios.
+hero_title: Tu abogado laboral
+hero_description: ¿Quieres respuesta a tu problema laboral?
+hero_description2: Has encontrado los expertos que buscabas
+hero_btn: CONTACTA AHORA
+introbenefits2_subtitle: BIENVENIDOS A ABOGADO LABORAL
+introbenefits2_content: Nuestra firma se forma por la unión de abogados especializados en derecho laboral, incapacidad y en centros especiales de empleo, asesorando indistintamente a empresas, particulares y asociaciones.^^ Nuestra marca se basa en que solo con el conocimiento específico de la materia pueden conseguirse la perfección profesional, por tal motivo desde el bufete se mantienen rigurosas normas de calidad, teniendo como único objetivo el éxito del procedimiento.
+
+introbenefits2_subcontent: Estamos orgullosos de poder ofrecer, desde la experiencia que nuestra historia inspira y nuestro presente garantiza, una excelente base que asegura nuestra mayor recompensa, la confianza y satisfacción de nuestros clientes.
 servicios_1_subtitle: Para que no te preocupes de nada
-servicios_1_title: SERVICIOS PARA DESARROLLADORES
+servicios_1_title: SERVICIOS LEGALES INTEGRALES
 introbenefits_title: Nuestros Beneficios
-introbenefits_subtitle: Conoce las ventajas de usar nuestro boilerplate
-benefits_2_title_1: Unión
-benefits_2_description_1: "No existe problema que no podamos resolver juntos, y existen muy pocos problemas que podemos resolver por nuestra propia cuenta."
-benefits_2_title_2: Comunicación
-benefits_2_description_2: La comunicación es una herramienta de gestión. Siempre a la última, gracias a nuestras comunicaciones internas.
-benefits_2_pretitle: Nuestros valores
-benefits_2_title: Valores de comunicación y formación.
-benefits_2_title_3: Formación
-benefits_2_description_3: Contribuimos a la programación y desarrollo de programas de formación en nuestras empresas. "Sólo hay algo más caro que formar a las personas y que se marchen, no formarlos y que se queden." Henry Ford
-benefits_2_title_4: Experiencia
-benefits_2_description_4: Más de 100 años de experiencia nos respaldan en la administración y gestión de proyectos web.
-content_5_title: ¿Quiénes somos?
+introbenefits_subtitle: Conoce las ventajas de contratar nuestros servicios
+
+benefits_2_pretitle: ¿Eres empresario?
+
+benefits_2_title: Servicios a empresas
+
+
+benefits_2_title_1: Inspecciones de trabajo
+
+benefits_2_description_1: Te representamos ante las inspecciones de trabajo, así como impugnamos actas de infracción y liquidación, acompañándote en el procedimiento judicial.
+
+
+benefits_2_title_2: Despidos
+benefits_2_description_2: ¿Te han despedido o quieres despedir? Como especialistas en la materia te informamos de los requisitos que deben tener estos trámites y que pueden suponer tu éxito en el juzgado.
+
+
+
+
+benefits_2_title_3: Modificaciones de condiciones de trabajo
+
+benefits_2_description_3: Los cambios de jornada, horario o turno, deben realizarse según un protocolo establecido en el Estatuto de los Trabajadores, un fallo en el mismo considera nulo la medida tomada, no corras el riesgo y consúltanos.
+
+benefits_2_title_4: Transparencia
+benefits_2_description_4: "La transparencia es clave en nuestra relación profesional, detallando el servicio contratado y el precio pactado."
+content_5_title: Amat victoria curam
 content_5_subtitle: NUESTRA FILOSOFÍA
-content_5_description_1: Nuestro boilerplate es fundamental en el desarrollo de sitios web eficientes y modernos.^^ Ha evolucionado notablemente desde su creación, convirtiéndose en una herramienta esencial que -ofrece a los desarrolladores una base sólida y adaptable para sus proyectos-.
-content_5_description_2: Este cambio de filosofía es el que nos obliga a adoptar comportamientos innovadores y a realizar una reflexión estratégica que nos permita que cada proyecto web se convierta en una solución competitiva a largo plazo y no en una solución cortoplacista.
-box_img_title: Gracias a la colaboración de muchos desarrolladores y la comunidad de código abierto, este boilerplate es hoy en día una entidad representativa de las mejores prácticas en el desarrollo web.
-box_img_description: El trabajo por la optimización y eficiencia del desarrollo web se transforma en nuestra pasión. Con este boilerplate pretendemos que
-box_img_description_2: "más que apasionarnos por nuestra labor, queremos profesionalizar esta pasión."
-servicios_pretitle: Boilerplate Web
-servicios_title: LOS BENEFICIOS
-servicios_subtitle: Usar nuestro boilerplate te aporta gran cantidad de beneficios
-servicios_title_1: Defensa
-servicios_content_1: La defensa y la promoción de las mejores prácticas en el desarrollo web.
-servicios_title_2: Representación
-servicios_content_2: Representar la comunidad de desarrolladores ante los Organismos Públicos, en defensa de sus intereses profesionales.
-servicios_title_3: Negociación
-servicios_content_3: La negociación colectiva, el planteamiento de conflictos colectivos de trabajo, el diálogo social, la regulación de las condiciones de trabajo y la participación institucional en los organismos públicos de las administraciones laborales.
-servicios_title_4: Departamento de soporte
-servicios_content_4: Proporcionamos el asesoramiento necesario para garantizar la excelencia en el desarrollo web.
-servicios_title_5: Área jurídica
-servicios_content_5: Asesoramiento legal para todas las cuestiones relacionadas con el desarrollo y distribución de software.
-servicios_title_6: Repositorio de código
-servicios_content_6: Amplio repositorio de componentes y plantillas tanto para uso directo como para personalización.
-content_2_title: Boilerplate Web
+content_5_description_1: El bufete Abogado Laboral, se caracteriza por su especialización en el ámbito laboral y pensiones por incapacidad, prestando servicios en toda Andalucía. ^^ No podemos prometer resultados pero sí garantizamos luchar por tus intereses, también nos avala como marca de excelencia la firma de una hoja de encargo donde se detallarán los trabajos a realizar y el precio de los mismos para su seguridad jurídica.
+content_5_description_2: Nuestra experiencia desde 2009 solo en temas laborales y de pensiones de incapacidad, nos avalan pudiendo realizar procedimientos allí donde se nos contrate, salvando el problema de la distancia. Nuestro compromiso es su éxito.
+box_img_title: Gracias a la confianza de nuestros clientes y la dedicación de nuestros abogados, Abogado Laboral es hoy en día una entidad representativa de la excelencia en el derecho laboral.
+box_img_description: El trabajo por la defensa y promoción de los derechos laborales se transforma en nuestra pasión. Con Abogado Laboral pretendemos que más que apasionarnos por nuestra labor, queremos profesionalizar esta pasión.
+servicios_pretitle: Abogado Laboral
+
+servicios_title: NUESTROS SERVICIOS
+servicios_subtitle: Para dar un servicio completo, el bufete cuenta con un departamento laboral, fiscal y contable donde trabajan expertos por materias para solucionar los problemas diarios de empresas y particulares
+
+servicios_title_1: Centros Especiales de empleo
+servicios_content_1: Somos el primer despacho de abogados en Andalucía especializado íntegramente en centros especiales de empleo, tanto en la creación, gestión y asesoramiento de los mismos, así como la tramitación de todo tipo de subvenciones. Asesoramos a diferentes entidades empresariales y sociales a nivel provincial y autonómico, en temas de contrataciones de discapacitados así como en derecho laboral.
+
+servicios_title_2: Pensiones por incapacidad laboral
+servicios_content_2: Solucionamos tus problemas y dudas para conseguir cualquier pensión por incapacidad, nuestra especialización en la materia nos hace diferentes, ya sea en vía administrativa o judicial. Tenemos la respuesta para cada una de tus problemas.
+
+servicios_title_3: Jubilaciones
+servicios_content_3: Si estás pensando en jubilarte, podemos asesorarte en cómo conseguir la máxima pensión posible, deja que abogados laboralistas estudien tu caso.
+
+servicios_title_4: Reclamación de seguros por muerte o invalidez
+servicios_content_4: Una gran mayoría de personas cuando se les concede una pensión no conocen que pueden cobrar indemnizaciones de seguros o convenios que habían firmado en el pasado, si quieres aclarar tus dudas o informarte, podemos ayudarte.
+
+servicios_title_5: Discapacidad
+servicios_content_5: Si te planteas que puedes tener un grado de discapacidad, pero no conoces los medios o los sistemas de valoración, no dudes en ponerte en contacto con nosotros para aclararte.
+
+servicios_title_6: Incrementos de pensiones por accidente de trabajo
+servicios_content_6: Si sufriste un accidente de trabajo por imprudencia empresarial o falta de medida de seguridad, puedes solicitar un incremento de tu pensión desde un 30% a un 50%, incluso aunque estés en incapacidad temporal.
+
+
+content_2_title: Abogado Laboral
 content_2_subtitle: QUÉ OFRECEMOS
-content_2_title_1: SOPORTE EMPRESARIAL
-content_2_subtitle_1: subtitle
-content_2_description_1: Todas las empresas de desarrollo web pueden beneficiarse de una base sólida para sus proyectos; ^^ -nuestro boilerplate ofrece una alternativa eficiente para acelerar el proceso de desarrollo.-
-content_2_title_2: FUNDAMENTO LEGISLATIVO
-content_2_subtitle_2: subtitle2
-content_2_description_2: Nuestro boilerplate cumple con todas las normativas y estándares actuales, asegurando un desarrollo seguro y eficiente; -a la vez que proporciona un medio para la inclusión del mayor número de mejores prácticas- en el desarrollo web.
-content_2_title_3: APOYO SOCIAL
-content_2_subtitle_3: subtitle3
-content_2_description_3: Los desarrolladores pueden colaborar y contribuir a través de nuestras unidades de apoyo, asegurando que cada proyecto cumpla con los requisitos de ajuste personal y social según sea necesario.
+
+
+content_2_title_1: Único bufete de abogados especializado en centros especiales de empleo en Andalucía
+
+content_2_subtitle_1: fgfg
+content_2_description_1: Convertimos tu empresa en un centro especial de empleo, te orientamos y solicitamos todas las subvenciones posibles ^^ Inspecciones de trabajo Despidos Modificación sustancial de condiciones
+
+
+content_2_title_2: Todo bajo Control
+
+content_2_subtitle_2: fgfg
+content_2_description_2: Claridad ^^ Es uno de nuestros pilares, por ello desde la web puedes conectarte a la extranet y ver como está tu expediente.^^ Transparencia ^^ Es clave en nuestras relación profesional, prueba de ello es la firma de una hoja de encargo, donde se detalla el servicio contratado y precio pactado para ello, sin sorpresas ni letra pequeña.
+content_2_title_3: Estamos en Youtube
+
+content_2_subtitle_3: fgfg
+content_2_description_3: Abogado Laboral tiene como objetivo llegar a cuantas más personas mejor, por ello hemos creado un canal de youtube, para resolver las dudas que aparecen en el mundo laboral. Nuestra misión es que se comprenda el derecho y que llegue a todos los interesados, si quieres resolver tu duda no lo pienses y ¡Envía tu consulta!.
+
+
+
+
+
 whytitle2_title: ¿Por qué elegirnos?
 whytitle2_subtitle: Compromiso y experiencia
-whytitle2_description: Nuestra larga trayectoria y dedicación nos convierten en la mejor opción para la creación de nuevos proyectos web.
-whytitle3_title: Boilerplate Web, tu mejor aliado
-whytitle3_subtitle: Expertos en desarrollo web
-whytitle3_description: Ofrecemos una base integral y personalizada, respaldada por más de un siglo de experiencia en el sector.
+whytitle2_description: Nuestra larga trayectoria y dedicación nos convierten en la mejor opción para la resolución de problemas laborales.
+whytitle3_title: Abogado Laboral, tu mejor aliado
+whytitle3_subtitle: Expertos en derecho laboral
+whytitle3_description: Ofrecemos una base integral y personalizada, respaldada por años de experiencia en el sector.
 hookfraseimagen: Tu tranquilidad, nuestra prioridad.
-content_text_title1: Desarrollo de Sitios Web
-content_text_subtitle1: Boilerplate Web, tu socio de confianza
-content_text_text1: Con más de 100 años de experiencia, somos líderes en proporcionar una base sólida para el desarrollo de sitios web. Nuestro compromiso es ofrecer un servicio de calidad, adaptado a las necesidades de cada desarrollador.^^Nos especializamos en la creación de plantillas y componentes reutilizables, garantizando la optimización y el buen funcionamiento de tus proyectos web.
-content_text_title2: Gestión de Proyectos Web
+content_text_title1: Resolución de Problemas Laborales
+content_text_subtitle1: Abogado Laboral, tu socio de confianza
+content_text_text1: Con años de experiencia, somos líderes en proporcionar soluciones efectivas para problemas laborales. Nuestro compromiso es ofrecer un servicio de calidad, adaptado a las necesidades de cada cliente. Nos especializamos en la gestión de pensiones, incapacidades, despidos y más, garantizando la optimización y el buen funcionamiento de tus derechos laborales.
+content_text_title2: Gestión de Asuntos Laborales
 content_text_subtitle2: Optimización y rentabilidad
-content_text_text2: Gestionamos tu proyecto web para maximizar su rentabilidad. Nuestra experiencia y conocimiento del mercado nos permiten ofrecer soluciones efectivas y personalizadas.^^Desde la consultoría hasta la administración diaria, estamos aquí para que te olvides de los problemas y disfrutes de los beneficios.
-subtitle: Desarrollo web eficiente
+content_text_text2: Gestionamos tus asuntos laborales para maximizar su resolución. Nuestra experiencia y conocimiento del mercado nos permiten ofrecer soluciones efectivas y personalizadas. Desde la consultoría hasta la representación legal, estamos aquí para que te olvides de los problemas y disfrutes de los beneficios.
+subtitle: Derecho laboral eficiente
 image: /images/index-image.jpg
-content_2: Nuestro boilerplate es sinónimo de confianza, experiencia y profesionalidad en el desarrollo web.
+content_2: Abogado Laboral es sinónimo de confianza, experiencia y profesionalidad en la gestión de asuntos laborales.
 team1_title: Nuestro Equipo
 team1_subtitle: Profesionales a tu servicio
-team1_descripción: Contamos con un equipo de expertos dedicados al desarrollo y gestión de proyectos web.^^Siempre disponibles para ofrecerte el mejor servicio y garantizar la satisfacción de nuestros usuarios.
-footer_1: Boilerplate Web
-footer_2: Desarrollo de proyectos web eficientes y modernos.
-footer_3: © Boilerplate Web, 2024. All Rights Reserved.
-footer_4: Desarrollo web eficiente
+team1_descripción: Contamos con un equipo de expertos dedicados a la gestión y resolución de problemas laborales. Siempre disponibles para ofrecerte el mejor servicio y garantizar la satisfacción de nuestros clientes.
+footer_1: Abogado Laboral
+footer_2: Gestión y resolución de problemas laborales de manera eficiente y profesional.
+footer_3: © Abogado Laboral, 2024. All Rights Reserved.
+footer_4: Derecho laboral eficiente
 ---

@@ -1,7 +1,7 @@
 ---
 layout: pages/_pageblog.njk
-permalink: 
-title: blog title
+permalink: /blog/
+title: blog title2
 whytitle1: blog whytitle1
 whytitle2: blog whytitle2
 whytitle3: blog whytitle3

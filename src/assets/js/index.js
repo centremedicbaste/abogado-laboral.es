@@ -448,3 +448,31 @@ $({ Counter: 0 }).animate({
     $('.animated-counter').text(Math.ceil(this.Counter));
   }
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Obtén la ruta actual de la URL
+  const path = window.location.pathname;
+
+  // Selecciona el elemento donde mostrar la página actual
+  const currentPageElement = document.getElementById('currentPage');
+
+  // Determina la página actual basándote en la ruta
+  let currentPage = '';
+
+  if (path === '/' || path === '/index.html') {
+    currentPage = 'Home';
+  } else if (path.includes('/blog')) {
+    currentPage = 'Blog';
+  } else if (path.includes('/contact')) {
+    currentPage = 'Contact';
+  } else if (path.includes('/about')) {
+    currentPage = 'About';
+  }
+
+  // Asigna la página actual como el ID del elemento
+  if (currentPageElement) {
+    currentPageElement.id = currentPage.toLowerCase();
+
+  }
+});
