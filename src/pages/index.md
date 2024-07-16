@@ -89,7 +89,8 @@ content_2_title_3: Estamos en Youtube
 content_2_subtitle_3: fgfg
 content_2_description_3: Abogado Laboral tiene como objetivo llegar a cuantas más personas mejor, por ello hemos creado un canal de youtube, para resolver las dudas que aparecen en el mundo laboral. Nuestra misión es que se comprenda el derecho y que llegue a todos los interesados, si quieres resolver tu duda no lo pienses y ¡Envía tu consulta!.
 
-
+content_2_link_3: Ver Canal
+content_2_linkurl_3: https://www.youtube.com/@abogado-laboral8099
 
 
 
