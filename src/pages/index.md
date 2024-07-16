@@ -83,7 +83,7 @@ content_2_description_1: Convertimos tu empresa en un centro especial de empleo,
 content_2_title_2: Todo bajo Control
 
 content_2_subtitle_2: fgfg
-content_2_description_2: Claridad ^^ Es uno de nuestros pilares, por ello desde la web puedes conectarte a la extranet y ver como está tu expediente.^^ Transparencia ^^ Es clave en nuestras relación profesional, prueba de ello es la firma de una hoja de encargo, donde se detalla el servicio contratado y precio pactado para ello, sin sorpresas ni letra pequeña.
+content_2_description_2: -Claridad- ^^ Es uno de nuestros pilares, por ello desde la web puedes conectarte a la extranet y ver como está tu expediente.^^ -Transparencia- ^^ Es clave en nuestras relación profesional, prueba de ello es la firma de una hoja de encargo, donde se detalla el servicio contratado y precio pactado para ello, sin sorpresas ni letra pequeña.
 content_2_title_3: Estamos en Youtube
 
 content_2_subtitle_3: fgfg
