@@ -387,8 +387,8 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
   }
 };
 
-// execute above function
-initPhotoSwipeFromDOM(".my-gallery");
+// ejecuta si quieres galeria
+// initPhotoSwipeFromDOM(".my-gallery");
 
 
 

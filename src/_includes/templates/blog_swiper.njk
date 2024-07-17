@@ -1,0 +1,104 @@
+<!-- blog_swiper.njk -->
+<section class="bg-light  ptr-120 pbr-120 " data-scroll-section>
+  <div class="container-global mx-auto">
+    <div class="row ">
+      <div class="col-xs-12 col-sm-12 text-center">
+        <h3 class="fluid-4-m mb-24">ÚLTIMAS NOTICIAS</h3>
+        <h4 class="h5 mb-24 c-accent">Para que no te preocupes de nada </h4>
+      </div>
+    </div>
+  </div>
+  <div class="ov-hidden popular">
+    <!-- Slider main container -->
+    <div class="swiper-container-img">
+      <!-- Additional required wrapper -->
+      <ul class="swiper-wrapper my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+        <!-- Slides -->
+        {% for blog in collections.blog %}
+
+
+        <li class="swiper-slide has-light" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+     
+            <div class="swiper-slide-info">
+              <div class="h4 mb-16">{{ blog.data.title }}</div>
+              <div class="p2">{{ blog.data.description }}</div>sdsddss
+              <a  title="click to zoom-in" href="{{ blog.url }}" itemprop="contentUrl"> {{ blog.url }}
+              </a>
+
+            </div>
+            <div class="ar-3-35">
+              <img class="parallax-box" data-scroll data-scroll-speed="-.8"
+                src="{{ blog.data.image }}" itemprop="thumbnail" alt="{{ blog.data.title }}" />
+            </div>
+ 
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-global">
+    <div class="row">
+      <div class="col-xs-6 col-sm-12"> </div>
+      <div class="col-xs-6 col-sm-12 text-right">
+        <div class="swiper-arrows-img">
+          <button class="swiper-prev" aria-label="Anterior slide">
+            <div> ← </div>
+          </button>
+          <button class="swiper-next" aria-label="Siguiente slide">
+            <div>→ </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<link async rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+  var mySwiper = new Swiper(".swiper-container-img", {
+    loop: true,
+    spaceBetween: 15,
+    slidesPerView: "1.5",
+    pagination: {
+      el: ".actuals .swiper-pagination",
+      clickable: true,
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '">' + (index + 1) + "</span>";
+      },
+    },
+    navigation: {
+      nextEl: ".swiper-arrows-img .swiper-next",
+      prevEl: ".swiper-arrows-img .swiper-prev",
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 15,
+        centeredSlides: false,
+        pagination: false,
+        loop: false,
+      },
+      980: {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        centeredSlides: false,
+        pagination: false,
+        loop: false,
+      },
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        centeredSlides: false,
+        pagination: false,
+        loop: false,
+      },
+      1600: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        centeredSlides: false,
+        pagination: false,
+        loop: false,
+      },
+    },
+  });
+</script>

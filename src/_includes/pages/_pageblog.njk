@@ -6,12 +6,14 @@ layout: layout/base.njk
 {% include 'templates/bloghero.njk' %}
 
 
-<div class="section front-section bg-light  ">
+<div class="section front-section bg-light  " data-scroll-section>
+  <div class="col-xs-12">
   <div class="container-global mx-auto   ">
     <ul role="list" class="list-clear grid-1-2-4 ">
-      {% for post in collections.post | reverse %}
+      {% for blog in collections.blog | reverse %}
       {% include 'templates/blog-loop.njk' %}
       {% endfor %}
     </ul>
   </div>
+</div>
 </div>

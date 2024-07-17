@@ -5,7 +5,7 @@ metaTitle: Abogado Laboral - Expertos en Derecho Laboral y Seguridad Social
 metaDescription: Abogado Laboral cuenta con años de experiencia en derecho laboral y seguridad social, ofreciendo soluciones personalizadas para empresas y particulares.
 metaKeywords: abogado laboral, derecho laboral, seguridad social, pensiones, incapacidad, jubilación, despidos
 metaRobots: index, nofollow
-hero_title: Tu abogado laboral
+hero_title: Tu abogado laboral en sevilla
 hero_description: ¿Quieres respuesta a tu problema laboral?
 hero_description2: Has encontrado los expertos que buscabas
 hero_btn: CONTACTA AHORA
@@ -42,7 +42,7 @@ benefits_2_title_4: Transparencia
 benefits_2_description_4: "La transparencia es clave en nuestra relación profesional, detallando el servicio contratado y el precio pactado."
 content_5_title: Amat victoria curam
 content_5_subtitle: NUESTRA FILOSOFÍA
-content_5_description_1: El bufete Abogado Laboral, se caracteriza por su especialización en el ámbito laboral y pensiones por incapacidad, prestando servicios en toda Andalucía. ^^ No podemos prometer resultados pero sí garantizamos luchar por tus intereses, también nos avala como marca de excelencia la firma de una hoja de encargo donde se detallarán los trabajos a realizar y el precio de los mismos para su seguridad jurídica.
+content_5_description_1: El bufete -Abogado Laboral en sevilla-, se caracteriza por su especialización en el ámbito laboral y pensiones por incapacidad, prestando servicios en toda Andalucía. ^^ No podemos prometer resultados pero sí garantizamos luchar por tus intereses, también nos avala como marca de excelencia la firma de una hoja de encargo donde se detallarán los trabajos a realizar y el precio de los mismos para su seguridad jurídica.
 content_5_description_2: Nuestra experiencia desde 2009 solo en temas laborales y de pensiones de incapacidad, nos avalan pudiendo realizar procedimientos allí donde se nos contrate, salvando el problema de la distancia. Nuestro compromiso es su éxito.
 box_img_title: Gracias a la confianza de nuestros clientes y la dedicación de nuestros abogados, Abogado Laboral es hoy en día una entidad representativa de la excelencia en el derecho laboral.
 box_img_description: El trabajo por la defensa y promoción de los derechos laborales se transforma en nuestra pasión. Con Abogado Laboral pretendemos que más que apasionarnos por nuestra labor, queremos profesionalizar esta pasión.
