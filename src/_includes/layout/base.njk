@@ -9,7 +9,7 @@
     <meta name="robots" content="{{ metaRobots }}" />
     <meta name="description" content="{{ metaDescription or eleventyComputed.metaDescription or metadata.description }}" />
     <meta name="keywords" content="{{ metaKeywords or eleventyComputed.metaKeywords or metaKeywords.description }}" />
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="manifest" href="{{ global.url }}/site.webmanifest">
 
     <link rel="icon" type="image/webp" href="{{ global.url }}/assets/static/about.jpg" />
 
