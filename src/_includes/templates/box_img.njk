@@ -1,53 +1,19 @@
 <!-- box_img.njk -->
-<section class=" herohome inview  o-hidden   bg-hero  height-full p-relative parallax-bg  " data-scroll-section>
+<section class="herohome inview o-hidden bg-hero height-md p-relative" aria-label="Por qué Abogado Laboral">
+  <img class="parallax-image" src="/assets/static/images/contact.jpg" alt="" loading="lazy" decoding="async" width="1600" height="900" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4;" aria-hidden="true">
 
-    <img class="parallax-image parallax-bg" data-scroll data-scroll-speed="-3"  src="/assets/static/images/contact.jpg" alt="">
-
-
-  <div class=" container-global mx-auto    ">
-    <div class="row section-x  align-middle  height-full box_img ">
-      <div class="col-xs-9 col-md-5 col-lg-5 height-sm  ">
-
-      </div>
-
-<div class="col-xs-12 col-md-1 col-lg-1 "></div>
-
-      <div class="col-xs-12 col-md-6 col-lg-6 front-text is-flex content-end ">
-
-        <div class="has-light text-left p-24 mb-32 border-20 ">
-
-
-
-          <div class="fluid-7-r mb-16 animate-word" data-delay="0">
-
-            {{box_img_title}}
-         
+  <div class="container-global mx-auto" style="position:relative;z-index:1;">
+    <div class="row section-x align-middle ptr-64 pbr-64">
+      <div class="col-xs-12 col-md-7 front-text">
+        <div class="has-light p-24 border-20" style="background:rgba(0,0,0,.55);backdrop-filter:blur(4px);">
+          <p class="text-14-b mb-12" style="color:#fff;text-transform:uppercase;letter-spacing:.05em;opacity:.85;">Cobertura nacional</p>
+          <p class="fluid-7-r mb-16" style="color:#fff;">{{ box_img_title }}</p>
+          <p class="fluid-9-r" style="color:rgba(255,255,255,.85);">{{ box_img_description }}</p>
+          <div class="mt-24">
+            <a class="btn btn-primary" href="/contacto/" data-cta="boximg_consulta">Reserva tu consulta gratuita</a>
           </div>
-
-
-    
-
-      {# <div class="animate-box2 mb-32 mt-64" data-delay="3">
-        <a href="#contacta" >
-          <button type="button" class="btn-primary btn--big btn ">
-            {{hero_btn}}
-          </button>
-        </a>
-      </div> #}
-
-
-      {# <div class="content-middle mb-16 animate-box" data-delay="2">
-        <div class="fluid-9-b">Excelente</div><img width="100px" class=""
-          src="https://storage.googleapis.com/landing-strapi-v4/assets/svg/stars-giFRggf5fPfNiJXB7To2fd.svg"
-          loading="lazy" alt="estrellas de Truspilot" height="100%" width="100%"
-          srcset="https://storage.googleapis.com/landing-strapi-v4/assets/svg/stars-giFRggf5fPfNiJXB7To2fd.svg">
-      </div> #}
-
+        </div>
       </div>
-
-
-      </div>
-
     </div>
   </div>
 </section>

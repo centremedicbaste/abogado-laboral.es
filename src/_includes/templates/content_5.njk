@@ -1,42 +1,22 @@
 <!-- content_5.njk -->
-<section class="bg-color ptr-120  pbr-120  " data-scroll-section data-scroll-section-id="section3" data-scroll-section-inview
-  id="direction">
-  <div class="container-fluid pbr-64">
-    <div class="row">
-      <div class="col-xs-12 full-logo">
- 
- 
-  
-    
+<section class="bg-color ptr-64 pbr-64" id="filosofia" aria-label="Nuestra filosofía">
+  <div class="container-global-3 mx-auto">
+    <div class="row mb-32">
+      <div class="col-xs-12 col-md-8">
+        <p class="text-14-b mb-8" style="color:var(--c-primary);text-transform:uppercase;letter-spacing:.05em;">
+          {{ content_5_subtitle | mdbr | safe }}
+        </p>
+        <h2 class="fluid-4-m mb-24">{{ content_5_title | mdbr | safe }}</h2>
       </div>
     </div>
-  </div>
-  <div class="container-global-3 mx-auto  pb-64">
-
-
-<div class="row">
-  <div class="col-xs-12 col-md-6">
-    <div class="h5 mb-16 c-accent  "> {{ content_5_title | mdbr | safe }}</div>
-    <div class="fluid-4-m mb-24  "> {{ content_5_subtitle | mdbr | safe }}</div>
-
-  </div>
-</div>
-
 
     <div class="row">
       <div class="col-xs-12 col-md-6">
-
-        <div class="h4 "> {{ content_5_description_1 | mdbr | safe }}</div>
+        <div class="fluid-7-r mb-24">{{ content_5_description_1 | mdbr | safe }}</div>
       </div>
-
-
-          <div class="col-xs-12 col-md-6 mb-32 md:mb-0  ">
- 
-            <div class="p1  "> {{ content_5_description_2 | mdbr | safe }}</div>
-          </div>
-  
-
-  
-  
+      <div class="col-xs-12 col-md-6">
+        <p class="fluid-9-r" style="color:var(--c-gray);">{{ content_5_description_2 | mdbr | safe }}</p>
+      </div>
     </div>
+  </div>
 </section>

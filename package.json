@@ -55,7 +55,7 @@
     "nunjucks": "^3.2.4",
     "rellax": "^1.12.1",
     "sass": "^1.77.2",
-    "sharp": "^0.33.4",
+    "sharp": "^0.33.5",
     "simple-parallax-js": "^6.0.1",
     "xml2js": "^0.6.2"
   }

@@ -1,34 +1,21 @@
 <!-- bloghero.njk -->
-<section class="bg-color inview"  data-scroll-section>  
-  <div class=" container-global mx-auto    height-md ptr-120 pbr-120   ">
-    <div class="row section-x  align-middle  ">
-      <div class="col-xs-12 col-sm-7  front-text  ">
-
-        <div class="vertical-wrap mb-24">
-          <div class="vertical-inner">
-            <h1 class="fluid-5-b "> 
-
-              {% call insert.splitenpalabras( title   ) %} {% endcall %}
-
-
-            </h1> 
-          </div>
-        </div>
-        <div class="vertical-wrap-2 pb-24">
-          <div class="vertical-inner">
-            <h2 class="fluid-8-r mb-8">{{ subtitle }} </h2>
-          </div>
-        </div>
-
-
+<section class="bg-color">
+  <div class="container-global mx-auto ptr-64 pbr-32">
+    <nav aria-label="Migas de pan" class="text-14-r mb-24" style="color:var(--c-gray);">
+      <a href="/" class="footer-link">Inicio</a> ›
+      <a href="/blog/" class="footer-link">Blog</a>
+      {% if title %} › <span>{{ title }}</span>{% endif %}
+    </nav>
+    <div class="row align-middle">
+      <div class="col-xs-12 col-md-8 front-text">
+        {% if eyebrow %}<p class="text-14-b mb-8" style="color:var(--c-primary);text-transform:uppercase;letter-spacing:.05em;">{{ eyebrow }}</p>{% endif %}
+        <h1 class="fluid-3-l mb-16">{{ title }}</h1>
+        {% if subtitle %}<p class="fluid-7-r mb-16" style="color:var(--c-gray);">{{ subtitle }}</p>{% endif %}
+        {% if fecha %}<p class="text-14-r" style="color:var(--c-gray);">📅 {{ fecha }}</p>{% endif %}
       </div>
-      {% if not noheroimage %}
-      <div class="col-xs-12 col-sm-4 ">
-        {% if imagemini %}
-        <img class="video-cover" width="100%" height="auto" src="{{ imagemini }}" alt="{{ imageAlt }}" />
-        {% elseif image %}
-        <img class="" width="100%" height="auto" src=" {{ image }}" alt="{{ imageAlt }}" />
-        {% endif %}
+      {% if image and not noheroimage %}
+      <div class="col-xs-12 col-md-4">
+        <img width="600" height="400" src="{{ image }}" alt="{{ imageAlt or title }}" loading="eager" decoding="async">
       </div>
       {% endif %}
     </div>

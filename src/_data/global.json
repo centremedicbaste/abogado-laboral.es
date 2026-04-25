@@ -1,157 +1,194 @@
 {
-  "base_modules": "../../../node_modules/boilerplate-modules/src/_includes/",
   "title": "Abogado Laboral",
-  "lang": "es-es",
-  "footer": "",
+  "lang": "es-ES",
   "url": "https://abogado-laboral.es",
-  "logo": "ABOGADO LABORAL",
-  "tag_manager": "GTM-.....R",
-  "home": "Inicio",
-  "about": "Nosotros",   
-  "service": "Servicios",
-  "blog": "Blog",
-  "contact": "Contacta",
+  "tag_manager": "GTM-XXXXXXX",
+  "ga4_id": "G-XXXXXXXXXX",
   "search_console": "U3HBKfJqVjIEMVkI-sYvWVfuDmC4AvVDlPSvQs3ZgvA",
+
+  "home": "Inicio",
+  "about": "El Despacho",
+  "services": "Servicios",
+  "blog": "Blog",
+  "contact": "Contacto",
+
+  "empresa": "Abogado Laboral",
   "empresa_legal": "Abogado Laboral S.L.",
   "empresa_corto": "Abogado Laboral",
-  "website": "abogado-laboral.es",
-  "telefono": "+34 854 74 67 20",
-  "empresa_dni": "B12345678",
-  "email": "info@abogado-laboral.es",
-  "whatsapp": "+34 854 74 67 20",
-  "direction": "Avenida República Argentina 37-a 2º1ª, Sevilla",
-  "empresa_legal_direccion": "Avenida República Argentina 37-a 2º1ª, Sevilla",
+  "empresa_dni": "B-12345678",
+  "empresa_legal_titular": "Abogado Laboral S.L.",
+  "empresa_legal_direccion": "Avenida República Argentina 37-A, 2º 1ª, 41011 Sevilla",
+  "actividad": "Abogados especialistas en derecho laboral y seguridad social",
+  "icas_numero": "XXXXX",
 
-  "direction_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.5660688625594!2d-6.00915364856237!3d37.376443263270694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126c3f638a5baf%3A0x88c64cae031d491a!2sAv.%20de%20la%20Rep%C3%BAblica%20Argentina%2C%2037%2C%2041011%20Sevilla!5e0!3m2!1ses!2ses!4v1721152104369!5m2!1ses!2ses",
-  "contacta_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.5660688625594!2d-6.00915364856237!3d37.376443263270694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126c3f638a5baf%3A0x88c64cae031d491a!2sAv.%20de%20la%20Rep%C3%BAblica%20Argentina%2C%2037%2C%2041011%20Sevilla!5e0!3m2!1ses!2ses!4v1721152104369!5m2!1ses!2ses",
-  "empresa_copyright": "© 2023 Abogado Laboral",
+  "telefono": "+34 854 74 67 20",
+  "telefono_e164": "+34854746720",
+  "whatsapp": "34854746720",
+  "email": "info@abogado-laboral.es",
+  "horario": "Lunes a Viernes 9:00–14:00 y 16:30–19:30",
+
+  "direccion": "Avenida República Argentina 37-A, 2º 1ª",
+  "codigopostal": "41011",
+  "ciudad": "Sevilla",
+  "provincia": "Sevilla",
+  "comunidad": "Andalucía",
+  "pais": "ES",
+  "geo_lat": "37.376443",
+  "geo_lon": "-6.009154",
+
+  "direction": "Avenida República Argentina 37-A, 2º 1ª, 41011 Sevilla",
+  "direction_link": "https://maps.app.goo.gl/",
+  "googlemaps_iframe": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.5660688625594!2d-6.00915364856237!3d37.376443263270694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126c3f638a5baf%3A0x88c64cae031d491a!2sAv.%20de%20la%20Rep%C3%BAblica%20Argentina%2C%2037%2C%2041011%20Sevilla!5e0!3m2!1ses!2ses!4v1721152104369!5m2!1ses!2ses\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" title=\"Ubicación de Abogado Laboral\"></iframe>",
+
+  "social_linkedin": "",
+  "social_youtube": "https://www.youtube.com/@abogado-laboral8099",
+  "social_instagram": "",
+  "social_facebook": "",
+  "social_twitter": "",
+
+  "empresa_copyright": "© 2026 Abogado Laboral S.L.",
   "author": "Abogado Laboral",
   "authorweb": "abogado-laboral.es",
-  "authorinstagram": "abogado_laboral",
-  "empresa": "Abogado Laboral",
+
   "imageDir": "/assets/static/images/",
-  "brands": "1,2,3,4,5,6",
-  "galeria": "1,2,3,4,5,6,7,8",
-  "contact_img": "/assets/static/images/1.jpg",
-  "empresa_legal_titular": "Abogado Laboral S.L.",
-  "link": "abogado-laboral.es",
-  "codigopostal": "41011",
-  "direccion": "calle",
-  "ciudad": "Sevilla",
-  "provincia": "Andalucía",
-  "actividad": "Abogados especializados en derecho laboral",
+  "logo": "/assets/static/images/logo_2.png",
+  "og_image": "/assets/static/images/og-default.jpg",
   "home_image": "/assets/static/images/casa2.webp",
   "home_video": "https://res.cloudinary.com/manuel-ruiz/video/upload/v1720639104/kwkfbucyczyfi6xxrl9m.mp4",
-  "c_accent": "#7e7e7e",
-  "c_primary": "#333333",
+  "contact_img": "/assets/static/images/1.jpg",
+
+  "seo_title": "Abogado Laboral | Despachos especialistas en derecho laboral en España",
+  "seo_description": "Despacho de abogados laboralistas con cobertura en toda España. Despidos, incapacidad permanente, accidentes laborales, jubilaciones y centros especiales de empleo. Primera consulta gratuita y videoconsulta disponible.",
+
+  "c_gray": "#555555",
+  "c_primary": "#1A1A1A",
   "c_secondary": "#333333",
-  "c_gray": "#727272",
-  "bg_dark": "#cdd2c9",
-  "bg_light": "#f3f2f0",
+  "c_accent": "#7e7e7e",
+  "bg_dark": "#1F2126",
+  "bg_light": "#F3F2F0",
+  "bg_white": "#FFFFFF",
   "c_bg_light": "#333333",
-  "c_bg_dark": "#f7f6f5",
-  "bg_primary": "linear-gradient(120deg, #E14EF7 0%, #8E44F6 30%, #3D40F5 100%)",
-  "btn_radius": "0",
-  "padding-global": "16px",
-  "seo_title": "Abogado Laboral",
-  "seo_description": "Expertos en derecho laboral y seguridad social",
-  "googlemaps_api": "",
-  "googlemaps_link": "",
-  "googlemaps_iframe": "",
-  "social_linkedin": "https://www.linkedin.com/",
-  "social_youtube": "https://www.youtube.com/",
-  "social_instagram": "https://www.instagram.com/",
-  "banner_title": "Contáctanos",
-  "banner_text": "¡Intenta tener tu móvil cerca de ti porque te llamaremos!",
-  "banner_claim": "Garantía de 7 días. Con un correo electrónico o solicitud, recibes el 100% de tu inversión de vuelta.",
-  "banner_button": "Enviar",
-  "introCta_type": "introCta_type",
-  "introCta_title": "La mejor web landing optimizada del mundo",
-  "introCta_description": "introCta_description",
-  "introCta_cta": "introCta_cta",
-  "introCta_cta_link": "introCta_cta_link",
-  "introCta_image": "introCta_image",
-  "introCta_bg_image": "introCta_bg_image",
-  "why_type": "why_type",
-  "why_title": "why_title",
-  "why_description": "why_description",
-  "why_cta": "why_cta",
-  "why_cta_link": "why_cta_link",
-  "why_image": "why_image",
-  "why_bg_image": "why_bg_image",
-  "benefit_type": "benefit_type",
-  "benefit_title": "benefit_title",
-  "benefit_description": "Abogado Laboral ha reinventado el marketing online, favoreciendo el acceso a una landing perfecta con creación de posts a cualquier persona.",
-  "benefit_cta": "benefit_cta",
-  "benefit_cta_link": "benefit_cta_link",
-  "benefit_image": "benefit_image",
-  "benefit_bg_image": "benefit_bg_image",
-  "benefit": [
+  "c_bg_dark": "#F7F6F5",
+  "bg_primary": "linear-gradient(120deg, #555555 0%, #2C2C2C 100%)",
+  "btn_radius": "4px",
+  "padding_global": "16px",
+
+  "banner_title": "Cuéntanos tu caso",
+  "banner_text": "Te respondemos en menos de 60 minutos en horario laboral.",
+  "banner_claim": "Primera consulta gratuita por videollamada o presencial. Cobertura nacional.",
+  "banner_button": "Reservar consulta gratis",
+
+  "trust_stats": [
+    { "value": "Desde 2009", "label": "ejerciendo el derecho laboral" },
+    { "value": "Cobertura nacional", "label": "presencial y online" },
+    { "value": "Cuota litis", "label": "en incapacidad y despidos" },
+    { "value": "Hoja de encargo", "label": "honorarios cerrados antes de empezar" }
+  ],
+
+  "areas_servidas": [
+    "España",
+    "Andalucía",
+    "Madrid",
+    "Cataluña",
+    "Comunidad Valenciana",
+    "País Vasco",
+    "Galicia",
+    "Castilla y León",
+    "Castilla-La Mancha",
+    "Murcia",
+    "Aragón",
+    "Asturias",
+    "Cantabria",
+    "Extremadura",
+    "Navarra",
+    "La Rioja",
+    "Baleares",
+    "Canarias"
+  ],
+
+  "servicios_list": [
     {
-      "benefit_question": "benefit_question",
-      "benefit_answer": "benefit_answer"
+      "slug": "despidos",
+      "title": "Despidos",
+      "tagline": "Improcedente · Objetivo · Disciplinario · Nulo · ERE",
+      "intro": "¿Te han despedido? Tienes 20 días hábiles para reclamar. Calculamos tu indemnización máxima en cualquier provincia de España.",
+      "icon": "icon-despido"
     },
     {
-      "benefit_question": "benefit_question",
-      "benefit_answer": "benefit_answer"
+      "slug": "incapacidad-permanente",
+      "title": "Incapacidad permanente",
+      "tagline": "Parcial · Total · Absoluta · Gran invalidez",
+      "intro": "Reclamamos pensiones por incapacidad denegadas en vía administrativa y judicial en toda España. Cuota litis disponible.",
+      "icon": "icon-incapacidad"
+    },
+    {
+      "slug": "accidentes-laborales",
+      "title": "Accidentes laborales",
+      "tagline": "Recargo de prestaciones del 30% al 50%",
+      "intro": "Si la empresa incumplió las medidas de seguridad, tu pensión puede aumentarse hasta un 50% de por vida. Indemnización por daños y perjuicios.",
+      "icon": "icon-accidente"
+    },
+    {
+      "slug": "inspecciones-de-trabajo",
+      "title": "Inspecciones de trabajo",
+      "tagline": "Recurso de actas · Sanciones · Defensa de empresas",
+      "intro": "Asistencia integral en inspecciones de trabajo en toda España. Recurso de actas de infracción y de liquidación.",
+      "icon": "icon-inspeccion"
+    },
+    {
+      "slug": "centros-especiales-de-empleo",
+      "title": "Centros Especiales de Empleo",
+      "tagline": "Calificación CEE · Asesoramiento · Subvenciones",
+      "intro": "Único despacho de abogados especialista en CEE en Andalucía. Asesoramos centros y empresas que quieren transformarse en CEE en toda España.",
+      "icon": "icon-cee"
+    },
+    {
+      "slug": "jubilacion",
+      "title": "Jubilación",
+      "tagline": "Ordinaria · Anticipada · Forzosa · Parcial",
+      "intro": "Optimizamos tu pensión de jubilación y recurrimos resoluciones del INSS en todo el territorio nacional.",
+      "icon": "icon-jubilacion"
+    },
+    {
+      "slug": "discapacidad",
+      "title": "Discapacidad",
+      "tagline": "Reconocimiento ≥ 33% y beneficios fiscales",
+      "intro": "Tramitamos el reconocimiento del grado de discapacidad y reclamamos resoluciones denegatorias en cualquier comunidad autónoma.",
+      "icon": "icon-discapacidad"
+    },
+    {
+      "slug": "seguros-vida-invalidez",
+      "title": "Seguros de vida e invalidez",
+      "tagline": "Pólizas colectivas y mejoras voluntarias de convenio",
+      "intro": "Reclamamos capitales pendientes de seguros que muchos trabajadores y familias desconocen. Plazo: 5 años desde el siniestro.",
+      "icon": "icon-seguro"
     }
   ],
-  "contact_type": "contact_type",
-  "contact_title": "Contacta con nosotros",
-  "contact_description": "Estamos aquí para ayudarte.",
-  "contact_cta": "Contacta ahora",
-  "contact_cta_link": "contacta.html",
-  "contact_image": "contact_image",
-  "contact_bg_image": "contact_bg_image",
-  "faq_title": "Preguntas frecuentes",
-  "faq_description": "faq_description",
-  "services": [
-    {
-      "service_name": "Administración de fincas",
-      "service_content": "Administramos edificios residenciales, de oficinas e industriales en Andalucía.",
-      "service_img": "servicio_1"
-    },
-    {
-      "service_name": "Patrimonios inmobiliarios",
-      "service_content": "Gestionamos tus activos inmobiliarios adaptando nuestros servicios a tus necesidades.",
-      "service_img": "servicio_2"
-    },
-    {
-      "service_name": "Gestión comercial",
-      "service_content": "Alquilamos o vendemos tus propiedades, y te ayudamos a encontrar las que mejor se ajusten a tu perfil patrimonial.",
-      "service_img": "servicio_3"
-    },
-    {
-      "service_name": "Asesoría laboral",
-      "service_content": "Ofrecemos asesoría especializada en derecho laboral y seguridad social.",
-      "service_img": "servicio_4"
-    }
-  ],
+
   "faq": [
     {
-      "faq_question": "faq_question",
-      "faq_answer": "faq_answer"
+      "faq_question": "¿Trabajáis en toda España o solo en Sevilla?",
+      "faq_answer": "Aunque nuestra sede está en Sevilla, atendemos clientes en toda España. La primera consulta puede ser presencial en Sevilla o por videollamada. Cuando hay juicio en otra provincia, lo presentamos y seguimos vía electrónica con LexNET, o nos desplazamos según el caso."
     },
     {
-      "faq_question": "faq_question",
-      "faq_answer": "faq_answer"
-    }
-  ],
-  "team": [
-    {
-      "team_img": "abogado-laboral-sevilla_a.jpg",
-      "team_position": "Abogado laboralista",
-      "team_name": "Pedro López"
+      "faq_question": "¿La primera consulta es gratuita?",
+      "faq_answer": "Sí. La primera consulta de orientación es 100% gratuita y sin compromiso, presencial en nuestro despacho de Sevilla o por videollamada en cualquier punto de España."
     },
     {
-      "team_img": "abogado-laboral-sevilla_b.jpg",
-      "team_position": "Consultora Fiscal y Asesora de empresas",
-      "team_name": "Sara Vera"
+      "faq_question": "¿Cuánto cuesta un abogado laboralista?",
+      "faq_answer": "Trabajamos con honorarios cerrados desde 600 € o con cuota litis (un porcentaje sobre la indemnización conseguida) cuando el caso lo permite. En la primera consulta gratuita te entregamos un presupuesto cerrado por escrito."
     },
     {
-      "team_img": "abogado-laboral-sevilla_c.jpg",
-      "team_position": "Consultor Fiscal y Asesor de empresas",
-      "team_name": "Javier Gago"
+      "faq_question": "¿Qué plazo tengo para reclamar un despido?",
+      "faq_answer": "20 días hábiles desde la fecha del despido. Es un plazo de caducidad: pasado ese plazo, ya no se puede reclamar. Por eso es crítico contactar con un abogado los primeros días."
+    },
+    {
+      "faq_question": "Me han denegado la incapacidad permanente. ¿Tengo opciones?",
+      "faq_answer": "Sí. Tras la denegación tienes 30 días para presentar reclamación previa al INSS. Si te la deniegan, otros 30 días para demandar al Juzgado de lo Social. La mayoría de denegaciones se ganan en juicio si la enfermedad está bien acreditada."
+    },
+    {
+      "faq_question": "¿Cómo funciona la videoconsulta?",
+      "faq_answer": "Te enviamos un enlace seguro de Google Meet o Microsoft Teams. La consulta dura 30-45 minutos, te pedimos toda la documentación previamente y te entregamos por escrito el análisis del caso, plazos aplicables y presupuesto si decides contratarnos."
     }
   ]
 }

@@ -1,0 +1,54 @@
+---
+layout: layout/base.njk
+colorHeader: has-light-menu
+---
+
+<article class="servicio-detail">
+  <header class="servicio-hero bg-light ptr-64 pbr-64">
+    <div class="container">
+      <nav aria-label="Migas de pan" class="text-14-r mb-24" style="color:var(--c-gray);">
+        <a href="/" class="footer-link">Inicio</a> ›
+        <a href="/servicios/" class="footer-link">Servicios</a> ›
+        <span>{{ title }}</span>
+      </nav>
+      <p class="text-14-b mb-8" style="color:var(--c-primary);text-transform:uppercase;letter-spacing:.05em;">Servicio · Cobertura nacional</p>
+      <h1 class="fluid-3-l mb-16">{{ title }}</h1>
+      {% if tagline %}<p class="fluid-7-r mb-24" style="color:var(--c-gray);max-width:780px;">{{ tagline }}</p>{% endif %}
+
+      <div class="is-flex" style="gap:16px;flex-wrap:wrap;">
+        <a class="btn btn-primary btn--big" href="/contacto/" data-cta="servicio_consulta">Reserva tu consulta gratuita</a>
+        <a class="btn btn-secondary btn--big" href="tel:{{ global.telefono_e164 }}" data-cta="servicio_tel">📞 {{ global.telefono }}</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="servicio-content bg-color ptr-64 pbr-64">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-8">
+          {{ content | safe }}
+        </div>
+        <aside class="col-xs-12 col-md-4">
+          <div class="cta-sticky" style="position:sticky;top:32px;background:var(--bg-light);padding:24px;border-radius:8px;border:1px solid #eee;">
+            <h2 class="fluid-8-b mb-16">Atendemos toda España</h2>
+            <p class="text-14-r mb-16" style="color:var(--c-gray);">Videoconsulta segura en cualquier provincia. Te respondemos en menos de 60 minutos en horario laboral.</p>
+            <a class="btn btn-primary btn--full mb-12" href="/contacto/" data-cta="aside_consulta">Reservar consulta</a>
+            <a class="btn btn-secondary btn--full" href="https://wa.me/{{ global.whatsapp }}?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20de%20{{ title | urlencode }}" target="_blank" rel="noopener" data-cta="aside_whatsapp">💬 WhatsApp</a>
+            <hr style="margin:20px 0;border:0;border-top:1px solid #ddd;">
+            <p class="text-12-r mb-8" style="color:var(--c-gray);">Otros servicios:</p>
+            <ul class="list-clear text-14-r">
+              {% for s in global.servicios_list %}{% if s.slug != slug %}
+                <li class="mb-8"><a class="footer-link" href="/servicios/{{ s.slug }}/" style="color:var(--c-primary);">{{ s.title }}</a></li>
+              {% endif %}{% endfor %}
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  {% if faqSchema %}
+    {% include "templates/faqs.njk" %}
+  {% endif %}
+  {% include "templates/contacta_4.njk" %}
+</article>

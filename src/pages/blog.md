@@ -1,16 +1,9 @@
 ---
 layout: pages/_pageblog.njk
 permalink: /blog/
-title: blog title2
-whytitle1: blog whytitle1
-whytitle2: blog whytitle2
-whytitle3: blog whytitle3
-subtitle: blog subtitle
-image: blog image
-content_2: blog content_2
-eleventyComputed:
-  metaTitle: blog eleventyComputed.metaTitle
-  metaDescription: blog eleventyComputed.metaDescription
-  metaKeywords: blog eleventyComputed.metaKeywords
-  metaRobots: blog eleventyComputed.metaRobots
+metaTitle: "Blog de Derecho Laboral en España | Abogado Laboral"
+metaDescription: "Artículos y guías sobre derecho laboral con cobertura nacional: despidos, indemnizaciones, incapacidades, accidentes y centros especiales de empleo. Actualizado mensualmente."
+metaKeywords: "blog derecho laboral, despidos españa, incapacidad laboral, indemnización despido"
+metaRobots: "index, follow"
+title: "Blog"
 ---

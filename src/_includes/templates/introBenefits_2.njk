@@ -1,25 +1,22 @@
 <!-- introBenefits_2.njk -->
-<section class="bg-color  ptr-120 pbr-120 front-section o-hidden " data-scroll-section>
-  <div class="watermark">
-
-  </div>
-  <div class="container-global-3  mx-auto   ">
-    <div class="row mb-32  inview">
-      <div class="col-xs-12 col-lg-6  ">
-        <div class="text-18-r c-accent mb-24">
-          {{introbenefits2_subtitle | mdbr |safe}}
+<section class="bg-color ptr-64 pbr-64 front-section o-hidden" aria-label="Sobre el despacho">
+  <div class="container-global-3 mx-auto">
+    <div class="row mb-32 align-middle">
+      <div class="col-xs-12 col-lg-6">
+        <p class="text-14-b mb-8" style="color:var(--c-primary);text-transform:uppercase;letter-spacing:.05em;">
+          {{ introbenefits2_subtitle or "BIENVENIDOS A ABOGADO LABORAL" }}
+        </p>
+        <h2 class="fluid-5-l mb-24">Tu firma de derecho laboral con cobertura nacional</h2>
+        <div class="fluid-8-r mb-16">
+          {{ introbenefits2_content | mdbr | safe }}
         </div>
-        <div class="fluid-8-r ">
-          {{ introbenefits2_content | mdbr |safe }}
-        </div>
+        <p class="fluid-9-r" style="color:var(--c-gray);">
+          {{ introbenefits2_subcontent | mdbr | safe }}
+        </p>
       </div>
-<div class="col-xs-12 col-lg-5">
-
-  <img class="w-100" data-scroll data-scroll-speed="-2"  src="/assets/static/images/a_laboral.jpg" alt="">
-
-</div>
-
+      <div class="col-xs-12 col-lg-6">
+        <img class="w-100" width="600" height="450" src="/assets/static/images/a_laboral.jpg" alt="Despacho Abogado Laboral en Sevilla con cobertura nacional" loading="lazy" decoding="async">
+      </div>
     </div>
-
   </div>
 </section>

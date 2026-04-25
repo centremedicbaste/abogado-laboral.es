@@ -1,31 +1,72 @@
 <!-- footer.njk -->
-<footer class=" front-section  bg-dark has-light   " data-scroll-section >   
-  <div class="container mx-auto  pt-64 pb-64 ">
-    <div class="row text-12-r ">
-      <div class="col-xs-12 col-sm-3  mb-16">
-        <div class="fluid-8-r mb-16">
-
-          {{footer_1}}
-
-        </div>
-        <div class="text-14-r mb-16">
-          {{footer_2}}
-
-        </div>
-
-
-      </div>
-    </div>
+<footer role="contentinfo" class="front-section bg-dark has-light site-footer">
+  <div class="container mx-auto pt-64 pb-32">
     <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        {{footer_3}}
 
-
-
+      {# Columna 1 — Identidad + NAP #}
+      <div class="col-xs-12 col-sm-6 col-md-3 mb-32">
+        <div class="fluid-7-b mb-16">{{ global.empresa }}</div>
+        <p class="text-14-r mb-16">{{ global.actividad }}. Cobertura nacional con sede en Sevilla.</p>
+        <address class="text-14-r" style="font-style:normal;">
+          <a href="{{ global.direction_link }}" target="_blank" rel="noopener" class="footer-link">
+            {{ global.direccion }}<br>
+            {{ global.codigopostal }} {{ global.ciudad }}
+          </a><br>
+          <a href="tel:{{ global.telefono_e164 }}" class="footer-link" data-cta="footer_tel"><strong>{{ global.telefono }}</strong></a><br>
+          <a href="mailto:{{ global.email }}" class="footer-link">{{ global.email }}</a><br>
+          <span class="text-12-r">{{ global.horario }}</span>
+        </address>
       </div>
-      <div class="col-xs-12 col-sm-6    text-right mb-16">
-        <a href="/legal/aviso" class="fluid-7-r"> {{footer_4}} </a>
+
+      {# Columna 2 — Servicios #}
+      <div class="col-xs-12 col-sm-6 col-md-3 mb-32">
+        <div class="fluid-7-b mb-16">Servicios</div>
+        <ul class="list-clear text-14-r">
+          {% for s in global.servicios_list %}
+          <li class="mb-8"><a class="footer-link" href="/servicios/{{ s.slug }}/">{{ s.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      {# Columna 3 — Despacho #}
+      <div class="col-xs-12 col-sm-6 col-md-3 mb-32">
+        <div class="fluid-7-b mb-16">Despacho</div>
+        <ul class="list-clear text-14-r">
+          <li class="mb-8"><a class="footer-link" href="/sobre-nosotros/">Sobre nosotros</a></li>
+          <li class="mb-8"><a class="footer-link" href="/contacto/">Contacto</a></li>
+          <li class="mb-8"><a class="footer-link" href="/blog/">Blog</a></li>
+          <li class="mb-8"><a class="footer-link" href="/preguntas-frecuentes/">FAQ</a></li>
+          {% if global.social_youtube %}<li class="mb-8"><a class="footer-link" href="{{ global.social_youtube }}" target="_blank" rel="noopener">Canal YouTube</a></li>{% endif %}
+        </ul>
+      </div>
+
+      {# Columna 4 — Legal & social #}
+      <div class="col-xs-12 col-sm-6 col-md-3 mb-32">
+        <div class="fluid-7-b mb-16">Legal</div>
+        <ul class="list-clear text-14-r mb-16">
+          <li class="mb-8"><a class="footer-link" href="/aviso-legal/">Aviso legal</a></li>
+          <li class="mb-8"><a class="footer-link" href="/politica-de-privacidad/">Política de privacidad</a></li>
+          <li class="mb-8"><a class="footer-link" href="/politica-de-cookies/">Política de cookies</a></li>
+        </ul>
+        <div class="fluid-7-b mb-8">Síguenos</div>
+        <ul class="list-clear is-flex" style="gap:12px;margin:0;">
+          {% if global.social_youtube %}<li><a class="footer-link" href="{{ global.social_youtube }}" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a></li>{% endif %}
+          {% if global.social_linkedin %}<li><a class="footer-link" href="{{ global.social_linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>{% endif %}
+          {% if global.social_instagram %}<li><a class="footer-link" href="{{ global.social_instagram }}" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>{% endif %}
+          {% if global.social_facebook %}<li><a class="footer-link" href="{{ global.social_facebook }}" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a></li>{% endif %}
+        </ul>
       </div>
     </div>
+
+    <hr style="border:0;border-top:1px solid rgba(255,255,255,0.1);margin:32px 0;">
+
+    <div class="row align-middle">
+      <div class="col-xs-12 col-md-8 text-12-r">
+        {{ global.empresa_copyright }} · {{ global.empresa_legal }} · CIF {{ global.empresa_dni }}
+      </div>
+      <div class="col-xs-12 col-md-4 text-right text-12-r">
+        Hecho con ♥ por <a class="footer-link" href="https://{{ global.authorweb }}">{{ global.author }}</a>
+      </div>
     </div>
+  </div>
 </footer>

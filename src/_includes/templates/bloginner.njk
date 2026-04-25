@@ -2,38 +2,48 @@
 ---
 layout: layout/base.njk
 ---
-{% import global.base_modules+"_macros/_insert.njk" as insert %}
 {% include "templates/bloghero.njk" %}
-{% set parent = global.blog %}
-<article class="main-article  ">
-  {% set next = collections.blog | nextInCollection(page.fileSlug) %}
-  {% set previous = collections.blog | prevInCollection(page.fileSlug) %}
-  <div class="container-fluid pt-32 bg-light">
-    <div class=" container-global mx-auto   ">
-      <div class="row innermarkdown md:reverse">
-        <div class="col-xs-12 col-md-8"> {{ content | safe }} </div>
-        <div class="col-xs-12 col-md-1  "> </div>
-        <div class="col-xs-12 col-md-3  "> {{ content | toc | safe }} </div>
+
+<article class="main-article">
+  {% set next = collections.post | nextInCollection(page.fileSlug) %}
+  {% set previous = collections.post | prevInCollection(page.fileSlug) %}
+
+  <div class="container-fluid pt-32 pb-32 bg-light">
+    <div class="container-global mx-auto">
+      <div class="row md:reverse">
+        <div class="col-xs-12 col-md-8 front-text innermarkdown">
+          {{ content | safe }}
+        </div>
+        <aside class="col-xs-12 col-md-4">
+          <div style="position:sticky;top:32px;background:#fff;padding:20px;border-radius:8px;border:1px solid #eee;">
+            <p class="text-14-b mb-12" style="color:var(--c-primary);text-transform:uppercase;letter-spacing:.05em;">Índice</p>
+            {{ content | toc | safe }}
+            <hr style="margin:20px 0;border:0;border-top:1px solid #eee;">
+            <p class="text-14-b mb-12">¿Necesitas ayuda?</p>
+            <a class="btn btn-primary btn--full mb-8" href="/contacto/" data-cta="post_consulta">Consulta gratis</a>
+            <a class="btn btn-secondary btn--full" href="tel:{{ global.telefono_e164 }}" data-cta="post_tel">📞 {{ global.telefono }}</a>
+          </div>
+        </aside>
       </div>
     </div>
   </div>
-  <div class="container-fluid l-top bg-white">
-    <div class="col-xs-12">
-      {% if next or previous%}
-      <div class="pagination">
-        {% if previous %}
-        <a href="{{ previous.url }} " class="pagination-item pagination-item-prev">
-          Post anterior
-        </a>
-        {% endif %}
-        {% if next %}
-        <a href="{{ next.url }}" class="pagination-item pagination-item-next">
-          Siguiente post
-        </a>
-        {% endif %}
+
+  {% if next or previous %}
+  <nav class="container pb-32" aria-label="Posts adyacentes">
+    <div class="row">
+      {% if previous %}
+      <div class="col-xs-6">
+        <a href="{{ previous.url }}" class="pagination-item">← {{ previous.data.title }}</a>
+      </div>
+      {% endif %}
+      {% if next %}
+      <div class="col-xs-6 text-right">
+        <a href="{{ next.url }}" class="pagination-item">{{ next.data.title }} →</a>
       </div>
       {% endif %}
     </div>
-  </div>
-  {% include "components/banner.njk" %}
+  </nav>
+  {% endif %}
 </article>
+
+{% include "templates/contacta_4.njk" %}

@@ -1,79 +1,54 @@
 <!-- contacta_4.njk -->
-<div id="contacta_4"class="front-section" data-scroll  data-scroll-section>
-    <section class="container-global-3 mx-auto">
-        <div class="row">
-            <div class="col-xs-12 text-center ptr-120 pbr-120">
-                <h2 class="fluid-4-m mb-16">CONTACTA CON ABOGADO LABORAL</h2>
-                <div class="text-18-r mb-24 c-accent">¿Tienes alguna duda?</div>
+<section id="contacta" class="front-section bg-color" aria-label="Contacto">
+  <div class="container-global-3 mx-auto ptr-64 pbr-32">
+    <div class="row text-center">
+      <div class="col-xs-12">
+        <p class="text-14-b mb-8" style="color:var(--c-primary);text-transform:uppercase;letter-spacing:.05em;">Contacta con nosotros</p>
+        <h2 class="fluid-4-m mb-16">Cuéntanos tu caso. Te respondemos en 60 minutos.</h2>
+        <p class="fluid-9-r" style="color:var(--c-gray);max-width:680px;margin:0 auto;">
+          Primera consulta gratuita por videollamada o presencial. Cobertura nacional.
+        </p>
+      </div>
+    </div>
+  </div>
 
-            </div>
+  <div class="container-global-3 mx-auto pbr-64">
+    <form name="contacto" method="POST" action="/gracias/" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contacto" />
+      <p hidden><label>No rellenar: <input name="bot-field" /></label></p>
+
+      <div class="row">
+        <div class="col-xs-12 col-md-6 mb-16">
+          <label for="nombre" class="visually-hidden">Nombre completo</label>
+          <input id="nombre" type="text" name="nombre" class="input" placeholder="Nombre y apellidos" autocomplete="name" required minlength="2">
         </div>
-        <form name="contactformulario" method="POST" action="/confirmacion.html" data-netlify="true"
-            netlify-honeypot="bot-field">
-            <div class="row   md:reverse">
-                <div class="col-xs-12 col-md-6 ">
-                    <p class="hidden">
-                        <label>
-                            <input name="bot-field" />
-                        </label>
-                    </p>
-                    <div class="row">
-                        <div class="col-xs-12 mb-16 ">
-                            <div class="form-input-label-2">
-                                <input id="nombre" type="text" placeholder="Nombre" class="input" name="nombre">
-                                <label for='nombre'>Nombre</label>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 mb-16 ">
-                            <div class="form-input-label-2">
-                                <input id="email" type="text" placeholder="Email" class="input" name="email" required
-                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-                                <label for='email'>Email</label>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 mb-16 ">
-                            <div class="form-input-label-2">
-                                <input id="telefono" type="text" placeholder="Teléfono" class="input" name="teléfono">
-                                <label for='email'>Teléfono</label>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 mb-16 ">
-                            <div class="form-input-label-2">
-                                <input id="empresa" type="text" placeholder="empresa" class="input" name="empresa">
-                                <label for='empresa'>Empresa</label>
-                            </div>
-                        </div>
-         
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-6 mb-32 ">
-               
-                        <div class="form-input-label-2">
-                            <textarea id="textarea" placeholder="Tu mensaje" class="textarea" name="mensaje"></textarea>
-                        </div>
-               
-                </div>
-
-
-                <div class="col-xs-12 col-md-6">
-
-
-           
-                        <div class="mb-32">
-                            <label >
-                                <input type="checkbox" name="politicas" required>
-                                He leído y acepto los Términos y condiciones y entiendo la información acerca del uso de
-                                mis datos personales explicada en la Política de Privacidad.
-                            </label>
-                        </div>
-
-
-      
-                        <button aria-label="enviar email" class="btn btn-primary btn--full" type="submit">
-                            {{global.banner_button}}</button>
-           
-                </div>
-            </div>
-        </form>
-    </section>
-</div>
+        <div class="col-xs-12 col-md-6 mb-16">
+          <label for="telefono" class="visually-hidden">Teléfono</label>
+          <input id="telefono" type="tel" name="telefono" class="input" placeholder="Teléfono de contacto" autocomplete="tel" inputmode="numeric" pattern="[0-9 +()-]{9,15}" required>
+        </div>
+        <div class="col-xs-12 col-md-6 mb-16">
+          <label for="email" class="visually-hidden">Email (opcional)</label>
+          <input id="email" type="email" name="email" class="input" placeholder="Email (opcional)" autocomplete="email">
+        </div>
+        <div class="col-xs-12 col-md-6 mb-16">
+          <label for="provincia" class="visually-hidden">Provincia</label>
+          <input id="provincia" type="text" name="provincia" class="input" placeholder="Tu provincia (ej. Madrid)" autocomplete="address-level2">
+        </div>
+        <div class="col-xs-12 mb-16">
+          <label for="mensaje" class="visually-hidden">Cuéntanos tu caso</label>
+          <textarea id="mensaje" name="mensaje" class="textarea" placeholder="Cuéntanos brevemente tu caso (opcional)" rows="4" maxlength="800"></textarea>
+        </div>
+        <div class="col-xs-12 mb-24">
+          <label class="text-14-r" style="display:flex;gap:8px;align-items:flex-start;">
+            <input id="politicas" type="checkbox" name="politicas" required style="margin-top:4px;">
+            <span>He leído y acepto la <a href="/politica-de-privacidad/" target="_blank" rel="noopener">política de privacidad</a>.</span>
+          </label>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <button class="btn btn-primary btn--full btn--big" type="submit" data-cta="form_submit">{{ global.banner_button }}</button>
+          <p class="text-12-r mt-12" style="color:var(--c-gray);">🔒 No spam. Te respondemos en menos de 60 minutos en horario laboral.</p>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

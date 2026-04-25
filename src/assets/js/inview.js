@@ -1,193 +1,111 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const createObserver = (callback, options) => new IntersectionObserver(callback, options);
+/**
+ * inview.js — animaciones de entrada con IntersectionObserver + CSS.
+ * Reemplaza GSAP / AOS por animaciones puras con CSS que respetan prefers-reduced-motion.
+ * Sin dependencias externas.
+ */
 
-  const handleIntersect = (entries, observer, animationFn) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animationFn(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  };
+(function () {
+  "use strict";
 
-  const gsapAnimate = (target, y, opacity, duration, delay, stagger = 0) => {
-    console.log(`Animating with delay: ${delay}`, target); // Debugging console
-    gsap.timeline({ delay })
-      .to(target, {
-        y, opacity, duration, ease: 'power2.out', stagger
-      });
-  };
+  // Si el usuario pide menos animación, no animamos nada.
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const prepareElement = (selector, callback) => {
-    document.querySelectorAll(selector).forEach(callback);
-  };
+  // Inyectar las CSS necesarias para que las clases ".is-inview" y los .term/.letter
+  // tengan transición. Esto permite que index.scss no las traiga por defecto.
+  function injectBaseCSS() {
+    if (document.getElementById("inview-base-style")) return;
+    var s = document.createElement("style");
+    s.id = "inview-base-style";
+    s.textContent = [
+      ".inview, .animate-word, .animate-box, .animate-box2, .animate-list, .animate-letters, .animate-appear { transition: opacity .6s ease, transform .6s ease; }",
+      ".animate-word .term, .animate-letters .letter { display:inline-block; opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }",
+      ".animate-word.is-inview .term, .animate-letters.is-inview .letter { opacity:1; transform: translateY(0); }",
+      ".animate-box, .animate-box2, .animate-appear { opacity: 0; transform: translateY(20px); }",
+      ".animate-box.is-inview, .animate-box2.is-inview, .animate-appear.is-inview { opacity:1; transform: translateY(0); }",
+      ".animate-list li { opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }",
+      ".animate-list.is-inview li { opacity:1; transform: translateY(0); }",
+      "@media (prefers-reduced-motion: reduce) {",
+      "  .inview, .animate-word, .animate-box, .animate-box2, .animate-list, .animate-letters, .animate-appear, .animate-word .term, .animate-letters .letter, .animate-list li { opacity:1 !important; transform:none !important; transition:none !important; }",
+      "}",
+    ].join("\n");
+    document.head.appendChild(s);
+  }
 
-  const inViewCallback = entries => handleIntersect(entries, inViewObserver, element => element.classList.add('is-inview'));
-
-  const animateOnScrollCallback = entries => handleIntersect(entries, animateOnScrollObserver, target => {
-    const delay = parseFloat(target.dataset.delay || 0);
-    console.log(`Animate on scroll delay: ${delay}`, target); // Debugging console
-    gsapAnimate(target.querySelector('.inner-content'), 0, 1, 1, delay);
-  });
-
-  const animateWordsCallback = entries => handleIntersect(entries, animateWordsObserver, target => {
-    const delay = parseFloat(target.dataset.delay || 0);
-    console.log(`Word animation delay: ${delay}`, target); // Debugging console
-    const words = target.querySelectorAll('.term');
-    gsapAnimate(words, 0, 1, 1, delay, 0.1);
-  });
-
-  const animateBoxCallback = entries => handleIntersect(entries, animateBoxObserver, target => {
-    const delay = parseFloat(target.dataset.delay || 0);
-    console.log(`Box animation delay: ${delay}`, target); // Debugging console
-    gsapAnimate(target, 0, 1, 1, delay);
-  });
-
-  const animateBox2Callback = entries => handleIntersect(entries, animateBox2Observer, target => {
-    let delay = parseFloat(target.dataset.delay || 0);
-    console.log(`Box2 animation delay: ${delay}`, target); // Debugging console
-
-    let wrapper = target.querySelector('.inner-wrapper');
-    if (!wrapper) {
-      wrapper = document.createElement('div');
-      wrapper.classList.add('inner-wrapper');
-      while (target.firstChild) {
-        wrapper.appendChild(target.firstChild);
-      }
-      target.appendChild(wrapper);
-    }
-
-
-    wrapper.style.transform = 'translateY(100%)';  // Inicializa la posición
-    wrapper.style.overflow = 'hidden';  // Inicializa el overflow
-
-    gsapAnimate(wrapper, 0, 1, 1, delay);
-  });
-
-  const animateListCallback = entries => handleIntersect(entries, animateListObserver, target => {
-    const delay = parseFloat(target.dataset.delay || 0);
-    console.log(`List animation delay: ${delay}`, target); // Debugging console
-    const items = target.querySelectorAll('li');
-    gsapAnimate(items, 0, 1, 1, delay, 0.1);
-  });
-
-  const animateLettersCallback = entries => handleIntersect(entries, animateLettersObserver, target => {
-    const delay = parseFloat(target.dataset.delay || 0);
-    console.log(`Letters animation delay: ${delay}`, target); // Debugging console
-    const letters = target.querySelectorAll('.letter');
-    gsapAnimate(letters, 0, 1, 1, delay, 0.05);
-  });
-
-  const options = { threshold: 0.3 };
-  const animateOptions = { threshold: 0.1 };
-
-  const inViewObserver = createObserver(inViewCallback, options);
-  const animateOnScrollObserver = createObserver(animateOnScrollCallback, animateOptions);
-  const animateWordsObserver = createObserver(animateWordsCallback, animateOptions);
-  const animateBoxObserver = createObserver(animateBoxCallback, animateOptions);
-  const animateBox2Observer = createObserver(animateBox2Callback, animateOptions);
-  const animateListObserver = createObserver(animateListCallback, animateOptions);
-  const animateLettersObserver = createObserver(animateLettersCallback, animateOptions);
-
-  prepareElement('.inview', element => {
-    inViewObserver.observe(element);
-    if (element.getBoundingClientRect().top < window.innerHeight && element.getBoundingClientRect().bottom >= 0) {
-      element.classList.add('is-inview');
-      inViewObserver.unobserve(element);
-    }
-  });
-
-  prepareElement('.animate-appear', element => {
-    const wrapper = document.createElement('span');
-    wrapper.classList.add('inner-content');
-    while (element.firstChild) {
-      wrapper.appendChild(element.firstChild);
-    }
-    element.appendChild(wrapper);
-    wrapper.style.opacity = 0;  // Inicializa la opacidad
-    wrapper.style.transform = 'translateY(20px)';  // Inicializa la posición
-    animateOnScrollObserver.observe(element);
-  });
-
-  prepareElement('.animate-word', element => {
-    const text = element.textContent;
-    element.textContent = '';
-    const words = text.split(/(\s+)/);
-    
-    words.forEach(word => {
-      if (word.trim().length > 0) {
-        const fragments = word.split('^');
-        
-        fragments.forEach((fragment, index) => {
-          if (fragment.trim().length > 0) {
-            const wordSpan = document.createElement('span');
-            wordSpan.classList.add('term'); // Mantiene la clase 'term'
-            wordSpan.textContent = fragment;
-            wordSpan.style.opacity = 0;  // Inicializa la opacidad
-            wordSpan.style.transform = 'translateY(20px)';  // Inicializa la posición
-            element.appendChild(wordSpan);
-          }
-          if (index < fragments.length - 1) {
-            element.appendChild(document.createElement('br'));
-          }
-        });
+  function splitWords(el) {
+    var text = el.textContent;
+    el.textContent = "";
+    var parts = text.split(/(\s+)/);
+    parts.forEach(function (w) {
+      if (w.trim().length > 0) {
+        var span = document.createElement("span");
+        span.className = "term";
+        span.textContent = w;
+        el.appendChild(span);
       } else {
-        element.appendChild(document.createTextNode(word));
+        el.appendChild(document.createTextNode(w));
       }
     });
-  
-    animateWordsObserver.observe(element);
-  });
+  }
 
-  prepareElement('.animate-box', element => {
-    element.style.opacity = 0;  // Inicializa la opacidad
-    element.style.transform = 'translateY(20px)';  // Inicializa la posición
-    animateBoxObserver.observe(element);
-  });
+  function splitLetters(el) {
+    var text = el.textContent;
+    el.textContent = "";
+    text.split("").forEach(function (l) {
+      var span = document.createElement("span");
+      span.className = "letter";
+      span.innerHTML = l === " " ? "&nbsp;" : l;
+      el.appendChild(span);
+    });
+  }
 
-  prepareElement('.animate-box2', element => {
-    let wrapper = element.querySelector('.inner-wrapper');
-    if (!wrapper) {
-      wrapper = document.createElement('div');
-      wrapper.classList.add('inner-wrapper');
-      while (element.firstChild) {
-        wrapper.appendChild(element.firstChild);
-      }
-      element.appendChild(wrapper);
+  function applyDelays(el) {
+    // Delay por data-delay (en segundos como string "0", "1", "2"…)
+    var d = parseFloat(el.dataset.delay || 0);
+    if (!isNaN(d) && d > 0) el.style.transitionDelay = d * 0.15 + "s";
+    // Stagger interno para .term / .letter / li
+    var children = el.querySelectorAll(".term, .letter, li");
+    children.forEach(function (c, i) {
+      c.style.transitionDelay = ((d * 0.15) + (i * 0.04)).toFixed(2) + "s";
+    });
+  }
+
+  function init() {
+    injectBaseCSS();
+
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      // Sin animación: marcar todo como visible.
+      document.querySelectorAll(".inview,.animate-word,.animate-box,.animate-box2,.animate-list,.animate-letters,.animate-appear")
+        .forEach(function (el) { el.classList.add("is-inview"); });
+      return;
     }
 
-    element.style.overflow = 'hidden';  // Inicializa la opacidad
+    // Pre-procesar elementos
+    document.querySelectorAll(".animate-word").forEach(splitWords);
+    document.querySelectorAll(".animate-letters").forEach(splitLetters);
+    document.querySelectorAll(".animate-word, .animate-box, .animate-box2, .animate-list, .animate-letters, .animate-appear")
+      .forEach(applyDelays);
 
-    const delay = parseFloat(element.dataset.delay || 0);
-    console.log(`Prepare animate-box2 with delay: ${delay}`, wrapper); // Debugging console
-    animateBox2Observer.observe(element);
-  });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-inview");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
 
-  prepareElement('.animate-list', element => {
-    const items = element.querySelectorAll('li');
-    items.forEach(item => {
-      item.style.opacity = 0;  // Inicializa la opacidad
-      item.style.transform = 'translateY(20px)';  // Inicializa la posición
-    });
-    animateListObserver.observe(element);
-  });
+    document.querySelectorAll(".inview,.animate-word,.animate-box,.animate-box2,.animate-list,.animate-letters,.animate-appear")
+      .forEach(function (el) {
+        io.observe(el);
+        // Si ya está en viewport al cargar la página, mostrarlo de inmediato
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom >= 0) {
+          el.classList.add("is-inview");
+          io.unobserve(el);
+        }
+      });
+  }
 
-  prepareElement('.animate-letters', element => {
-    const text = element.textContent;
-    element.textContent = '';
-    const letters = text.split('');
-    letters.forEach(letter => {
-      const letterSpan = document.createElement('span');
-      letterSpan.classList.add('letter');
-      letterSpan.innerHTML = letter === ' ' ? '&nbsp;' : letter;
-      letterSpan.style.opacity = 0;  // Inicializa la opacidad
-      letterSpan.style.transform = 'translateY(20px)';  // Inicializa la posición
-      element.appendChild(letterSpan);
-    });
-    animateLettersObserver.observe(element);
-  });
-});
-
-
-
-let getRatio = el => window.innerHeight / (window.innerHeight + el.offsetHeight);
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();

@@ -2,13 +2,25 @@
 permalink: /robots.txt
 eleventyExcludeFromCollections: true
 ---
-
+# robots.txt — {{ global.empresa }}
 User-agent: *
+Allow: /
 Disallow: /admin/
-Disallow: /temp/
-Disallow: /private/
-Disallow: /legal/
 Disallow: /site/
-Disallow: /home/
+Disallow: /gracias/
 
-Sitemap: {{global.url}}/sitemap.xml
+# AI crawlers — citation/training
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: {{ global.url }}/sitemap.xml

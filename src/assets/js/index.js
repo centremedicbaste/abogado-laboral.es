@@ -1,478 +1,161 @@
+/**
+ * index.js — vanilla, defensivo, sin dependencias externas obligatorias.
+ * Si AOS / jQuery / Swiper / PhotoSwipe están cargados (rara vez en este sitio),
+ * los usa. Si no, no rompe.
+ */
 
-console.log("Hola, mundo!");
+(function () {
+  "use strict";
 
-document.body.onscroll = function () {
-  if (
-    document.body.scrollTop >= 50 ||
-    document.documentElement.scrollTop >= 50
-  ) {
-    document.body.classList.add("scrolled");
-  } else {
-    document.body.classList.remove("scrolled");
-  }
-};
-
-var swiper = new Swiper(".swiper-container", {
-  spaceBetween: 15,
-  slidesPerView: "1.5",
-
-  loop: true,
-  // autoHeight: true,
-  pagination: {
-    el: ".actuals .swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-arrows .swiper-next",
-    prevEl: ".swiper-arrows .swiper-prev",
-  },
-  breakpoints: {
-    768: {
-      slidesPerView: 3,
-      spaceBetween: 15,
-      centeredSlides: false,
-      pagination: false,
-    },
-    980: {
-      slidesPerView: 4,
-      spaceBetween: 30,
-      centeredSlides: false,
-      pagination: false,
-    },
-    1200: {
-      slidesPerView: 4,
-      spaceBetween: 30,
-      centeredSlides: false,
-      pagination: false,
-      loop: false,
-    },
-    1600: {
-      slidesPerView: 4,
-      spaceBetween: 30,
-      centeredSlides: false,
-      pagination: false,
-      loop: false,
-    },
-  },
-});
-
-$("#menu-toggle").click(function () {
-  $("body").toggleClass("menu-open");
-});
-
-$(document).ready(function () {
-  initvideo();
-});
-
-function initvideo() {
-  $(".action--play").click(function () {
-    $(".video-wrap").addClass("video-wrap--show");
-    $(".video-wrap").removeClass("video-wrap--hide");
-    $(".video-player").attr("src", $(this).data("src"));
-    $(".video-player source").attr("src", $(this).data("src"));
-    $(".video-player").get(0).play();
-  });
-  $(".action--close").click(function () {
-    $(".video-wrap").addClass("video-wrap--hide");
-    $(".video-wrap").removeClass("video-wrap--show");
-    $(".video-player").get(0).pause();
-  });
-}
-
-const body = document.querySelector("body");
-
-// Guardar la posición actual del scroll
-let scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-
-// Función para manejar el evento de scroll
-const handleScroll = () => {
-  // Obtener la nueva posición del scroll
-  const newScrollPosition =
-    window.pageYOffset || document.documentElement.scrollTop;
-
-  // Comparar la posición actual con la nueva posición para determinar la dirección del scroll
-  if (newScrollPosition > scrollPosition) {
-    // Scroll hacia abajo
-    body.classList.remove("scroll-up");
-    body.classList.add("scroll-down");
-  } else {
-    // Scroll hacia arriba
-    body.classList.remove("scroll-down");
-    body.classList.add("scroll-up");
-  }
-
-  // Actualizar la posición actual del scroll
-  scrollPosition = newScrollPosition;
-};
-
-// Agregar el listener al evento de scroll
-window.addEventListener("scroll", handleScroll);
-
-var mySwiper = new Swiper(".swiper-container-img", {
-  // If loop true set photoswipe - counterEl: false
-  loop: true,
-  /* slidesPerView || auto - if you want to set width by css like flickity.js layout - in this case width:80% by CSS */
-
-  spaceBetween: 15,
-  slidesPerView: "1.5",
-
-  loop: true,
-  // autoHeight: true,
-  pagination: {
-    el: ".actuals .swiper-pagination",
-    clickable: true,
-    renderBullet: function (index, className) {
-      return '<span class="' + className + '">' + (index + 1) + "</span>";
-    },
-  },
-  navigation: {
-    nextEl: ".swiper-arrows-img .swiper-next",
-    prevEl: ".swiper-arrows-img .swiper-prev",
-  },
-  breakpoints: {
-    768: {
-      slidesPerView: 3,
-      spaceBetween: 15,
-      centeredSlides: false,
-      pagination: false,
-    },
-    980: {
-      slidesPerView: 4,
-      spaceBetween: 30,
-      centeredSlides: false,
-      pagination: false,
-    },
-    1200: {
-      slidesPerView: 4,
-      spaceBetween: 30,
-      centeredSlides: false,
-      pagination: false,
-      loop: false,
-    },
-    1600: {
-      slidesPerView: 4,
-      spaceBetween: 30,
-      centeredSlides: false,
-      pagination: false,
-      loop: false,
-    },
-  },
-});
-
-
-
-
-var initPhotoSwipeFromDOM = function (gallerySelector) {
-  // parse slide data (url, title, size ...) from DOM elements
-  // (children of gallerySelector)
-  var parseThumbnailElements = function (el) {
-    var thumbElements = el.childNodes,
-      numNodes = thumbElements.length,
-      items = [],
-      figureEl,
-      linkEl,
-      size,
-      item;
-
-    for (var i = 0; i < numNodes; i++) {
-      figureEl = thumbElements[i]; // <figure> element
-
-      // include only element nodes
-      if (figureEl.nodeType !== 1) {
-        continue;
-      }
-
-      linkEl = figureEl.children[0]; // <a> element
-
-      size = linkEl.getAttribute("data-size").split("x");
-
-      // create slide object
-      item = {
-        src: linkEl.getAttribute("href"),
-        w: parseInt(size[0], 10),
-        h: parseInt(size[1], 10),
-      };
-
-      if (figureEl.children.length > 1) {
-        // <figcaption> content
-        item.title = figureEl.children[1].innerHTML;
-      }
-
-      if (linkEl.children.length > 0) {
-        // <img> thumbnail element, retrieving thumbnail url
-        item.msrc = linkEl.children[0].getAttribute("src");
-      }
-
-      item.el = figureEl; // save link to element for getThumbBoundsFn
-      items.push(item);
-    }
-
-    return items;
-  };
-
-  // find nearest parent element
-  var closest = function closest(el, fn) {
-    return el && (fn(el) ? el : closest(el.parentNode, fn));
-  };
-
-  // triggers when user clicks on thumbnail
-  var onThumbnailsClick = function (e) {
-    e = e || window.event;
-    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-
-    var eTarget = e.target || e.srcElement;
-
-    // find root element of slide
-    var clickedListItem = closest(eTarget, function (el) {
-      return el.tagName && el.tagName.toUpperCase() === "LI";
+  // ============= 1) Header scroll state =============
+  var ticking = false;
+  var lastScroll = 0;
+  function onScroll() {
+    if (ticking) return;
+    window.requestAnimationFrame(function () {
+      var y = window.pageYOffset || document.documentElement.scrollTop;
+      var body = document.body;
+      if (y >= 50) body.classList.add("scrolled");
+      else body.classList.remove("scrolled");
+      if (y > lastScroll) { body.classList.remove("scroll-up"); body.classList.add("scroll-down"); }
+      else { body.classList.remove("scroll-down"); body.classList.add("scroll-up"); }
+      lastScroll = y;
+      ticking = false;
     });
+    ticking = true;
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
 
-    if (!clickedListItem) {
-      return;
-    }
-
-    // find index of clicked item by looping through all child nodes
-    // alternatively, you may define index via data- attribute
-    var clickedGallery = clickedListItem.parentNode,
-      childNodes = clickedListItem.parentNode.childNodes,
-      numChildNodes = childNodes.length,
-      nodeIndex = 0,
-      index;
-
-    for (var i = 0; i < numChildNodes; i++) {
-      if (childNodes[i].nodeType !== 1) {
-        continue;
+  // ============= 2) Menú hamburguesa accesible =============
+  function initMenu() {
+    var btn = document.getElementById("menu-toggle");
+    var drawer = document.getElementById("menu-mobile");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var open = document.body.classList.toggle("menu-open");
+      btn.setAttribute("aria-expanded", String(open));
+      if (drawer) {
+        if (open) drawer.removeAttribute("hidden");
+        else drawer.setAttribute("hidden", "");
       }
-
-      if (childNodes[i] === clickedListItem) {
-        index = nodeIndex;
-        break;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && document.body.classList.contains("menu-open")) {
+        document.body.classList.remove("menu-open");
+        btn.setAttribute("aria-expanded", "false");
+        if (drawer) drawer.setAttribute("hidden", "");
       }
-      nodeIndex++;
-    }
+    });
+  }
 
-    if (index >= 0) {
-      // open PhotoSwipe if valid index found
-      openPhotoSwipe(index, clickedGallery);
-    }
-    return false;
-  };
-
-  // parse picture index and gallery index from URL (#&pid=1&gid=2)
-  var photoswipeParseHash = function () {
-    var hash = window.location.hash.substring(1),
-      params = {};
-
-    if (hash.length < 5) {
-      return params;
-    }
-
-    var vars = hash.split("&");
-    for (var i = 0; i < vars.length; i++) {
-      if (!vars[i]) {
-        continue;
-      }
-      var pair = vars[i].split("=");
-      if (pair.length < 2) {
-        continue;
-      }
-      params[pair[0]] = pair[1];
-    }
-
-    if (params.gid) {
-      params.gid = parseInt(params.gid, 10);
-    }
-
-    return params;
-  };
-
-  var openPhotoSwipe = function (
-    index,
-    galleryElement,
-    disableAnimation,
-    fromURL
-  ) {
-    var pswpElement = document.querySelectorAll(".pswp")[0],
-      gallery,
-      options,
-      items;
-
-    items = parseThumbnailElements(galleryElement);
-
-    // define options (if needed)
-
-    options = {
-      /* "showHideOpacity" uncomment this If dimensions of your small thumbnail don't match dimensions of large image */
-      //showHideOpacity:true,
-
-      // Buttons/elements
-      closeEl: true,
-      captionEl: true,
-      fullscreenEl: true,
-      zoomEl: true,
-      shareEl: true,
-      counterEl: false,
-      arrowEl: true,
-      preloaderEl: true,
-      // define gallery index (for URL)
-      galleryUID: galleryElement.getAttribute("data-pswp-uid"),
-
-      getThumbBoundsFn: function (index) {
-        // See Options -> getThumbBoundsFn section of documentation for more info
-        var thumbnail = items[index].el.getElementsByTagName("img")[0], // find thumbnail
-          pageYScroll =
-            window.pageYOffset || document.documentElement.scrollTop,
-          rect = thumbnail.getBoundingClientRect();
-
-        return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
-      },
-    };
-
-    // PhotoSwipe opened from URL
-    if (fromURL) {
-      if (options.galleryPIDs) {
-        // parse real index when custom PIDs are used
-        // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
-        for (var j = 0; j < items.length; j++) {
-          if (items[j].pid == index) {
-            options.index = j;
-            break;
-          }
+  // ============= 3) Acordeón legacy (.accordion-header click) =============
+  // Las nuevas FAQs usan <details>, que ya es nativamente accesible.
+  // Esto cubre los acordeones antiguos que usaban .accordion-header > .accordion.
+  function initLegacyAccordion() {
+    document.querySelectorAll(".accordion-header").forEach(function (header) {
+      header.addEventListener("click", function () {
+        var parent = header.closest(".accordion");
+        if (!parent) return;
+        var wrap = parent.parentNode;
+        if (parent.classList.contains("active")) {
+          parent.classList.remove("active");
+        } else {
+          if (wrap) wrap.querySelectorAll(".accordion").forEach(function (a) { a.classList.remove("active"); });
+          parent.classList.add("active");
         }
-      } else {
-        // in URL indexes start from 1
-        options.index = parseInt(index, 10) - 1;
-      }
-    } else {
-      options.index = parseInt(index, 10);
-    }
-
-    // exit if index not found
-    if (isNaN(options.index)) {
-      return;
-    }
-
-    if (disableAnimation) {
-      options.showAnimationDuration = 0;
-    }
-
-    // Pass data to PhotoSwipe and initialize it
-    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-    gallery.init();
-
-    /* EXTRA CODE (NOT FROM THE CORE) - UPDATE SWIPER POSITION TO THE CURRENT ZOOM_IN IMAGE (BETTER UI) */
-
-    // photoswipe event: Gallery unbinds events
-    // (triggers before closing animation)
-    gallery.listen("unbindEvents", function () {
-      // This is index of current photoswipe slide
-      var getCurrentIndex = gallery.getCurrentIndex();
-      // Update position of the slider
-      mySwiper.slideTo(getCurrentIndex, false);
+      });
     });
-  };
-
-  // loop through all gallery elements and bind events
-  var galleryElements = document.querySelectorAll(gallerySelector);
-
-  for (var i = 0, l = galleryElements.length; i < l; i++) {
-    galleryElements[i].setAttribute("data-pswp-uid", i + 1);
-    galleryElements[i].onclick = onThumbnailsClick;
   }
 
-  // Parse URL and open gallery if it contains #&pid=3&gid=1
-  var hashData = photoswipeParseHash();
-  if (hashData.pid && hashData.gid) {
-    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+  // ============= 4) Modal de vídeo (action--play) =============
+  function initVideoModal() {
+    var playButtons = document.querySelectorAll(".action--play");
+    var closeButtons = document.querySelectorAll(".action--close");
+    var wrap = document.querySelector(".video-wrap");
+    var player = document.querySelector(".video-player");
+    if (!playButtons.length || !wrap || !player) return;
+    playButtons.forEach(function (b) {
+      b.addEventListener("click", function () {
+        wrap.classList.add("video-wrap--show");
+        wrap.classList.remove("video-wrap--hide");
+        var src = b.getAttribute("data-src");
+        if (src) {
+          player.setAttribute("src", src);
+          var source = player.querySelector("source");
+          if (source) source.setAttribute("src", src);
+        }
+        if (typeof player.play === "function") player.play().catch(function () {});
+      });
+    });
+    closeButtons.forEach(function (b) {
+      b.addEventListener("click", function () {
+        wrap.classList.add("video-wrap--hide");
+        wrap.classList.remove("video-wrap--show");
+        if (typeof player.pause === "function") player.pause();
+      });
+    });
   }
-};
 
-// ejecuta si quieres galeria
-// initPhotoSwipeFromDOM(".my-gallery");
-
-
-
-$(document).ready(function () {
-  $("body").toggleClass("face-open");
-
-
-  
-  initvideo();
-
-    $(".accordion-header").click(function(){
-    if($(this).parent().parent().hasClass("active")){
-      $(this).parent().parent().removeClass("active");
-    } else {
-      $(".accordion").removeClass("active");
-      $(this).parent().parent().addClass("active");
+  // ============= 5) Counters animados (.counter[data-count]) =============
+  function animateCounter(el, target, duration) {
+    var start = 0;
+    var startTime = null;
+    function step(t) {
+      if (!startTime) startTime = t;
+      var progress = Math.min((t - startTime) / duration, 1);
+      el.textContent = Math.floor(start + (target - start) * progress);
+      if (progress < 1) window.requestAnimationFrame(step);
+      else el.textContent = target;
     }
-  })
-
-  $('.counter').each(function() {
-    var $this = $(this),
-        countTo = $this.attr('data-count');
-    
-    $({ countNum: $this.text()}).animate({
-      countNum: countTo
-    },
-  
-    {
-  
-      duration: 6000,
-      easing:'linear',
-      step: function() {
-        $this.text(Math.floor(this.countNum));
-      },
-      complete: function() {
-        $this.text(this.countNum);
-        //alert('finished');
+    window.requestAnimationFrame(step);
+  }
+  function initCounters() {
+    var io = ("IntersectionObserver" in window) ? new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          var el = e.target;
+          var target = parseInt(el.getAttribute("data-count") || el.textContent || "0", 10);
+          if (!isNaN(target)) animateCounter(el, target, 1500);
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.4 }) : null;
+    document.querySelectorAll(".counter, .animated-counter").forEach(function (el) {
+      if (io) io.observe(el);
+      else {
+        var target = parseInt(el.getAttribute("data-count") || el.textContent || "0", 10);
+        if (!isNaN(target)) animateCounter(el, target, 1500);
       }
-  
-    });  
-    
-    
-  
-  });
-
-
-
-});
-
-
-$({ Counter: 0 }).animate({
-  Counter: $('.animated-counter').text()
-}, {
-  duration: 1000,
-  easing: 'swing',
-  step: function() {
-    $('.animated-counter').text(Math.ceil(this.Counter));
-  }
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  // Obtén la ruta actual de la URL
-  const path = window.location.pathname;
-
-  // Selecciona el elemento donde mostrar la página actual
-  const currentPageElement = document.getElementById('currentPage');
-
-  // Determina la página actual basándote en la ruta
-  let currentPage = '';
-
-  if (path === '/' || path === '/index.html') {
-    currentPage = 'Home';
-  } else if (path.includes('/blog')) {
-    currentPage = 'Blog';
-  } else if (path.includes('/contact')) {
-    currentPage = 'Contact';
-  } else if (path.includes('/about')) {
-    currentPage = 'About';
+    });
   }
 
-  // Asigna la página actual como el ID del elemento
-  if (currentPageElement) {
-    currentPageElement.id = currentPage.toLowerCase();
-
+  // ============= 6) Swiper / PhotoSwipe — solo si están cargados =============
+  function initSwiper() {
+    if (typeof window.Swiper !== "function") return;
+    if (document.querySelector(".swiper-container")) {
+      try {
+        new window.Swiper(".swiper-container", {
+          spaceBetween: 15, slidesPerView: 1.5, loop: true,
+          pagination: { el: ".actuals .swiper-pagination", clickable: true },
+          navigation: { nextEl: ".swiper-arrows .swiper-next", prevEl: ".swiper-arrows .swiper-prev" },
+          breakpoints: {
+            768: { slidesPerView: 3, spaceBetween: 15 },
+            980: { slidesPerView: 4, spaceBetween: 30 },
+            1200: { slidesPerView: 4, spaceBetween: 30, loop: false },
+          },
+        });
+      } catch (e) { /* noop */ }
+    }
   }
-});
+
+  // ============= boot =============
+  function boot() {
+    initMenu();
+    initLegacyAccordion();
+    initVideoModal();
+    initCounters();
+    initSwiper();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+})();

@@ -1,19 +1,33 @@
 ---
 layout: layout/base.njk
 ---
-{% import global.base_modules+"_macros/_insert.njk" as insert %}
+{% set title = "Blog de derecho laboral en España" %}
+{% set subtitle = "Artículos y guías sobre derecho laboral, despidos, incapacidades, accidentes y centros especiales de empleo." %}
+{% set noheroimage = true %}
+{% include "templates/bloghero.njk" %}
 
-{% include 'templates/bloghero.njk' %}
-
-
-<div class="section front-section bg-light  " data-scroll-section>
-  <div class="col-xs-12">
-  <div class="container-global mx-auto   ">
-    <ul role="list" class="list-clear grid-1-2-4 ">
-      {% for blog in collections.blog | reverse %}
-      {% include 'templates/blog-loop.njk' %}
+<section class="front-section bg-light pbr-64">
+  <div class="container-global mx-auto">
+    {% if collections.post and collections.post.length %}
+    <ul role="list" class="list-clear" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;">
+      {% for post in collections.post | reverse %}
+      <li>
+        <a href="{{ post.url }}" style="display:block;height:100%;background:#fff;border:1px solid #eee;border-radius:8px;text-decoration:none;color:inherit;overflow:hidden;">
+          {% if post.data.image %}
+          <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt or post.data.title }}" loading="lazy" decoding="async" width="600" height="338" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;">
+          {% endif %}
+          <div style="padding:20px;">
+            {% if post.data.tags %}<p class="text-12-r mb-8" style="color:var(--c-primary);text-transform:uppercase;">{{ post.data.tags[0] }}</p>{% endif %}
+            <h2 class="fluid-9-b mb-8">{{ post.data.title }}</h2>
+            {% if post.data.subtitle %}<p class="text-14-r mb-8" style="color:var(--c-gray);">{{ post.data.subtitle }}</p>{% endif %}
+            {% if post.data.fecha %}<p class="text-12-r" style="color:var(--c-gray);">📅 {{ post.data.fecha }}</p>{% endif %}
+          </div>
+        </a>
+      </li>
       {% endfor %}
     </ul>
+    {% else %}
+    <p class="fluid-7-r" style="color:var(--c-gray);">Próximamente publicaremos artículos sobre derecho laboral.</p>
+    {% endif %}
   </div>
-</div>
-</div>
+</section>

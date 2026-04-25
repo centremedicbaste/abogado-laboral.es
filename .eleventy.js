@@ -30,11 +30,11 @@ module.exports = function (eleventyConfig) {
   
   eleventyConfig.addDataExtension("json", (contents) => JSON.parse(contents));
   eleventyConfig.addTemplateFormats("njk");
+  eleventyConfig.setLibrary("md", markdownIt(mdOptions).use(markdownItAnchor, mdAnchorOpts).use(markdownItHighlightJS));
   eleventyConfig.addPassthroughCopy("./src/css/style.css");
   eleventyConfig.addPassthroughCopy("./src/assets");
-  eleventyConfig.addPassthroughCopy("src/pages", "pages");
-  eleventyConfig.addPassthroughCopy("src/site.webmanifest");
-  eleventyConfig.addPassthroughCopy("src/robots.txt");
+  // Eliminado addPassthroughCopy("src/pages","pages") — duplicaba archivos .md públicamente.
+  // src/site.webmanifest y src/robots.txt se generan ahora desde src/templates/*.njk
 
   // Netlify CMS
   eleventyConfig.addPassthroughCopy("./admin");
@@ -210,5 +210,9 @@ module.exports = function (eleventyConfig) {
       output: "public",
     },
     passthroughFileCopy: true,
+    // Procesar markdown con Nunjucks (no Liquid). Clave para que {{ var | safe }} funcione.
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
+    dataTemplateEngine: "njk",
   };
 };

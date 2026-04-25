@@ -1,46 +1,30 @@
 <!-- team_1.njk -->
-
-<section class="bg-light pbr-64 ptr-120" data-scroll-section> 
-
-<div class="container-2 ">
-    <div class="row  text-center pb-64">
-        <div class="col-xs-12 mb-24">
-     
-            <div class="fluid-4-m ttu ">{{team1_subtitle}}
-              <div class="fluid-9-r ">{{team1_title}} </div>
-            </div>
-        </div>
-        <div class="col-xs-12">
-            <span class="text-16-r">
-
-              {{team1_descripción}}
-            </span>
-        </div>
+<section class="bg-light pbr-64 ptr-64" aria-label="Nuestro equipo">
+  <div class="container-2">
+    <div class="row text-center pb-32">
+      <div class="col-xs-12 mb-16">
+        <p class="text-14-b mb-8" style="color:var(--c-primary);text-transform:uppercase;letter-spacing:.05em;">{{ team1_title or "Nuestro equipo" }}</p>
+        <h2 class="fluid-5-l">{{ team1_subtitle or "Profesionales especialistas a tu servicio" }}</h2>
+      </div>
+      <div class="col-xs-12">
+        <p class="fluid-9-r" style="max-width:760px;margin:0 auto;color:var(--c-gray);">
+          {{ team1_descripción or team1_description or "Equipo multidisciplinar con más de 15 años de experiencia en derecho laboral, seguridad social, calificación de centros especiales de empleo y reclamación de pensiones." }}
+        </p>
+      </div>
     </div>
-</div>
-<div class="container-5 pbr-120">
-    <div class="row">
+  </div>
 
-
-
+  <div class="container-5 pbr-64">
+    <div class="row" style="gap:24px 0;">
       {% for team in global.team %}
-      <div class="col-xs-4">
-        <img width="100%" src="/assets/static/images/{{team.team_img}}" alt="">
+      <article class="col-xs-12 col-sm-4">
+        <img width="400" height="400" src="/assets/static/images/{{ team.team_img }}" alt="{{ team.team_name }}, {{ team.team_position }}" loading="lazy" decoding="async">
         <div class="pt-16">
-            <div class="text-14-b">
-          {{team.team_position}}
-
-            </div>
-            <div class="fluid-9-r">
-              {{team.team_name}}
-
-
-            </div>
+          <div class="text-14-b" style="color:var(--c-primary);">{{ team.team_position }}</div>
+          <div class="fluid-9-b mb-8">{{ team.team_name }}</div>
         </div>
+      </article>
+      {% endfor %}
     </div>
-    {% endfor %}
-
-    </div>
-</div>
-
+  </div>
 </section>

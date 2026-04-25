@@ -1,9 +1,11 @@
-
 {
-	"layout": "templates/bloginner.njk",
-	"author": "abogado laboral",
-	"tags": ["blog"],
-	"tag": "post",
-	"categoryName": "Blog",
-	"permalink": "blog/{{ page.fileSlug }}/"
+  "layout": "templates/bloginner.njk",
+  "author": "Abogado Laboral",
+  "tags": ["post"],
+  "permalink": "/blog/{{ page.fileSlug }}/",
+  "eleventyComputed": {
+    "metaTitle": "{{ title }} | Blog Abogado Laboral",
+    "metaDescription": "{{ excerpt or subtitle }}",
+    "metaRobots": "index, follow"
+  }
 }

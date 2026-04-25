@@ -2,49 +2,35 @@
 layout: layout/base.njk
 permalink: /site/
 metaRobots: "noindex, nofollow"
+metaTitle: "SEO Audit Internal — Site Map"
+metaDescription: "Página interna de auditoría SEO — listado de URLs con sus titles y meta descriptions. Excluida de indexación."
 ---
-<section data-scroll-section> 
-    <div class="height-sm bg-light"></div>
-    <div class="container ptr-120 bg-light front-section pbr-120">
-        <div class="fluid-4-m mb-64">Seo Sitemap</div>
-    
-        <ul class="list-clear">
-            {# Ordenar y listar todas las páginas por título, excluyendo las sin título #}
-            {% for page in collections.all | sort(attribute='data.metaTitle') %}
-                {% if page.data.metaTitle and page.data.metaRobots and 'noindex' not in page.data.metaRobots %}
-                    <li>
-                        <a class="ttc" href="{{ page.url | url }}">{{ page.url | url }}</a>
-                    </li>
-                    <br>
-                    <b>metaTitle:</b>
-                    <span class="{% if page.data.metaTitle.length < 30 or page.data.metaTitle.length > 65 %}red-text{% endif %}">
-                        {{ page.data.metaTitle }}
-                    </span>
-                    <br>
-                    <b>metaDescription:</b>
-                    <span class="{% if page.data.metaDescription.length < 120 or page.data.metaDescription.length > 320 %}red-text{% endif %}">
-                        {{ page.data.metaDescription }}
-                    </span>
-                    <br>
-                    <b>metaKeywords:</b>
-                    <span class="{% if page.data.metaKeywords.split(',').length < 5 or page.data.metaKeywords.split(',').length > 10 %}red-text{% endif %}">
-                        {{ page.data.metaKeywords }}
-                    </span>
-                    <br>
-                    <b>metaRobots:</b>
-                    <span class="{% if page.data.metaRobots.length > 160 %}red-text{% endif %}">
-                        {{ page.data.metaRobots }}
-                    </span>
-                    <br>
-                    <hr class="mt-32">
-                {% endif %}
-            {% endfor %}
-        </ul>
-    </div>
-</section>
+<div class="height-sm bg-light"></div>
+<div class="container ptr-64 pbr-64">
+  <h1 class="fluid-4-r mb-32">SEO Sitemap interno</h1>
+  <p class="text-14-r mb-24" style="color:var(--c-gray);">Esta página tiene <code>noindex,nofollow</code> y está bloqueada en <code>robots.txt</code>. Solo para uso interno de auditoría.</p>
 
-<style>
-.red-text {
-    color: red;
-}
-</style>
+  <ul class="list-clear">
+    {% for page in collections.all | sort(attribute='data.metaTitle') %}
+      {% set robots = page.data.metaRobots or "" %}
+      {% if page.data.metaTitle and "noindex" not in robots and page.url != "/site/" %}
+        {% set t = page.data.metaTitle %}
+        {% set d = page.data.metaDescription or "" %}
+        {% set k = page.data.metaKeywords or "" %}
+        {% set tlen = t.length %}
+        {% set dlen = d.length %}
+        <li class="mb-32" style="border-bottom:1px solid #eee;padding-bottom:16px;">
+          <a class="ttc" href="{{ page.url }}"><strong>{{ page.url }}</strong></a>
+          <br><b>metaTitle ({{ tlen }} chars):</b>
+            <span class="{% if tlen < 30 or tlen > 65 %}red-text{% endif %}">{{ t }}</span>
+          <br><b>metaDescription ({{ dlen }} chars):</b>
+            <span class="{% if dlen < 120 or dlen > 320 %}red-text{% endif %}">{{ d }}</span>
+          <br><b>metaKeywords:</b> <span>{{ k }}</span>
+          <br><b>metaRobots:</b> <span>{{ robots }}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
+<style>.red-text{color:#C0392B;font-weight:600;}</style>

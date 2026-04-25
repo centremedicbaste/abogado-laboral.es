@@ -1,124 +1,214 @@
 <!DOCTYPE html>
-<html lang="{{global.lang}}">
+<html lang="{{ global.lang }}">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="{{ global.search_console }}" />
-    <title>{{ metaTitle }}</title>
-    <meta name="robots" content="{{ metaRobots }}" />
-    <meta name="description" content="{{ metaDescription or eleventyComputed.metaDescription or metadata.description }}" />
-    <meta name="keywords" content="{{ metaKeywords or eleventyComputed.metaKeywords or metaKeywords.description }}" />
-    <link rel="manifest" href="{{ global.url }}/site.webmanifest">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="{{ global.c_primary }}" />
+    <meta name="color-scheme" content="light" />
 
-    <link rel="icon" type="image/webp" href="{{ global.url }}/assets/static/about.jpg" />
+    <title>{{ metaTitle or global.seo_title }}</title>
+    <meta name="description" content="{{ metaDescription or global.seo_description }}" />
+    <meta name="robots" content="{{ metaRobots or 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' }}" />
+    {% if metaKeywords %}<meta name="keywords" content="{{ metaKeywords }}" />{% endif %}
+    <meta name="author" content="{{ global.empresa_legal }}" />
+    <meta name="geo.region" content="ES" />
+    <meta name="geo.placename" content="{{ global.ciudad }}" />
+    <meta name="geo.position" content="{{ global.geo_lat }};{{ global.geo_lon }}" />
+    <meta name="ICBM" content="{{ global.geo_lat }}, {{ global.geo_lon }}" />
+
+    <link rel="canonical" href="{{ global.url }}{{ page.url }}" />
+    <link rel="alternate" hreflang="es-ES" href="{{ global.url }}{{ page.url }}" />
+    <link rel="alternate" hreflang="x-default" href="{{ global.url }}{{ page.url }}" />
+
+    <link rel="icon" type="image/x-icon" href="/assets/static/favicons/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/static/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/static/favicons/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/static/favicons/apple-icon-180x180.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="google-site-verification" content="{{ global.search_console }}" />
+
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ global.empresa }}" />
+    <meta property="og:title" content="{{ metaTitle or global.seo_title }}" />
+    <meta property="og:description" content="{{ metaDescription or global.seo_description }}" />
+    <meta property="og:url" content="{{ global.url }}{{ page.url }}" />
+    <meta property="og:image" content="{{ global.url }}{{ ogImage or global.og_image }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="{{ global.empresa }}" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ metaTitle or global.seo_title }}" />
+    <meta name="twitter:description" content="{{ metaDescription or global.seo_description }}" />
+    <meta name="twitter:image" content="{{ global.url }}{{ ogImage or global.og_image }}" />
+
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    {% if heroImage %}<link rel="preload" as="image" href="{{ heroImage }}" fetchpriority="high" />{% endif %}
 
     <style>
-      :root {
-        --c-accent: {{global.c_accent}};
-        --c-primary: {{global.c_primary}};
-        --c-secondary: {{global.c_secondary}};
-        --c-gray: {{global.c_gray}};
-        --bg-dark: {{global.bg_dark}};
-        --c-bg-dark: {{global.c_bg_dark}};
-        --bg-light: {{global.bg_light}};
-        --c-bg-light: {{global.c_bg_light}};
-        --bg-primary: {{global.bg_primary}};
-        --btn-radius: {{global.btn_radius}};
-        --padding-global: {{global.padding_global}};
+      :root{
+        --c-accent:{{ global.c_accent }};
+        --c-primary:{{ global.c_primary }};
+        --c-secondary:{{ global.c_secondary }};
+        --c-gray:{{ global.c_gray }};
+        --bg-dark:{{ global.bg_dark }};
+        --bg-light:{{ global.bg_light }};
+        --bg-white:{{ global.bg_white }};
+        --c-bg-light:{{ global.c_bg_light }};
+        --c-bg-dark:{{ global.c_bg_dark }};
+        --bg-primary:{{ global.bg_primary }};
+        --btn-radius:{{ global.btn_radius }};
+        --padding-global:{{ global.padding_global }};
       }
+      .skip-link{position:absolute;left:-9999px;top:0;padding:.75rem 1rem;background:var(--c-primary);color:#fff;z-index:9999;text-decoration:none;border-radius:0 0 6px 0}
+      .skip-link:focus{left:0}
+      *:focus-visible{outline:3px solid var(--c-primary);outline-offset:2px}
+      .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     </style>
-
-{% set variables = {
-  "c-accent": global.c_accent,
-  "c-primary": global.c_primary,
-  "c-secondary": global.c_secondary,
-  "c-gray": global.c_gray,
-  "bg-dark": global.bg_dark,
-  "c-bg-dark": global.c_bg_dark,
-  "bg-light": global.bg_light,
-  "c-bg-light": global.c_bg_light,
-  "bg-primary": global.bg_primary,
-  "btn-radius": global.btn_radius,
-  "padding-global": global.padding_global
-} %}
-
-
-    
-
-
     <link rel="stylesheet" href="/assets/css/style.css" />
-    <link rel="canonical" href="{{ global.url }}{{ page.url | url }}" />
 
-    <meta property="og:site_name" content="{{ global.empresa }}" />
-    <meta
-      property="og:image"
-      content="{{ global.url }}/assets/static/images/2.webp"
-    />
-    <meta property="og:title" content="{{ title }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ global.url }}" />
-    <meta
-      property="og:description"
-      content="{{ metaKeywords or eleventyComputed.metaKeywords or metaKeywords.description }}"
-    />
-
-    {% if global.googlemaps_api %}
+    {% if global.tag_manager and global.tag_manager != "GTM-XXXXXXX" %}
     <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "{{global.tag_manager}}");
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{ global.tag_manager }}');
     </script>
+    {% elif global.ga4_id and global.ga4_id != "G-XXXXXXXXXX" %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ global.ga4_id }}"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','{{ global.ga4_id }}');</script>
     {% endif %}
 
-
-
-
-    <!-- End Google Tag Manager -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["Organization","LegalService","ProfessionalService"],
+          "@id": "{{ global.url }}/#organization",
+          "name": "{{ global.empresa }}",
+          "legalName": "{{ global.empresa_legal }}",
+          "url": "{{ global.url }}",
+          "logo": "{{ global.url }}{{ global.logo }}",
+          "image": "{{ global.url }}{{ global.og_image }}",
+          "telephone": "{{ global.telefono_e164 }}",
+          "email": "{{ global.email }}",
+          "priceRange": "€€",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "{{ global.direccion }}",
+            "addressLocality": "{{ global.ciudad }}",
+            "addressRegion": "{{ global.provincia }}",
+            "postalCode": "{{ global.codigopostal }}",
+            "addressCountry": "{{ global.pais }}"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "{{ global.geo_lat }}",
+            "longitude": "{{ global.geo_lon }}"
+          },
+          "areaServed": [
+            {"@type":"Country","name":"España"},
+            {% for area in global.areas_servidas %}{% if not loop.first %}{"@type":"AdministrativeArea","name":"{{ area }}"}{% if not loop.last %},{% endif %}{% endif %}{% endfor %}
+          ],
+          "openingHoursSpecification": [
+            {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"14:00"},
+            {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"16:30","closes":"19:30"}
+          ],
+          "knowsAbout": ["Derecho laboral","Despido improcedente","Incapacidad permanente","Accidentes de trabajo","Centros Especiales de Empleo","Jubilación","Inspección de trabajo","Seguridad Social","Pensiones"],
+          "sameAs": [
+            {% if global.social_youtube %}"{{ global.social_youtube }}"{% if global.social_linkedin or global.social_facebook %},{% endif %}{% endif %}
+            {% if global.social_linkedin %}"{{ global.social_linkedin }}"{% if global.social_facebook %},{% endif %}{% endif %}
+            {% if global.social_facebook %}"{{ global.social_facebook }}"{% endif %}
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "{{ global.url }}/#website",
+          "url": "{{ global.url }}",
+          "name": "{{ global.empresa }}",
+          "publisher": { "@id": "{{ global.url }}/#organization" },
+          "inLanguage": "es-ES"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "{{ global.url }}{{ page.url }}#webpage",
+          "url": "{{ global.url }}{{ page.url }}",
+          "name": "{{ metaTitle or global.seo_title }}",
+          "description": "{{ metaDescription or global.seo_description }}",
+          "isPartOf": { "@id": "{{ global.url }}/#website" },
+          "about": { "@id": "{{ global.url }}/#organization" },
+          "inLanguage": "es-ES"
+        }
+        {% if breadcrumbs and breadcrumbs.length %}
+        ,{
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {% for crumb in breadcrumbs %}
+            {"@type":"ListItem","position":{{ loop.index }},"name":"{{ crumb.name }}","item":"{{ global.url }}{{ crumb.url }}"}{% if not loop.last %},{% endif %}
+            {% endfor %}
+          ]
+        }
+        {% endif %}
+        {% if faqSchema %}
+        ,{
+          "@type": "FAQPage",
+          "mainEntity": [
+            {% for f in faqSchema %}
+            {"@type":"Question","name":{{ f.q | dump | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a | dump | safe }}}}{% if not loop.last %},{% endif %}
+            {% endfor %}
+          ]
+        }
+        {% endif %}
+        {% if articleSchema %}
+        ,{
+          "@type": "Article",
+          "headline": {{ articleSchema.headline | dump | safe }},
+          "description": {{ articleSchema.description | dump | safe }},
+          "author": {"@type":"Organization","name":"{{ global.empresa }}"},
+          "publisher": { "@id": "{{ global.url }}/#organization" },
+          "datePublished": "{{ articleSchema.datePublished }}",
+          "dateModified": "{{ articleSchema.dateModified or articleSchema.datePublished }}",
+          "image": "{{ global.url }}{{ articleSchema.image or global.og_image }}",
+          "mainEntityOfPage": "{{ global.url }}{{ page.url }}"
+        }
+        {% endif %}
+      ]
+    }
+    </script>
   </head>
 
+  <body class="contain {{ colorHeader }} {% if page.url == '/' %}home{% endif %}">
+    <a class="skip-link" href="#main">Saltar al contenido</a>
 
-  <body id="currentPage" class="contain {{ colorHeader }} {% if page.url == '/' %}home{% endif %}">
-
-
-    {% set breadcrumbs = [] %}
-    {% if global.googlemaps_api %}
-      <!-- Google Tag Manager (noscript) -->
-      <noscript>
-        <iframe  src="{{global.contacta_map}}" height="0" width="0" style="display: none; visibility: hidden"></iframe>
-      </noscript>
+    {% if global.tag_manager and global.tag_manager != "GTM-XXXXXXX" %}
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ global.tag_manager }}" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
     {% endif %}
-      <!-- End Google Tag Manager (noscript) -->
-
-
 
     {% include 'components/header.njk' %}
-    <div data-scroll-container>   
+
+    <main id="main" tabindex="-1">
       {{ content | safe }}
+    </main>
 
-    {% include 'templates/footer_2.njk' %}
+    {% include 'templates/footer.njk' %}
 
-  </div>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script defer src="/assets/js/index.js"></script>
+    <script defer src="/assets/js/inview.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
-
-
-
-    <script src=" https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js "></script>
-    <script type="module" src="/assets/js/index.js"></script>
-    <script type="module" src="/assets/js/scroll.js"></script>
-    <script type="module" src="/assets/js/inview.js"></script>
-
-
-
+    <script>
+      document.addEventListener('click',function(e){
+        var a=e.target.closest('a');if(!a)return;
+        var ev=null,p={};
+        if(a.href.indexOf('tel:')===0){ev='lead_phone_click';p={phone:a.href.replace('tel:','')};}
+        else if(a.href.indexOf('wa.me')!==-1||a.href.indexOf('whatsapp')!==-1){ev='lead_whatsapp_click';}
+        else if(a.matches('[data-cta]')){ev='cta_click';p={label:a.dataset.cta};}
+        if(ev&&window.dataLayer){dataLayer.push(Object.assign({event:ev},p));}
+      });
+      document.addEventListener('submit',function(e){
+        var f=e.target;if(!f||f.tagName!=='FORM')return;
+        if(window.dataLayer){dataLayer.push({event:'lead_form_submit',form_id:f.getAttribute('name')||'unknown'});}
+      });
+    </script>
   </body>
 </html>

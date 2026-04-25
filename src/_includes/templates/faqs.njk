@@ -1,47 +1,33 @@
 <!-- faqs.njk -->
-<section data-scroll-section>  
-  
-  
-  <div class="container-5  pbr-64 ptr-64">
-      <div class="row mb-64 text-center">
-        <div class="col-xs-12">
-          <div class="fluid-5-l mb-24">
-            {{ global.faq_title }}
-          </div>
-          <div class="fluid-9-r mb-24">
-            {{ global.faq_description }}
-          </div>
-        </div>
+{% set faqsList = faqSchema or global.faq %}
+{% if faqsList and faqsList.length %}
+<section class="bg-light pbr-64 ptr-64" aria-label="Preguntas frecuentes">
+  <div class="container-5">
+    <div class="row mb-48 text-center">
+      <div class="col-xs-12">
+        <p class="text-14-b mb-8" style="color:var(--c-primary);text-transform:uppercase;letter-spacing:.05em;">FAQ</p>
+        <h2 class="fluid-5-l mb-16">Preguntas frecuentes</h2>
+        <p class="fluid-9-r" style="color:var(--c-gray);max-width:680px;margin:0 auto;">
+          Lo que más nos preguntan nuestros clientes sobre derecho laboral, plazos e indemnizaciones.
+        </p>
       </div>
-  
-  
-      <div class="faq-section">
-  
-  
-        <div class="accordion-wrap accordion-faqs">
-          {% for item in global.faq %}
-            <div class="accordion">
-              <div class="accordion-inner p-16">
-                <div class="accordion-header is-flex">
-                  <div class="list-circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                      <title>down-arrow</title>
-                      <g stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" fill="none" stroke="#212121" stroke-miterlimit="10">
-                        <polyline points="2,7 12,17 22,7" transform="translate(0, 0)"></polyline>
-                      </g>
-                    </svg>
-                  </div>
-                  <div class="fluid-8-r">{{ item.faq_question }}</div>
-                </div>
-                <div class="accordion-content">
-                  <div class="text-14-r mt-16">{{ item.faq_answer }}</div>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-  
-  
     </div>
+
+    <div class="faq-section">
+      <div class="accordion-wrap accordion-faqs">
+        {% for item in faqsList %}
+        {% set q = item.q or item.faq_question %}
+        {% set a = item.a or item.faq_answer %}
+        <details class="accordion" style="background:#fff;border:1px solid #eee;border-radius:6px;padding:16px 20px;margin-bottom:12px;">
+          <summary class="accordion-header is-flex" style="cursor:pointer;list-style:none;align-items:center;gap:12px;">
+            <span class="fluid-8-r" style="flex:1;font-weight:600;">{{ q }}</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <div class="accordion-content text-14-r" style="padding-top:12px;color:var(--c-gray);">{{ a }}</div>
+        </details>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </section>
+{% endif %}
