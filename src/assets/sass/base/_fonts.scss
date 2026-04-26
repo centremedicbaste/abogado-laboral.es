@@ -1,28 +1,93 @@
+/* ==========================================================================
+   TIPOGRAFÍA — Sistema de SOLO DOS FAMILIAS
+   --------------------------------------------------------------------------
+   1. SERIF DISPLAY  → "Cormorant Garamond" (cormorant.woff2 local)
+      Uso: titulares (h1, h2, h3), .display, blockquote, cita.
+
+   2. SANS UI        → "Atlas Grotesk" (atlas/* local)
+      Uso: body, párrafos, navegación, formularios, botones, etiquetas.
+   ========================================================================== */
+
+/* ─── 1. SERIF DISPLAY ─── */
+@font-face {
+  font-family: "font-display";
+  src: url("/assets/fonts/cormorant/cormorant.woff2") format("woff2"),
+       url("/assets/fonts/cormorant/cormorant.otf") format("opentype");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Alias retro-compatibilidad: lo que antes era "font-medium" (cormorant)
+   sigue funcionando, pero ahora se llama "font-display" semánticamente. */
+@font-face {
+  font-family: "font-medium";
+  src: url("/assets/fonts/cormorant/cormorant.woff2") format("woff2"),
+       url("/assets/fonts/cormorant/cormorant.otf") format("opentype");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── 2. SANS UI (Atlas Grotesk) — pesos 300 / 400 / 700 ─── */
 @font-face {
   font-family: "font-light";
   src: url("/assets/fonts/atlas/font-light.woff2") format("woff2"),
-    url("/assets/fonts/atlas/font-light.otf") format("otf");
-    font-display: swap;
+       url("/assets/fonts/atlas/font-light.woff")  format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
+
 @font-face {
   font-family: "font-regular";
   src: url("/assets/fonts/atlas/font-regular.woff2") format("woff2"),
-    url("/assets/fonts/atlas/font-regular.woff") format("woff");
+       url("/assets/fonts/atlas/font-regular.woff")  format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "font-bold";
   src: url("/assets/fonts/atlas/font-bold.woff2") format("woff2"),
-    url("/assets/fonts/atlas/font-bold.woff") format("woff");
-    font-display: swap;
+       url("/assets/fonts/atlas/font-bold.woff")  format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
+/* Alias unificador para usar "font-sans" en componentes nuevos. */
 @font-face {
-  font-family: "font-medium";
-  src: url("/assets/fonts/cormorant/cormorant.woff2") format("woff2"),
-    url("/assets/fonts/cormorant/cormorant.otf") format("otf");
-    font-display: swap;
+  font-family: "font-sans";
+  src: url("/assets/fonts/atlas/font-regular.woff2") format("woff2"),
+       url("/assets/fonts/atlas/font-regular.woff")  format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "font-sans";
+  src: url("/assets/fonts/atlas/font-light.woff2") format("woff2"),
+       url("/assets/fonts/atlas/font-light.woff")  format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "font-sans";
+  src: url("/assets/fonts/atlas/font-bold.woff2") format("woff2"),
+       url("/assets/fonts/atlas/font-bold.woff")  format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
+/* Las clases utilitarias .font-r / .font-m / .font-b heredadas
+   apuntan a una de las dos familias del sistema. */
+.font-l { font-family: "font-light",   "font-sans", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif !important; font-weight: 300; }
+.font-r { font-family: "font-regular", "font-sans", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif !important; font-weight: 400; }
+.font-m { font-family: "font-display", "Cormorant Garamond", Georgia, serif !important; font-weight: 500; }
+.font-b { font-family: "font-bold",    "font-sans", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif !important; font-weight: 700; }
+.font-display { font-family: "font-display", "Cormorant Garamond", Georgia, serif !important; }
+.font-sans    { font-family: "font-regular", "font-sans", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif !important; }

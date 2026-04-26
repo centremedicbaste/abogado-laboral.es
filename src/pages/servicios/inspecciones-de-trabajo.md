@@ -23,7 +23,15 @@ faqSchema:
 
 Una inspección de trabajo puede llegar **sin previo aviso** y con poderes muy amplios: examinar nóminas, contratos, registros horarios, evaluación de riesgos, prevención, encuestas a trabajadores, partes médicos… La diferencia entre un acta favorable y una sanción de seis cifras suele estar **en cómo se gestiona la visita y la documentación**.
 
-En Abogado Laboral Sevilla asistimos a empresas durante la inspección, recurrimos actas de infracción y de liquidación, y defendemos casos ante los Juzgados de lo Contencioso-Administrativo y de lo Social.
+En **Abogado Laboral** asistimos a empresas durante la inspección, recurrimos actas de infracción y de liquidación, y defendemos casos ante los Juzgados de lo Contencioso-Administrativo y de lo Social en toda España.
+
+## Por qué somos tu defensa frente a la Inspección
+
+Combinamos conocimiento normativo (LISOS, Estatuto de los Trabajadores, RD 1620/2007, RD-Ley 8/2019), experiencia procesal acreditada y atención inmediata cuando llega la visita o el acta, ya que cada día de demora en la respuesta puede comprometer el recurso.
+
+- **Asistencia inmediata.** Te acompañamos durante la visita inspectora, asegurando que solo se aporta la documentación legalmente exigible y que se ejercitan correctamente los derechos del inspeccionado.
+- **Recurso técnico de actas.** Redactamos las alegaciones a acta y los recursos de alzada y contencioso-administrativos con argumentación jurídica detallada, citando jurisprudencia aplicable y solicitando suspensión cautelar cuando procede.
+- **Auditoría preventiva.** La mejor defensa es no necesitarla. Auditamos previamente registro de jornada, plan de igualdad, prevención, contratos y convenios para minimizar el riesgo sancionador.
 
 ## Qué puede inspeccionar la ITSS
 

@@ -1,5 +1,5 @@
 {
-  "layout": "templates/bloginner.njk",
+  "layout": "layout/blogpost.njk",
   "author": "Abogado Laboral",
   "tags": ["post"],
   "permalink": "/blog/{{ page.fileSlug }}/",

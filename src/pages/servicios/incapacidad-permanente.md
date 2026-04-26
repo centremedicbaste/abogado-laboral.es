@@ -25,7 +25,15 @@ faqSchema:
 
 En España, el INSS deniega un altísimo porcentaje de las solicitudes iniciales de incapacidad permanente. **No te conformes con la primera resolución**: tienes 30 días para presentar reclamación previa, y otros 30 para demandar al Juzgado de lo Social si te la deniegan de nuevo.
 
-En Abogado Laboral Sevilla somos especialistas en **reclamaciones de incapacidad permanente** en vía administrativa y judicial. Trabajamos a **cuota litis** en la mayoría de casos: si no conseguimos la pensión, no pagas. La primera consulta es gratuita.
+En **Abogado Laboral** somos especialistas en **reclamaciones de incapacidad permanente** en vía administrativa y judicial. Trabajamos a **cuota litis** en la mayoría de casos: si no conseguimos la pensión, no pagas. La primera consulta es gratuita.
+
+## Tu despacho de incapacidades de confianza
+
+Reunimos conocimientos jurídicos avanzados, experiencia demostrada con el INSS y un trato personalizado para defender tu pensión. Estamos comprometidos con el éxito de tu reclamación y con conseguir el grado de incapacidad que realmente te corresponde según tus patologías y limitaciones.
+
+- **Tramitación de pensiones.** Especialistas en la tramitación de pensiones por incapacidad permanente y discapacidad, ofreciendo un servicio personalizado y de garantías desde la solicitud hasta el cobro de atrasos.
+- **Cuota litis sin riesgo.** Trabajamos a éxito en la mayoría de casos: solo pagas un porcentaje de los atrasos y de las primeras mensualidades si conseguimos la pensión. Si no la conseguimos, no pagas nada.
+- **Equipo médico colaborador.** Trabajamos con peritos médicos especialistas en cada patología (traumatólogos, psiquiatras, cardiólogos, oncólogos, neurólogos…) cuyos informes son determinantes frente al equipo de valoración del INSS y ante el juez.
 
 ## Los 4 grados de incapacidad permanente
 
@@ -65,8 +73,10 @@ Cuando, además de la IPA, necesitas la asistencia de una tercera persona para l
 5. **Juicio** con prueba pericial médica especializada.
 6. **Sentencia y ejecución**. Cobro de atrasos desde la fecha del hecho causante.
 
-## Atendemos toda Andalucía
+## Soluciones para trabajadores en toda España
 
-Aunque nuestra sede está en Sevilla, defendemos casos de incapacidad ante los Juzgados de lo Social de toda España con cobertura presencial o telemática (LexNET, videoconsulta y vista virtual donde proceda).
+Nuestro despacho está formado por especialistas en derecho de la Seguridad Social, comprometidos en proporcionar un asesoramiento continuo y especializado que se adapte a la patología, antecedentes médicos y vida laboral de cada cliente. Nos ocupamos rigurosamente de la presentación de la reclamación previa, la demanda judicial y la coordinación pericial médica, garantizando que se aprovechen al máximo los argumentos jurídicos disponibles.
+
+Aunque nuestra sede está en Sevilla, defendemos casos de incapacidad ante los Juzgados de lo Social de **toda España** con cobertura presencial o telemática (LexNET, videoconsulta y vista virtual donde proceda). Atendemos habitualmente reclamaciones al INSS de Madrid, Barcelona, Valencia, Bilbao, Málaga, Zaragoza y todas las direcciones provinciales.
 
 > **¿El INSS te ha denegado la incapacidad?** Tienes 30 días. [Reserva tu consulta gratuita](/contacto/) o escríbenos por [WhatsApp](https://wa.me/{{ global.whatsapp }}).

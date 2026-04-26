@@ -1,0 +1,63 @@
+<!-- testimonios_placeholder.njk -->
+{# IMPORTANTE: Sección de testimonios SIN schema Review.
+   No se añade schema Review hasta tener reseñas reales verificables.
+   Cuando el cliente entregue reseñas reales:
+     1) Rellenar global.testimonios = [{author, location, rating, text, date, source}]
+     2) Activar bloque schema Review en layout/base.njk
+     3) Activar AggregateRating en Organization
+
+   Este placeholder se renderiza solo si global.testimonios tiene datos. #}
+
+{% if global.testimonios and global.testimonios.length %}
+<section class="bg-color ptr-64 pbr-64" aria-label="Lo que dicen nuestros clientes">
+  <div class="container-global">
+    <div class="row text-center pbr-32">
+      <div class="col-xs-12">
+        <p class="text-14-b mb-8" style="color:var(--c-primary);text-transform:uppercase;letter-spacing:.05em;">
+          Lo que dicen nuestros clientes
+        </p>
+        <h2 class="fluid-5-l mb-16">La confianza es nuestro mejor aval</h2>
+        <p class="fluid-9-r" style="color:var(--c-gray);max-width:680px;margin:0 auto;">
+          Reseñas reales de personas a quienes hemos ayudado en procedimientos de incapacidad permanente, despidos, accidentes laborales y reclamaciones a la Seguridad Social en toda España.
+        </p>
+      </div>
+    </div>
+
+    <div class="row" style="gap:24px 0;">
+      {% for t in global.testimonios %}
+      <article class="col-xs-12 col-md-4 mb-24">
+        <blockquote style="height:100%;background:var(--bg-light, #F3F2F0);padding:28px 26px;border-radius:12px;border:1px solid #ECEAE6;display:flex;flex-direction:column;gap:18px;margin:0;">
+          {% if t.rating %}
+          <div aria-label="Valoración: {{ t.rating }} de 5 estrellas" style="display:inline-flex;gap:2px;color:#F5A623;">
+            {% for i in range(0, 5) %}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="{% if i < t.rating %}currentColor{% else %}none{% endif %}" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" stroke-linejoin="round"/></svg>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <p style="font-family:var(--font-display);font-style:italic;font-size:17px;line-height:1.55;color:#2a2a2a;margin:0;">
+            "{{ t.text }}"
+          </p>
+
+          <footer style="margin-top:auto;display:flex;flex-direction:column;gap:2px;font-family:var(--font-sans);font-size:13px;color:var(--c-gray);">
+            <cite style="font-style:normal;font-weight:600;color:var(--c-primary);font-size:14px;">{{ t.author }}</cite>
+            {% if t.location %}<span>{{ t.location }}</span>{% endif %}
+            {% if t.source %}<span style="font-size:12px;opacity:.7;">vía {{ t.source }}</span>{% endif %}
+          </footer>
+        </blockquote>
+      </article>
+      {% endfor %}
+    </div>
+
+    {% if global.aggregateRating %}
+    <div class="row text-center mt-32">
+      <div class="col-xs-12">
+        <p style="font-family:var(--font-sans);font-size:14px;color:var(--c-gray);">
+          ★ {{ global.aggregateRating.value }} / 5 sobre {{ global.aggregateRating.count }} reseñas reales
+        </p>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}

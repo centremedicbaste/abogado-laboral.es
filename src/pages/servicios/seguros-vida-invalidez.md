@@ -14,12 +14,20 @@ tagline: "Pólizas colectivas, mejoras voluntarias de convenio y seguros individ
 
 Muchos convenios colectivos sectoriales y muchas empresas tienen contratado **un seguro colectivo de vida e invalidez** para sus trabajadores. La cuantía típica oscila entre **20.000 € y 100.000 €** según el sector. El problema: una proporción enorme de estas pólizas **nunca se reclama** porque el trabajador o sus familiares no saben de su existencia.
 
-En Abogado Laboral Sevilla revisamos:
+En **Abogado Laboral** revisamos:
 
 - **Convenio colectivo aplicable** (mejoras voluntarias).
 - **Póliza de la empresa** (seguro de vida, invalidez, accidente).
 - **Seguros vinculados a hipotecas o préstamos** que cubren incapacidad o fallecimiento.
 - **Planes de pensiones** y planes de previsión empresariales.
+
+## Por qué confiarnos la reclamación de seguros
+
+Tratamos con sensibilidad y dedicación cada paso del proceso, conscientes del delicado momento emocional que atraviesa la familia tras un fallecimiento o el reconocimiento de una incapacidad. Combinamos rigor jurídico con cercanía humana.
+
+- **Búsqueda exhaustiva.** Investigamos convenios colectivos, pólizas de empresa, seguros hipotecarios y planes de previsión que puedan cubrir el siniestro y que el cliente desconoce.
+- **Reclamación sin coste inicial.** Trabajamos a éxito sobre el capital recuperado: solo pagas si conseguimos cobrar la indemnización del seguro.
+- **Cobertura nacional.** Reclamamos seguros colectivos de cualquier sector y comunidad autónoma. Atención presencial en Sevilla y por videoconsulta en cualquier provincia de España.
 
 ## Casos en los que reclamamos
 

@@ -1,8 +1,8 @@
 ---
 layout: layout/base.njk
 permalink: /gracias/
-metaTitle: "Gracias | Hemos recibido tu mensaje"
-metaDescription: "Gracias por contactar con Abogado Laboral. Te llamamos en menos de 60 minutos en horario laboral."
+metaTitle: "Gracias por contactar | Abogado Laboral"
+metaDescription: "Gracias por contactar con Abogado Laboral. En breve te responderemos o llamaremos por teléfono. Te respondemos en menos de 60 minutos en horario laboral."
 metaRobots: "noindex, follow"
 title: "Gracias"
 ---
@@ -10,14 +10,15 @@ title: "Gracias"
 <section class="bg-color ptr-64 pbr-64 text-center">
   <div class="container" style="max-width:680px;">
     <div class="mb-32" style="font-size:64px;">✅</div>
-    <h1 class="fluid-3-l mb-16">¡Gracias! Hemos recibido tu mensaje</h1>
+    <h1 class="fluid-3-l mb-16">¡Gracias por contactar con nosotros!</h1>
     <p class="fluid-7-r mb-32" style="color:var(--c-gray);">
-      Te llamamos en menos de <strong>60 minutos</strong> en horario laboral. Si nos has escrito fuera de horario, te contactaremos a primera hora del próximo día hábil.
+      En breve te responderemos o te llamaremos por teléfono. Te contactamos en menos de <strong>60 minutos</strong> en horario laboral. Si nos has escrito fuera de horario, te responderemos a primera hora del próximo día hábil.
     </p>
 
     <div class="is-flex content-center" style="gap:16px;flex-wrap:wrap;">
       <a class="btn btn-primary btn--big" href="https://wa.me/{{ global.whatsapp }}?text=Hola%2C%20acabo%20de%20enviar%20el%20formulario%20de%20la%20web" target="_blank" rel="noopener" data-cta="gracias_whatsapp">💬 WhatsApp</a>
       <a class="btn btn-secondary btn--big" href="tel:{{ global.telefono_e164 }}" data-cta="gracias_tel">📞 Llamar ahora</a>
+      <a class="btn btn-secondary btn--big" href="/" data-cta="gracias_home">Volver a la web</a>
     </div>
 
     <hr style="margin:48px 0;border:0;border-top:1px solid #eee;">

@@ -16,6 +16,14 @@ Obtener el reconocimiento de un grado de discapacidad **igual o superior al 33%*
 
 Sin embargo, **el procedimiento administrativo para obtener el grado** es complejo y muchas resoluciones se quedan por debajo del 33% por falta de aportación adecuada de informes médicos.
 
+## Asesoría legal para discapacidad e incapacidad
+
+Elige nuestra firma para una representación jurídica excepcional en casos de discapacidad e incapacidad. Nuestro equipo de especialistas está dedicado a brindar soluciones a medida, centradas en tus derechos y beneficios sociales y fiscales.
+
+- **Tramitación del reconocimiento.** Asesoramiento desde la solicitud al Centro de Valoración y Orientación (CVO) hasta la resolución final, coordinando informes médicos especializados que avalen el grado solicitado.
+- **Reclamación de resoluciones insuficientes.** Recurrimos en vía administrativa y judicial las resoluciones denegatorias o que reconocen un grado por debajo del que correspondería atendiendo a tus patologías reales.
+- **Beneficios fiscales y sociales.** Te orientamos sobre todas las ventajas a las que tendrás acceso una vez obtenido el grado: IRPF, vivienda, empleo público, jubilación anticipada y ayudas autonómicas.
+
 ## Patologías con probable reconocimiento ≥ 33%
 
 - Salud mental: depresión recurrente, trastorno bipolar, esquizofrenia, TEA.

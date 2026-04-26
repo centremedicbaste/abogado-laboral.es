@@ -21,7 +21,15 @@ faqSchema:
 
 La jubilación es la prestación con más impacto económico en la vida de cualquier trabajador. Una **diferencia de 100 €/mes** en la pensión equivale a unos **30.000 € en 25 años de jubilación**. Por eso, antes de firmar la resolución que te llegue del INSS, **conviene revisar el cálculo**.
 
-En Abogado Laboral Sevilla optimizamos jubilaciones, recurrimos resoluciones del INSS y reclamamos diferencias en pensiones ya reconocidas.
+En **Abogado Laboral** optimizamos jubilaciones, recurrimos resoluciones del INSS y reclamamos diferencias en pensiones ya reconocidas en toda España.
+
+## Por qué somos tu abogado para la jubilación
+
+Combinamos experiencia probada con el INSS, conocimiento profundo del Reglamento General de Cotización y atención personalizada a cada vida laboral, por compleja que sea (cotizaciones en el extranjero, regímenes especiales, lagunas de cotización, etc.).
+
+- **Optimización de la pensión.** Antes de jubilarte, revisamos cuál es tu mejor opción y momento, integrando lagunas de cotización, periodos asimilados y bonificaciones por hijos o por familiar a cargo.
+- **Recurso de resoluciones.** Recurrimos las resoluciones denegatorias o con cálculo erróneo del INSS en vía administrativa y judicial, recuperando atrasos desde la fecha del hecho causante.
+- **Cobertura nacional.** Atendemos jubilaciones en cualquier dirección provincial del INSS, presencial en Sevilla o por videoconsulta en cualquier provincia de España.
 
 ## Tipos de jubilación en 2026
 

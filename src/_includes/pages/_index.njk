@@ -6,15 +6,48 @@ colorHeader: has-light-menu
 {% import "macros/_insert.njk" as insert %}
 
 <article class="main-article">
+  {# 1. Hero #}
   {% include "templates/introCta_2.njk" %}
+
+  {# 2. Tira de credenciales / colegios — refuerza EEAT desde el primer scroll #}
+  {% include "templates/credenciales.njk" %}
+
+  {# 3. Bienvenida / sobre el despacho #}
   {% include "templates/introBenefits_2.njk" %}
+
+  {# 4. Cards de servicios con iconos #}
   {% include "templates/servicios.njk" %}
+
+  {# 5. Banner CTA intermedio con teléfono prominente — punto alto de conversión #}
+  {% include "templates/cta_phone_banner.njk" %}
+
+  {# 6. Bloque de texto SEO largo + 4 features (densidad keywords) — replica del competidor #}
+  {% include "templates/seo_block.njk" %}
+
+  {# 7. 3 pilares diferenciadores (CEE, extranet, YouTube) #}
   {% include "templates/content_2.njk" %}
+
+  {# 8. Servicios trabajadores/empresas #}
   {% include "templates/benefits_2.njk" %}
+
+  {# 9. Filosofía Amat victoria curam #}
   {% include "templates/content_5.njk" %}
+
+  {# 10. Equipo (solo si global.team está poblado) #}
   {% include "templates/team_1.njk" %}
+
+  {# 11. Testimonios — solo se renderiza cuando global.testimonios tenga reseñas reales #}
+  {% include "templates/testimonios_placeholder.njk" %}
+
+  {# 12. Box image parallax con CTA #}
   {% include "templates/box_img.njk" %}
+
+  {# 13. FAQ con schema FAQPage #}
   {% include "templates/faqs.njk" %}
+
+  {# 14. Formulario de contacto #}
   {% include "templates/contacta_4.njk" %}
+
+  {# 15. Mapa + dirección física (NAP local SEO) #}
   {% include "templates/contacta_5.njk" %}
 </article>

@@ -1,5 +1,100 @@
 @import "base/_fonts.scss";
 @import "abstract/_setup.scss";
+
+/* ==========================================================================
+   SISTEMA TIPOGRÁFICO GLOBAL — SOLO DOS FAMILIAS
+   --------------------------------------------------------------------------
+   1. SERIF DISPLAY  → "font-display" (Cormorant Garamond)  → titulares
+   2. SANS UI        → "font-regular" (Atlas Grotesk)       → body, UI
+   ========================================================================== */
+:root {
+  --font-display: #{$font-family-display};
+  --font-sans:    #{$font-family-sans};
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  letter-spacing: -0.005em;
+  color: $c-primary;
+}
+
+h1, h2, h3, h4, h5, h6,
+.fluid-1-l, .fluid-1-r, .fluid-1-b,
+.fluid-2-l, .fluid-2-r, .fluid-2-b,
+.fluid-3-l, .fluid-3-r, .fluid-3-b,
+.fluid-4-l, .fluid-4-r, .fluid-4-b,
+.fluid-5-l, .fluid-5-r, .fluid-5-b {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+h1, .fluid-1-l, .fluid-1-r, .fluid-1-b,
+.fluid-2-l, .fluid-2-r, .fluid-2-b,
+.fluid-3-l, .fluid-3-r, .fluid-3-b {
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+/* "fluid-7"+ son textos pequeños — sans */
+.fluid-6-l, .fluid-6-r, .fluid-6-b,
+.fluid-7-l, .fluid-7-r, .fluid-7-b,
+.fluid-8-l, .fluid-8-r, .fluid-8-b,
+.fluid-9-l, .fluid-9-r, .fluid-9-b,
+.text-12-r, .text-12-b,
+.text-14-r, .text-14-b,
+.text-16-r, .text-16-b,
+.text-18-r, .text-18-b {
+  font-family: var(--font-sans);
+}
+
+/* Pesos: -b suffix → bold sans, mantener heading family solo en displays */
+.fluid-7-b, .fluid-8-b, .fluid-9-b,
+.text-14-b, .text-16-b, .text-18-b {
+  font-weight: 600;
+}
+
+/* Eyebrow / pretítulos */
+.eyebrow,
+.pretitle,
+.tag-info,
+.link-line {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+}
+
+p, li, address, label, input, textarea, button, select {
+  font-family: var(--font-sans);
+}
+
+/* Botones siempre sans */
+.btn, .btn-primary, .btn-secondary,
+button, [type="button"], [type="submit"] {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.005em;
+}
+
 $space-left: calc(((100vw - 1600px + ($padding-global * 4)) / 2));
 $width-left: calc((1280px + (100vw - 1600px) / 2));
 @mixin fluid-text($min-vw, $max-vw, $min-font-size, $max-font-size, $fluid-line-height) {
@@ -696,7 +791,9 @@ a {
   }
 }
 .script {
-  font-family: 'Caveat', cursive;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
 }
 .svg-star,
 .google-logo {
@@ -975,4 +1072,323 @@ margin-top: -100px;
   width: 100px;
   height: 100px;
   border: 1px solid red;
+}
+
+
+/* ==========================================================================
+   POLISH LAYER — refinamientos generales del sistema
+   --------------------------------------------------------------------------
+   Aplica al final para sobrescribir defectos heredados de holygrailcss
+   manteniendo las DOS familias y mejorando el conjunto.
+   ========================================================================== */
+
+/* Selección texto */
+::selection {
+  background: var(--c-primary, #1A1A1A);
+  color: #fff;
+}
+
+/* Foco accesible homogéneo */
+*:focus-visible {
+  outline: 2px solid var(--c-primary, #1A1A1A);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── HEADER refinado ─── */
+.site-header {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: box-shadow .25s ease, background-color .25s ease;
+}
+.scrolled .site-header,
+body.scrolled .site-header {
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.05);
+}
+.site-header__menu a {
+  position: relative;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color .2s ease;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform .3s cubic-bezier(.22, 1, .36, 1);
+  }
+  &:hover::after,
+  &[aria-current="page"]::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+/* ─── BOTONES ─── */
+.btn-primary,
+.btn-secondary,
+.btn--big {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-transform: none;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn-primary {
+  background: var(--c-primary, #1A1A1A);
+  color: #fff;
+  border: 1px solid var(--c-primary, #1A1A1A);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+    color: #fff;
+    opacity: 1;
+  }
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--c-primary, #1A1A1A);
+  border: 1px solid var(--c-primary, #1A1A1A);
+  &:hover {
+    background: var(--c-primary, #1A1A1A);
+    color: #fff;
+    transform: translateY(-1px);
+    opacity: 1;
+  }
+}
+
+/* ─── HERO ─── */
+.herohome {
+  position: relative;
+  isolation: isolate;
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--c-accent);
+    margin-bottom: 16px;
+  }
+  .hero-trust {
+    li {
+      font-size: 14px;
+      color: var(--c-gray, #555);
+      letter-spacing: 0.005em;
+    }
+  }
+}
+
+/* ─── CARDS DE SERVICIO ─── */
+.servicio-card {
+  position: relative;
+  display: block;
+  height: 100%;
+  padding: 28px 24px;
+  background: #fff;
+  border: 1px solid #ECEAE6;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--c-primary, #1A1A1A);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s cubic-bezier(.22,1,.36,1);
+  }
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(20px, 1.6vw, 24px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.12);
+    &::before { transform: scaleX(1); }
+  }
+}
+
+/* ─── SECCIONES con mejor jerarquía ─── */
+section {
+  position: relative;
+}
+
+/* Eyebrow en secciones */
+[class*="ptr-"] .text-14-b[style*="uppercase"],
+section .eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+/* Refinar bg-light para que sea cremoso, no plano */
+.bg-light {
+  background: linear-gradient(180deg, #FAF8F5 0%, #F3F0EB 100%);
+}
+
+.bg-dark {
+  background: var(--bg-dark, #1F2126);
+  color: var(--c-bg-dark, #F7F6F5);
+  h1, h2, h3, h4, h5, h6 { color: #fff; }
+  p, li, address { color: rgba(255,255,255,0.8); }
+}
+
+/* ─── ENLACES de body ─── */
+.innermarkdown a:not(.anchor-link),
+article a:not(.btn):not(.servicio-card):not(.site-header__cta):not(.footer-link):not(.bubble-whatsapp) {
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  transition: color .2s ease, text-decoration-color .2s ease;
+}
+
+/* ─── FOOTER refinado ─── */
+.site-footer {
+  background: var(--bg-dark, #1F2126);
+  color: rgba(255,255,255,0.78);
+  .fluid-7-b {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin-bottom: 18px;
+  }
+  ul.list-clear li { margin: 0 0 10px; }
+  .footer-link {
+    font-size: 14px;
+    transition: color .15s ease, padding-left .2s ease;
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+      padding-left: 4px;
+    }
+  }
+  address {
+    font-style: normal;
+    line-height: 1.7;
+  }
+  hr { opacity: 0.15; }
+}
+
+/* ─── FAQ Accordion ─── */
+details.accordion {
+  background: #fff;
+  border: 1px solid #ECEAE6;
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin-bottom: 12px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+  &[open] {
+    border-color: rgba(0,0,0,0.18);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  }
+  summary {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.35;
+    color: var(--c-primary, #1A1A1A);
+    letter-spacing: -0.005em;
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    &::-webkit-details-marker { display: none; }
+  }
+}
+
+/* ─── BLOG ─── */
+.innermarkdown {
+  font-family: var(--font-sans);
+  h2, h3, h4 { font-family: var(--font-display); font-weight: 500; }
+  blockquote { font-family: var(--font-display); font-weight: 400; }
+}
+
+/* ─── BUBBLE WHATSAPP elegante ─── */
+.bubble-whatsapp {
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 10px 24px rgba(37, 211, 102, 0.35);
+  transition: transform .25s ease, box-shadow .25s ease;
+  &:hover {
+    transform: scale(1.06);
+    box-shadow: 0 14px 30px rgba(37, 211, 102, 0.45);
+  }
+}
+
+/* ─── FORMULARIOS ─── */
+input.input,
+textarea.textarea,
+select {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  padding: 14px 16px;
+  border: 1px solid #DCDCDC;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--c-primary);
+  transition: border-color .15s ease, box-shadow .15s ease;
+  &:focus {
+    outline: none;
+    border-color: var(--c-primary, #1A1A1A);
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
+  }
+}
+
+/* Eliminar override muy agresivo del SVG: solo aplicar a iconos decorativos */
+svg.is-decorative,
+.svg-deco { fill: transparent !important; }
+
+/* ─── Espaciados y aire entre secciones ─── */
+.ptr-200 { padding-top: clamp(96px, 14vw, 200px); }
+.pbr-200 { padding-bottom: clamp(96px, 14vw, 200px); }
+
+/* ─── Imágenes con mejor radius ─── */
+.rad-24 { border-radius: 16px; }
+
+/* ─── Container global ─── */
+.container-global {
+  max-width: var(--container-max, 1280px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 4vw, 64px);
+  padding-right: clamp(20px, 4vw, 64px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Quitar el azul-grisaceo crudo del .background gradient cuando no hay JS */
+.background {
+  --client_x: 0;
+  --client_y: 0;
 }

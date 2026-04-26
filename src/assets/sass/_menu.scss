@@ -101,3 +101,139 @@ a.logo {
     background-size: 100% 1px;
   }
 }
+
+/* Header/menu robusto para plantilla actual */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #ececec;
+}
+
+.site-header__inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.site-header__logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex: 0 0 auto;
+}
+
+.site-header__logo img {
+  width: auto;
+  height: 44px;
+}
+
+.site-header__nav {
+  display: none;
+  flex: 1 1 auto;
+}
+
+.site-header__menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+}
+
+.site-header__menu li {
+  margin: 0;
+}
+
+.site-header__menu a {
+  color: $c-primary;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.site-header__actions {
+  display: none;
+  align-items: center;
+  gap: 14px;
+  flex: 0 0 auto;
+}
+
+.site-header__tel {
+  color: $c-primary;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.site-header__toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px;
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  color: $c-primary;
+  cursor: pointer;
+}
+
+.site-header__toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+}
+
+.menu-mobile-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  background: #fff;
+  padding: 84px 24px 32px;
+  overflow-y: auto;
+}
+
+.menu-mobile-drawer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu-mobile-drawer li {
+  margin-bottom: 16px;
+}
+
+.menu-mobile-drawer a {
+  color: $c-primary;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .site-header__nav {
+    display: flex;
+  }
+  .site-header__toggle {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-header__actions {
+    display: inline-flex;
+  }
+}

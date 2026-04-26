@@ -6,21 +6,30 @@ layout: layout/base.njk
 {% set noheroimage = true %}
 {% include "templates/bloghero.njk" %}
 
-<section class="front-section bg-light pbr-64">
+<section class="front-section bg-light" style="padding-top:clamp(48px,7vw,96px);padding-bottom:clamp(64px,9vw,120px);">
   <div class="container-global mx-auto">
     {% if collections.post and collections.post.length %}
-    <ul role="list" class="list-clear" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;">
+    <ul role="list" class="blog-grid">
       {% for post in collections.post | reverse %}
       <li>
-        <a href="{{ post.url }}" style="display:block;height:100%;background:#fff;border:1px solid #eee;border-radius:8px;text-decoration:none;color:inherit;overflow:hidden;">
+        <a href="{{ post.url }}" class="blog-card">
           {% if post.data.image %}
-          <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt or post.data.title }}" loading="lazy" decoding="async" width="600" height="338" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;">
+          <div class="blog-card__media">
+            <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt or post.data.title }}" loading="lazy" decoding="async" width="600" height="338">
+          </div>
           {% endif %}
-          <div style="padding:20px;">
-            {% if post.data.tags %}<p class="text-12-r mb-8" style="color:var(--c-primary);text-transform:uppercase;">{{ post.data.tags[0] }}</p>{% endif %}
-            <h2 class="fluid-9-b mb-8">{{ post.data.title }}</h2>
-            {% if post.data.subtitle %}<p class="text-14-r mb-8" style="color:var(--c-gray);">{{ post.data.subtitle }}</p>{% endif %}
-            {% if post.data.fecha %}<p class="text-12-r" style="color:var(--c-gray);">📅 {{ post.data.fecha }}</p>{% endif %}
+          <div class="blog-card__body">
+            {% if post.data.tags and post.data.tags.length > 1 %}
+            <span class="blog-card__tag">{{ post.data.tags[1] | capitalize }}</span>
+            {% endif %}
+            <h2 class="blog-card__title">{{ post.data.title }}</h2>
+            {% if post.data.subtitle %}<p class="blog-card__excerpt">{{ post.data.subtitle }}</p>{% endif %}
+            <div class="blog-card__meta">
+              {% if post.data.fecha %}<span>{{ post.data.fecha }}</span>{% endif %}
+              <span class="blog-card__arrow">Leer artículo
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
           </div>
         </a>
       </li>
@@ -31,3 +40,52 @@ layout: layout/base.njk
     {% endif %}
   </div>
 </section>
+
+<style>
+.blog-grid{
+  list-style:none;padding:0;margin:0;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:32px;
+}
+.blog-card{
+  display:flex;flex-direction:column;height:100%;
+  background:#fff;border:1px solid #ECEAE6;border-radius:14px;
+  text-decoration:none;color:inherit;overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.blog-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 18px 40px rgba(0,0,0,.08);
+  border-color:rgba(0,0,0,.12);
+}
+.blog-card__media{aspect-ratio:16/9;overflow:hidden;background:#f3f0eb;}
+.blog-card__media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.22,1,.36,1);}
+.blog-card:hover .blog-card__media img{transform:scale(1.04);}
+.blog-card__body{padding:24px 24px 22px;display:flex;flex-direction:column;flex:1;}
+.blog-card__tag{
+  display:inline-block;align-self:flex-start;
+  font-family:var(--font-sans);font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.14em;color:var(--c-primary);
+  background:#FAF8F5;padding:5px 10px;border-radius:4px;margin-bottom:14px;
+}
+.blog-card__title{
+  font-family:var(--font-display);font-weight:500;
+  font-size:clamp(20px,1.6vw,24px);line-height:1.2;letter-spacing:-0.012em;
+  color:var(--c-primary);margin:0 0 10px;
+}
+.blog-card__excerpt{
+  font-family:var(--font-sans);font-size:15px;line-height:1.55;color:#5a5a5a;
+  margin:0 0 18px;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+.blog-card__meta{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin-top:auto;padding-top:14px;border-top:1px solid #ECEAE6;
+  font-family:var(--font-sans);font-size:13px;color:#7a7a7a;
+}
+.blog-card__arrow{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--c-primary);font-weight:600;
+}
+.blog-card:hover .blog-card__arrow svg{transform:translateX(3px);}
+.blog-card__arrow svg{transition:transform .2s ease;}
+</style>

@@ -27,7 +27,15 @@ La mayoría de trabajadores que sufren un accidente laboral cobran únicamente l
 2. **Indemnización civil por daños y perjuicios**, calculada con el baremo de tráfico (decenas de miles de euros en accidentes con secuelas).
 3. **Querella penal** si hay imprudencia grave o muerte.
 
-En Abogado Laboral Sevilla somos especialistas en accidentes laborales. **Trabajamos a éxito**: si no conseguimos indemnización o recargo, no pagas nada.
+En **Abogado Laboral** somos especialistas en accidentes laborales. **Trabajamos a éxito**: si no conseguimos indemnización o recargo, no pagas nada.
+
+## Tres motivos para confiarnos tu accidente laboral
+
+Defendemos los derechos de la persona accidentada y de su familia con todas las garantías procesales. Combinamos conocimiento jurídico, experiencia probada con mutuas e INSS y un trato cercano para hacerte el procedimiento lo más sencillo posible.
+
+- **Maximización de la indemnización.** Reclamamos las tres vías compatibles: recargo de prestaciones, indemnización civil por daños y perjuicios, y mejoras voluntarias del convenio. Sumadas pueden alcanzar cantidades muy relevantes.
+- **Coordinación pericial.** Trabajamos con peritos médicos y técnicos en prevención de riesgos laborales que acreditan tanto las secuelas como la falta de medidas de seguridad de la empresa.
+- **Cuota litis sin riesgo.** Solo pagas si conseguimos indemnización o recargo. Lo concretamos en la hoja de encargo tras la primera consulta gratuita.
 
 ## Qué se considera accidente laboral
 

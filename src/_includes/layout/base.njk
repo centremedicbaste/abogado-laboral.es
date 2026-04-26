@@ -25,7 +25,7 @@
     <link rel="icon" type="image/x-icon" href="/assets/static/favicons/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/static/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/static/favicons/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/static/favicons/apple-icon-180x180.png" />
+    <link rel="apple-touch-icon" href="/assets/static/favicons/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="google-site-verification" content="{{ global.search_console }}" />
 
@@ -62,11 +62,378 @@
         --bg-primary:{{ global.bg_primary }};
         --btn-radius:{{ global.btn_radius }};
         --padding-global:{{ global.padding_global }};
+        --container-max:{{ global.container_max or "1280px" }};
+        --container-padding:{{ global.container_padding or "24px" }};
+        /* Sistema de DOS TIPOGRAFÍAS */
+        --font-display: "font-display", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+        --font-sans: "font-regular", "font-sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
       }
+      /* Reset defensivo */
+      html,body{margin:0;padding:0;background:#fff;color:var(--c-primary,#1a1a1a);font-family:var(--font-sans);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;}
+      img{max-width:100%;height:auto;display:block;}
+      a{color:var(--c-primary);}
+
+      /* Accesibilidad */
       .skip-link{position:absolute;left:-9999px;top:0;padding:.75rem 1rem;background:var(--c-primary);color:#fff;z-index:9999;text-decoration:none;border-radius:0 0 6px 0}
       .skip-link:focus{left:0}
       *:focus-visible{outline:3px solid var(--c-primary);outline-offset:2px}
       .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+      /* Botones */
+      .btn-primary,.btn-secondary{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border-radius:var(--btn-radius,4px);font-weight:600;letter-spacing:0.01em;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease,color .2s ease;font-family:var(--font-sans);font-size:15px;line-height:1;}
+      .btn-primary{background:var(--c-primary,#1A1A1A);color:#fff;border-color:var(--c-primary,#1A1A1A);}
+      .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,0,0,.16);color:#fff;}
+      .btn-secondary{background:transparent;color:var(--c-primary,#1A1A1A);border-color:var(--c-primary,#1A1A1A);}
+      .btn-secondary:hover{background:var(--c-primary,#1A1A1A);color:#fff;transform:translateY(-1px);}
+      .btn--big{padding:18px 32px;font-size:16px;}
+      .btn--small{padding:10px 20px;font-size:14px;}
+      .btn--full{width:100%;}
+
+      /* Cards de servicio */
+      .servicio-card{position:relative;display:block;height:100%;padding:28px 24px;background:#fff;border:1px solid #ECEAE6;border-radius:10px;text-decoration:none;color:inherit;transition:transform .25s,box-shadow .25s,border-color .25s;overflow:hidden;}
+      .servicio-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--c-primary,#1A1A1A);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.22,1,.36,1);}
+      .servicio-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.08);border-color:rgba(0,0,0,.12);}
+      .servicio-card:hover::before{transform:scaleX(1);}
+      .servicio-card h3{font-family:var(--font-display);font-weight:500;font-size:clamp(20px,1.6vw,24px);line-height:1.2;letter-spacing:-0.01em;margin-bottom:8px;}
+
+      /* Footer */
+      .footer-link{color:rgba(255,255,255,.85);text-decoration:none;}
+      .footer-link:hover{color:#fff;text-decoration:underline;}
+      .site-footer{background:var(--bg-dark,#1F2126);color:#fff;}
+      .site-footer .fluid-7-b,.site-footer h1,.site-footer h2,.site-footer h3{color:#fff;}
+      .site-footer address a,.site-footer ul a{color:rgba(255,255,255,.85);}
+
+      /* Header — sticky con blur sutil */
+      .site-header{background:rgba(255,255,255,.92);backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid rgba(0,0,0,.06);position:sticky;top:0;z-index:50;transition:box-shadow .25s ease;}
+      .site-header .container-global.site-header__bar{display:flex;align-items:center;gap:24px;padding-top:14px;padding-bottom:14px;}
+      .site-header__logo{flex:0 0 auto;display:inline-flex;align-items:center;text-decoration:none;}
+      .site-header__logo img{display:block;height:44px;width:auto;}
+      .site-header__nav{flex:1 1 auto;display:none;}
+      .site-header__menu{display:flex;align-items:center;justify-content:flex-end;gap:32px;list-style:none;margin:0;padding:0;}
+      .site-header__menu li{margin:0;}
+      .site-header__menu a{position:relative;color:var(--c-primary,#1A1A1A);text-decoration:none;font-family:var(--font-sans);font-weight:500;font-size:15px;letter-spacing:.005em;white-space:nowrap;transition:color .2s ease;}
+      .site-header__menu a::after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right center;transition:transform .3s cubic-bezier(.22,1,.36,1);}
+      .site-header__menu a:hover::after,.site-header__menu a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left center;}
+      .site-header__actions{display:none;align-items:center;gap:20px;flex:0 0 auto;margin-left:auto;}
+      .site-header__tel{color:var(--c-primary,#1A1A1A);text-decoration:none;font-size:14px;display:inline-flex;align-items:center;font-weight:500;transition:color .2s ease;}
+      .site-header__tel strong{color:var(--c-primary,#1A1A1A);font-weight:600;letter-spacing:.005em;}
+      .site-header__tel:hover,.site-header__tel:hover strong{color:var(--c-accent,#7e7e7e);}
+
+      /* CTA del header — alta especificidad para vencer reglas legacy
+         tipo .has-light a{color:#fff} o body.scrolled .btn-primary{...} */
+      header.site-header a.site-header__cta,
+      header.site-header a.site-header__cta:link,
+      header.site-header a.site-header__cta:visited,
+      header.site-header a.site-header__cta:hover,
+      header.site-header a.site-header__cta:active,
+      .menu-mobile-drawer a.site-header__cta{
+        background-color: var(--c-primary, #1A1A1A);
+        background-image: none;
+        color: #ffffff;
+        border: 1px solid var(--c-primary, #1A1A1A);
+        padding: 9px 18px;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+        border-radius: var(--btn-radius, 4px);
+        display: inline-flex;
+        align-items: center;
+        font-size: 14px;
+        line-height: 1;
+      }
+      header.site-header a.site-header__cta:hover{
+        opacity: .92;
+        transform: translateY(-1px);
+      }
+      .menu-mobile-drawer a.site-header__cta{display:flex;justify-content:center;width:100%;padding:14px 20px;font-size:16px;}
+
+      .site-header__toggle{display:none;flex-direction:column;gap:5px;background:transparent;border:0;padding:8px;cursor:pointer;color:var(--c-primary,#1A1A1A);margin-left:auto;}
+      .site-header__toggle span{display:block;width:24px;height:2px;background:currentColor;transition:transform .2s ease;}
+
+      /* MOBILE (<768px) */
+      @media (max-width: 767px){
+        .site-header__nav{display:none;}
+        .site-header__actions{display:none;}
+        .site-header__toggle{display:inline-flex;}
+        .site-header__logo img{height:36px;}
+      }
+      /* TABLET (768-991px) */
+      @media (min-width: 768px) and (max-width: 991px){
+        .site-header__nav{display:flex;}
+        .site-header__actions{display:none;}
+        .site-header__toggle{display:none;}
+      }
+      /* DESKTOP (≥992px) */
+      @media (min-width: 992px){
+        .site-header__nav{display:flex;}
+        .site-header__actions{display:inline-flex;}
+        .site-header__toggle{display:none;}
+      }
+
+      /* Drawer mobile — oculto SIEMPRE salvo cuando body tenga .menu-open */
+      .menu-mobile-drawer{display:none;position:fixed;inset:0;background:#fff;padding:80px 24px 32px;z-index:100;overflow-y:auto;}
+      .menu-mobile-drawer[hidden]{display:none !important;}
+      body.menu-open .menu-mobile-drawer{display:block;}
+      .menu-mobile-drawer ul{margin:0;padding:0;list-style:none;}
+      .menu-mobile-drawer ul li{margin-bottom:16px;}
+      .menu-mobile-drawer ul li a{font-size:18px;text-decoration:none;color:var(--c-primary,#1A1A1A);}
+      body.menu-open{overflow:hidden;}
+      /* Botón X cuando el menú está abierto */
+      body.menu-open .site-header__toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+      body.menu-open .site-header__toggle span:nth-child(2){opacity:0;}
+      body.menu-open .site-header__toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+      /* Bubble whatsapp */
+      .bubble-whatsapp{position:fixed;right:16px;bottom:16px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.18);z-index:50;text-decoration:none;}
+      .bubble-whatsapp svg{width:32px;height:32px;fill:#fff;}
+      .bubble-whatsapp:hover{transform:scale(1.05);}
+
+      /* FAQ accordion */
+      details.accordion{background:#fff;border:1px solid #ECEAE6;border-radius:8px;padding:18px 22px;margin-bottom:12px;transition:border-color .2s ease,box-shadow .2s ease;}
+      details.accordion[open]{border-color:rgba(0,0,0,.18);box-shadow:0 6px 18px rgba(0,0,0,.05);}
+      details.accordion summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:var(--font-display);font-weight:500;font-size:clamp(17px,1.4vw,20px);line-height:1.35;letter-spacing:-0.005em;color:var(--c-primary,#1A1A1A);}
+      details.accordion summary::-webkit-details-marker{display:none;}
+      details.accordion summary svg{transition:transform .2s ease;}
+      details.accordion[open] summary svg{transform:rotate(180deg);}
+      details.accordion p{margin-top:14px;color:var(--c-gray,#555);}
+
+      /* Containers solo como fallback si el style.css no carga. NO sobrescribe el .container-global del SCSS.
+         Si quieres cambiar el ancho global, edita el _includes del SCSS donde definas .container-global. */
+      .container,.container-2,.container-global,.container-global,.container-global-3,.container-global-4{box-sizing:border-box;}
+      .container:not([style*="max-width"]),
+      .container-global:not([style*="max-width"]){max-width:var(--container-max,1280px);margin-left:auto;margin-right:auto;padding-left:var(--container-padding,24px);padding-right:var(--container-padding,24px);}
+      .container-fluid{width:100%;padding:0;}
+
+      .row{display:flex;flex-wrap:wrap;gap:0;}
+      [class*="col-"]{padding:0 12px;box-sizing:border-box;}
+      .col-xs-12{flex:0 0 100%;max-width:100%;}
+      @media(min-width:768px){
+        .col-md-3{flex:0 0 25%;max-width:25%;}
+        .col-md-4{flex:0 0 33.33%;max-width:33.33%;}
+        .col-md-5{flex:0 0 41.67%;max-width:41.67%;}
+        .col-md-6{flex:0 0 50%;max-width:50%;}
+        .col-md-7{flex:0 0 58.33%;max-width:58.33%;}
+        .col-md-8{flex:0 0 66.67%;max-width:66.67%;}
+        .col-md-9{flex:0 0 75%;max-width:75%;}
+        .col-sm-3{flex:0 0 25%;max-width:25%;}
+        .col-sm-4{flex:0 0 33.33%;max-width:33.33%;}
+        .col-sm-6{flex:0 0 50%;max-width:50%;}
+        .col-lg-5{flex:0 0 41.67%;max-width:41.67%;}
+        .col-lg-6{flex:0 0 50%;max-width:50%;}
+      }
+
+      /* Spacing fallback */
+      .pt-16{padding-top:16px;}.pt-32{padding-top:32px;}.pt-64{padding-top:64px;}
+      .pb-16{padding-bottom:16px;}.pb-24{padding-bottom:24px;}.pb-32{padding-bottom:32px;}.pb-64{padding-bottom:64px;}
+      .ptr-64{padding-top:64px;}.pbr-64{padding-bottom:64px;}.pbr-32{padding-bottom:32px;}.ptr-32{padding-top:32px;}
+      .mb-8{margin-bottom:8px;}.mb-12{margin-bottom:12px;}.mb-16{margin-bottom:16px;}.mb-24{margin-bottom:24px;}.mb-32{margin-bottom:32px;}.mb-48{margin-bottom:48px;}.mb-64{margin-bottom:64px;}
+      .mt-12{margin-top:12px;}.mt-16{margin-top:16px;}.mt-24{margin-top:24px;}.mt-32{margin-top:32px;}.mt-48{margin-top:48px;}
+      .mr-16{margin-right:16px;}
+      .text-center{text-align:center;}.text-right{text-align:right;}
+      .is-flex{display:flex;}
+      .align-middle{align-items:center;}.content-center{justify-content:center;}.content-end{justify-content:flex-end;}
+      .w-100{width:100%;}.mx-auto{margin-left:auto;margin-right:auto;}
+      .list-clear{list-style:none;padding:0;margin:0;}
+      .hidden-xs{display:none;}
+      @media(min-width:768px){.hidden-xs{display:initial;}.hidden-sm{display:none;}.hidden-md,.hidden-lg{display:initial;}}
+      @media(min-width:992px){.hidden-md{display:none;}}
+
+      /* Backgrounds */
+      .bg-color{background:#fff;}
+      .bg-light{background:var(--bg-light,#F3F2F0);}
+      .bg-dark{background:var(--bg-dark,#1F2126);color:var(--c-bg-dark,#fff);}
+      .bg-white{background:#fff;}
+      .bg-hero{background:var(--bg-light,#F3F2F0);}
+
+      /* Tipografía — DOS familias: serif display (titulares) + sans (UI/body) */
+      h1,h2,h3,.fluid-1-l,.fluid-1-r,.fluid-1-b,.fluid-2-l,.fluid-2-r,.fluid-2-b,.fluid-3-l,.fluid-3-r,.fluid-3-b,.fluid-4-l,.fluid-4-r,.fluid-4-b,.fluid-5-l,.fluid-5-r,.fluid-5-b{
+        font-family:var(--font-display);font-weight:500;letter-spacing:-0.02em;line-height:1.1;color:var(--c-primary,#1A1A1A);margin:0 0 16px;
+      }
+      h4,h5,h6{font-family:var(--font-sans);font-weight:600;letter-spacing:0;line-height:1.3;color:var(--c-primary,#1A1A1A);margin:0 0 12px;}
+      h1,.fluid-1-l,.fluid-1-r,.fluid-1-b,.fluid-2-l,.fluid-2-r,.fluid-2-b,.fluid-3-l,.fluid-3-r{font-size:clamp(34px,5vw,64px);font-weight:500;letter-spacing:-0.025em;line-height:1.04;}
+      h2,.fluid-4-l,.fluid-4-r,.fluid-4-b,.fluid-5-l,.fluid-5-r,.fluid-5-b{font-size:clamp(26px,3.4vw,44px);font-weight:500;letter-spacing:-0.018em;line-height:1.1;}
+      h3,.fluid-6-l,.fluid-6-r,.fluid-6-b{font-size:clamp(22px,2.4vw,30px);font-weight:500;letter-spacing:-0.012em;line-height:1.2;}
+      .fluid-7-r,.fluid-7-b{font-family:var(--font-sans);font-size:clamp(18px,1.7vw,22px);line-height:1.45;}
+      .fluid-8-r,.fluid-8-b{font-family:var(--font-sans);font-size:clamp(16px,1.4vw,19px);line-height:1.55;}
+      .fluid-9-r,.fluid-9-b{font-family:var(--font-sans);font-size:16px;line-height:1.65;}
+      .text-12-r,.text-12-b{font-family:var(--font-sans);font-size:12px;line-height:1.5;}
+      .text-14-r,.text-14-b{font-family:var(--font-sans);font-size:14px;line-height:1.55;}
+      .text-16-r,.text-18-r{font-family:var(--font-sans);font-size:16px;line-height:1.6;}
+      .fluid-9-b,.text-14-b,.fluid-7-b,.fluid-8-b,.text-16-b{font-weight:600;}
+      p{font-family:var(--font-sans);margin:0 0 14px;line-height:1.65;}
+
+      /* Form */
+      input.input,textarea.textarea{width:100%;padding:12px 16px;border:1px solid #ddd;border-radius:6px;font-size:16px;font-family:inherit;background:#fff;box-sizing:border-box;}
+      input.input:focus,textarea.textarea:focus{outline:none;border-color:var(--c-primary,#1A1A1A);box-shadow:0 0 0 3px rgba(0,0,0,.1);}
+      textarea.textarea{min-height:120px;resize:vertical;}
+
+      body.home main{padding-top:0;}
+      .cta-sticky{position:sticky;top:32px;}
+
+      nav[aria-label="Migas de pan"]{margin-bottom:24px;color:var(--c-gray,#555);}
+      nav[aria-label="Migas de pan"] a{color:var(--c-gray,#555);text-decoration:none;}
+      nav[aria-label="Migas de pan"] a:hover{color:var(--c-primary,#1A1A1A);}
+
+      .link-arrow{text-decoration:none;}
+      .link-arrow:hover{text-decoration:underline;}
+
+      /* ============================================
+         BLOG — tipografía editorial para .innermarkdown
+         ============================================ */
+      .innermarkdown{
+        font-family: var(--font-sans);
+        font-size: 17px;
+        line-height: 1.75;
+        color: #2a2a2a;
+        text-align: left;
+      }
+      /* Solo aplicar max-width centrado cuando NO está dentro del grid editorial */
+      .innermarkdown:not(.post-body){max-width:720px;margin:0 auto;}
+      .innermarkdown > * + *{margin-top: 1.1em;}
+      .innermarkdown p{margin: 0 0 1.1em; line-height: 1.8; font-family: var(--font-sans);}
+      .innermarkdown h2{
+        font-family: var(--font-display);
+        font-size: clamp(28px, 2.8vw, 36px);
+        font-weight: 500;
+        line-height: 1.15;
+        margin: 2.2em 0 .6em;
+        color: var(--c-primary, #1A1A1A);
+        letter-spacing: -.02em;
+      }
+      .innermarkdown h3{
+        font-family: var(--font-display);
+        font-size: clamp(22px, 2vw, 26px);
+        font-weight: 500;
+        line-height: 1.25;
+        margin: 1.8em 0 .5em;
+        color: var(--c-primary, #1A1A1A);
+        letter-spacing: -.012em;
+      }
+      .innermarkdown h4{
+        font-family: var(--font-sans);
+        font-size: 18px;
+        font-weight: 700;
+        margin: 1.6em 0 .4em;
+      }
+      .innermarkdown ul, .innermarkdown ol{
+        padding-left: 1.4em;
+        margin: 0 0 1.2em;
+      }
+      .innermarkdown li{
+        margin-bottom: .5em;
+        line-height: 1.7;
+      }
+      .innermarkdown li::marker{color: var(--c-accent, #7e7e7e);}
+      .innermarkdown strong{color: var(--c-primary, #1A1A1A); font-weight: 700;}
+      .innermarkdown a:not(.anchor-link){
+        color: var(--c-primary, #1A1A1A);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 1px;
+      }
+      .innermarkdown a:not(.anchor-link):hover{color: var(--c-accent, #7e7e7e);}
+      /* anchor-link generado por markdown-it-anchor: ocultar # decorativo */
+      .innermarkdown .anchor-link{
+        opacity: 0;
+        margin-right: .35em;
+        text-decoration: none;
+        color: var(--c-gray, #999);
+        font-weight: 400;
+        transition: opacity .15s;
+      }
+      .innermarkdown h2:hover .anchor-link,
+      .innermarkdown h3:hover .anchor-link,
+      .innermarkdown h4:hover .anchor-link{opacity: .6;}
+      /* Blockquote — usa serif elegante */
+      .innermarkdown blockquote{
+        margin: 2em 0;
+        padding: 1.4em 1.8em;
+        border-left: 3px solid var(--c-primary, #1A1A1A);
+        background: #FAF8F5;
+        border-radius: 0 8px 8px 0;
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 1.08em;
+        line-height: 1.6;
+        color: #333;
+      }
+      .innermarkdown blockquote p{margin: 0; font-family: var(--font-display);}
+      .innermarkdown blockquote a{color: var(--c-primary, #1A1A1A); font-weight: 600;}
+      /* Tablas de plazos, indemnizaciones, etc. */
+      .innermarkdown table{
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2em 0;
+        font-size: 15px;
+        background: #fff;
+        border: 1px solid #e6e6e6;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .innermarkdown thead th{
+        background: var(--c-primary, #1A1A1A);
+        color: #fff;
+        text-align: left;
+        padding: 12px 14px;
+        font-weight: 600;
+      }
+      .innermarkdown tbody td{
+        padding: 11px 14px;
+        border-top: 1px solid #eee;
+        vertical-align: top;
+      }
+      .innermarkdown tbody tr:nth-child(even){background: #fafafa;}
+      /* Code */
+      .innermarkdown code{
+        background: #f3f1ef;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: .92em;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      .innermarkdown pre{
+        background: #1a1a1a;
+        color: #e6e6e6;
+        padding: 16px 18px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 14px;
+      }
+      .innermarkdown pre code{background: none; padding: 0; color: inherit;}
+      .innermarkdown img{
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 1.5em 0;
+      }
+      .innermarkdown hr{
+        border: 0;
+        border-top: 1px solid #e6e6e6;
+        margin: 2.5em 0;
+      }
+
+      /* TOC sidebar */
+      .post-aside{position: sticky; top: 96px;}
+      .post-aside-toc{background:#fff; padding:20px 22px; border-radius:8px; border:1px solid #eee; font-size: 14px;}
+      .post-aside-toc ul{list-style: none; padding:0; margin: 8px 0 0;}
+      .post-aside-toc ul ul{padding-left: 14px; margin-top: 6px;}
+      .post-aside-toc li{margin-bottom: 6px; line-height: 1.4;}
+      .post-aside-toc a{color: var(--c-gray, #555); text-decoration: none;}
+      .post-aside-toc a:hover{color: var(--c-primary, #1A1A1A);}
+
+      /* Paginación posts */
+      .pagination-item{
+        display: block;
+        padding: 14px 18px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        text-decoration: none;
+        color: var(--c-primary, #1A1A1A);
+        background: #fff;
+        font-weight: 500;
+        transition: border-color .15s, transform .15s;
+      }
+      .pagination-item:hover{border-color: var(--c-accent, #7e7e7e); transform: translateY(-1px);}
     </style>
     <link rel="stylesheet" href="/assets/css/style.css" />
 
@@ -115,7 +482,49 @@
             {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"14:00"},
             {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"16:30","closes":"19:30"}
           ],
-          "knowsAbout": ["Derecho laboral","Despido improcedente","Incapacidad permanente","Accidentes de trabajo","Centros Especiales de Empleo","Jubilación","Inspección de trabajo","Seguridad Social","Pensiones"],
+          "knowsAbout": ["Derecho laboral","Despido improcedente","Despido objetivo","Despido nulo","Incapacidad permanente","Incapacidad permanente parcial","Incapacidad permanente total","Incapacidad permanente absoluta","Gran invalidez","Accidentes de trabajo","Recargo de prestaciones","Centros Especiales de Empleo","Jubilación","Jubilación anticipada","Inspección de trabajo","Seguridad Social","Pensiones","FOGASA","Reclamación de cantidad","Modificación sustancial de condiciones","Conflictos colectivos","ERE"],
+          "serviceType": ["Asesoramiento jurídico laboral","Reclamación de despido","Reclamación de incapacidad permanente","Defensa en accidente laboral","Calificación Centro Especial de Empleo","Asesoramiento jubilación","Recurso resoluciones INSS","Defensa en inspecciones de trabajo"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Servicios de derecho laboral",
+            "itemListElement": [
+              {% for s in global.servicios_list %}
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "{{ s.title }}",
+                  "description": {{ s.intro | dump | safe }},
+                  "url": "{{ global.url }}/servicios/{{ s.slug }}/",
+                  "provider": { "@id": "{{ global.url }}/#organization" },
+                  "areaServed": {"@type":"Country","name":"España"}
+                }
+              }{% if not loop.last %},{% endif %}
+              {% endfor %}
+            ]
+          },
+          {% if global.aggregateRating %}
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "{{ global.aggregateRating.value }}",
+            "reviewCount": "{{ global.aggregateRating.count }}",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          {% endif %}
+          {% if global.testimonios and global.testimonios.length %}
+          "review": [
+            {% for t in global.testimonios %}
+            {
+              "@type": "Review",
+              "author": {"@type":"Person","name":{{ t.author | dump | safe }}},
+              "datePublished": "{{ t.date }}",
+              "reviewBody": {{ t.text | dump | safe }},
+              "reviewRating": {"@type":"Rating","ratingValue":"{{ t.rating }}","bestRating":"5","worstRating":"1"}
+            }{% if not loop.last %},{% endif %}
+            {% endfor %}
+          ],
+          {% endif %}
           "sameAs": [
             {% if global.social_youtube %}"{{ global.social_youtube }}"{% if global.social_linkedin or global.social_facebook %},{% endif %}{% endif %}
             {% if global.social_linkedin %}"{{ global.social_linkedin }}"{% if global.social_facebook %},{% endif %}{% endif %}

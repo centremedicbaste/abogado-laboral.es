@@ -106,8 +106,10 @@ module.exports = function (eleventyConfig) {
       return nunjucksSafe('');
     }
   
+    // Orden: negrita con guiones; negrita estilo **texto** (markdown); *** y ** restantes = saltos de línea legacy.
     return nunjucksSafe(value
       .replace(/-(.*?)-/g, '<span class="bold">$1</span>')
+      .replace(/\*\*([^*]+)\*\*/g, '<span class="bold">$1</span>')
       .replace(/\*\*\*/g, '<br>')
       .replace(/\*\*/g, '<br>')
       .replace(/\^+/gm, function(match) {

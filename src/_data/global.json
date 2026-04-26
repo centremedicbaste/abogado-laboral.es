@@ -52,13 +52,13 @@
 
   "imageDir": "/assets/static/images/",
   "logo": "/assets/static/images/logo_2.png",
-  "og_image": "/assets/static/images/og-default.jpg",
-  "home_image": "/assets/static/images/casa2.webp",
-  "home_video": "https://res.cloudinary.com/manuel-ruiz/video/upload/v1720639104/kwkfbucyczyfi6xxrl9m.mp4",
-  "contact_img": "/assets/static/images/1.jpg",
+  "og_image": "/assets/static/images/casa.jpg",
+  "home_image": "/assets/static/images/fondo_1.jpg",
+  "home_video": "",
+  "contact_img": "/assets/static/images/contact.jpg",
 
-  "seo_title": "Abogado Laboral | Despachos especialistas en derecho laboral en España",
-  "seo_description": "Despacho de abogados laboralistas con cobertura en toda España. Despidos, incapacidad permanente, accidentes laborales, jubilaciones y centros especiales de empleo. Primera consulta gratuita y videoconsulta disponible.",
+  "seo_title": "Abogado Laboral en España · Despacho especialista · 1ª consulta gratis · 854 74 67 20",
+  "seo_description": "Despacho de abogados laboralistas con cobertura nacional desde Sevilla. Despidos, incapacidad permanente, accidentes laborales, jubilación y Centros Especiales de Empleo. 1ª consulta gratis. Llámanos al 854 74 67 20.",
 
   "c_gray": "#555555",
   "c_primary": "#1A1A1A",
@@ -72,11 +72,38 @@
   "bg_primary": "linear-gradient(120deg, #555555 0%, #2C2C2C 100%)",
   "btn_radius": "4px",
   "padding_global": "16px",
+  "container_max": "1280px",
+  "container_padding": "24px",
 
   "banner_title": "Cuéntanos tu caso",
   "banner_text": "Te respondemos en menos de 60 minutos en horario laboral.",
   "banner_claim": "Primera consulta gratuita por videollamada o presencial. Cobertura nacional.",
   "banner_button": "Reservar consulta gratis",
+
+  "phone_banner_pretitle": "¿Necesitas un abogado laboralista hoy?",
+  "phone_banner_title": "Llámanos. Primera consulta gratuita.",
+  "phone_banner_subtitle": "Atendemos clientes en cualquier provincia de España, presencial en Sevilla o por videollamada. Te respondemos en menos de 60 minutos.",
+
+  "credenciales": [
+    { "label": "Iltre. Colegio de Abogados de Sevilla", "icon": "scale" },
+    { "label": "Asociación Española de Abogados Laboralistas", "icon": "briefcase" },
+    { "label": "ICAS · Colegiación nº pendiente", "icon": "shield" },
+    { "label": "Especialistas en Centros Especiales de Empleo", "icon": "award" },
+    { "label": "LexNET · Firma electrónica", "icon": "lock" }
+  ],
+
+  "seo_block_pretitle": "Servicios de Derecho Laboral en España",
+  "seo_block_title": "Despacho de abogados laboralistas con cobertura nacional",
+  "seo_block_p1": "**Abogado Laboral** es un despacho de abogados y graduados sociales especializado exclusivamente en **derecho laboral**, **seguridad social** y **pensiones por incapacidad** en toda España. Defendemos los derechos de trabajadores y asesoramos a empresas en despidos individuales y colectivos, modificación sustancial de condiciones, reclamación de cantidades, FOGASA, accidentes de trabajo, recargo de prestaciones, calificación de Centros Especiales de Empleo, inspecciones de trabajo y reclamaciones ante el INSS.",
+  "seo_block_p2": "Nuestra sede física está en **Sevilla**, pero ejercemos en **toda España** gracias a la videoconsulta, la firma electrónica y LexNET. Llevamos juicios en cualquier Juzgado de lo Social del territorio nacional y reclamamos pensiones de **incapacidad permanente** denegadas por el INSS en vía administrativa y judicial. Trabajamos con **honorarios cerrados por escrito** o con **cuota litis** cuando el caso lo permite, sin sorpresas ni letra pequeña.",
+  "seo_block_p3": "Si te han **despedido**, tienes solo **20 días hábiles** para reclamar. Si te han **denegado la incapacidad permanente**, tienes **30 días** para presentar reclamación previa. Estos plazos son de caducidad: pasados, el derecho se pierde. Por eso la primera consulta es siempre **gratuita y sin compromiso** — para que sepas si tu caso tiene recorrido antes de comprometerte. Llámanos al **854 74 67 20** o reserva tu consulta online.",
+
+  "seo_block_features": [
+    { "title": "Despidos en toda España", "text": "Improcedente, objetivo, disciplinario, nulo y ERE. Calculamos tu indemnización máxima y reclamamos en el plazo de caducidad de 20 días hábiles." },
+    { "title": "Incapacidad permanente", "text": "Recurso de denegación del INSS en vía administrativa y judicial. Cuota litis disponible. Parcial, total, absoluta y gran invalidez." },
+    { "title": "Accidentes de trabajo", "text": "Recargo de prestaciones del 30% al 50% cuando la empresa incumplió medidas de seguridad. Indemnización por daños y perjuicios." },
+    { "title": "Centros Especiales de Empleo", "text": "Único despacho especialista en CEE en Andalucía. Calificación, subvenciones y asesoramiento integral en toda España." }
+  ],
 
   "trust_stats": [
     { "value": "Desde 2009", "label": "ejerciendo el derecho laboral" },

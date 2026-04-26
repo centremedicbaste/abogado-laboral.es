@@ -23,13 +23,21 @@ faqSchema:
 
 Andalucía tiene cientos de Centros Especiales de Empleo (CEE), pero muy pocos despachos comprenden a fondo su régimen jurídico, fiscal y laboral. Resultado: subvenciones perdidas por errores de tramitación, bonificaciones de Seguridad Social no aplicadas, sanciones por incumplir ratios de discapacidad y procedimientos sancionadores cuando llega la inspección.
 
-En Abogado Laboral Sevilla somos **el primer despacho de Andalucía especializado en CEE**. Asesoramos a:
+En **Abogado Laboral** somos **el primer despacho de Andalucía especializado en CEE**, con cobertura nacional. Asesoramos a:
 
 - **CEE de iniciativa social** (asociaciones, fundaciones).
 - **CEE de iniciativa empresarial** (sociedades mercantiles).
 - **Empresas que quieren transformarse en CEE**.
 - **Asociaciones empresariales** del sector.
 - **Ayuntamientos** y **diputaciones** que crean CEE públicos.
+
+## Por qué somos referencia en Centros Especiales de Empleo
+
+Los Centros Especiales de Empleo son empresas cuya plantilla está compuesta por un mínimo del **70% de personas con discapacidad** reconocida. Su calificación, otorgada por la Consejería de Empleo correspondiente, exonera del pago íntegro de los seguros sociales y abre la puerta a múltiples subvenciones, lo que les convierte en empresas altamente competitivas por la reducción de costes laborales.
+
+- **Centro Especial de Empleo (CEE).** Asesoramos, gestionamos y calificamos Centros Especiales de Empleo, garantizando el fomento de oportunidades laborales y el acceso a todas las subvenciones disponibles.
+- **Subvenciones máximas.** Tramitamos todas las ayudas: coste salarial (50% del SMI), bonificación 100% en cuotas, adaptación de puestos, Unidades de Apoyo a la Actividad Profesional (UAAP) y mantenimiento de plantilla.
+- **Asesoría integral.** Nos comprometemos a abrir nuevos caminos, asegurando el desarrollo profesional, la igualdad de oportunidades y el cumplimiento normativo continuo de tu CEE.
 
 ## Calificación e inscripción de un CEE
 
