@@ -1,8 +1,8 @@
 ---
 layout: pages/_index.njk
 permalink: /
-metaTitle: "Abogado Laboral en España · Despacho especialista · 1ª consulta gratis · 854 74 67 20"
-metaDescription: "Despacho de abogados laboralistas con cobertura nacional desde Sevilla. Despidos, incapacidad permanente, accidentes laborales, jubilación y Centros Especiales de Empleo. 1ª consulta gratis presencial o por videollamada. Llámanos al 854 74 67 20."
+metaTitle: "Abogado Laboral en España · Despacho especialista · 1ª consulta gratis · 681 908 005"
+metaDescription: "Despacho de abogados laboralistas con cobertura nacional desde Sevilla. Despidos, incapacidad permanente, accidentes laborales, jubilación y Centros Especiales de Empleo. 1ª consulta gratis presencial o por videollamada. Llámanos al 681 908 005."
 metaKeywords: "abogado laboral, abogado laboralista, abogado despido improcedente, abogado incapacidad permanente, abogado accidente laboral, abogado centros especiales empleo, despacho laboralistas españa, abogado jubilación, reclamar despido, consulta gratis abogado"
 metaRobots: "index, follow, max-snippet:-1, max-image-preview:large"
 title: "Abogado Laboral"
