@@ -1,0 +1,28 @@
+<!-- lex-hero-page.njk -->
+<!-- lex-hero-page.njk — Hero compacto para páginas internas -->
+<section class="lex-hero-page">
+  <div class="container-global mx-auto lex-hero-page__wrap">
+    <nav class="lex-crumbs" aria-label="Migas de pan">
+      <a href="/">Inicio</a>
+      {% if breadcrumb_parent and breadcrumb_parent_url %}
+        <span aria-hidden="true">/</span>
+        <a href="{{ breadcrumb_parent_url }}">{{ breadcrumb_parent }}</a>
+      {% endif %}
+      <span aria-hidden="true">/</span>
+      <span class="lex-crumbs__current">{{ title }}</span>
+    </nav>
+
+    {% if eyebrow %}
+    <p class="lex-eyebrow lex-eyebrow--bar">
+      <span class="lex-eyebrow__bar" aria-hidden="true"></span>
+      {{ eyebrow }}
+    </p>
+    {% endif %}
+
+    <h1 class="lex-hero-page__title">{{ page_title or title }}</h1>
+
+    {% if page_subtitle or subtitle %}
+    <p class="lex-hero-page__lead">{{ (page_subtitle or subtitle) | safe }}</p>
+    {% endif %}
+  </div>
+</section>

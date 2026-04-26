@@ -1,0 +1,36 @@
+<!-- lex-servicios.njk -->
+<!-- lex-servicios.njk — Áreas de práctica (3 columnas, estilo Lex Garantía) -->
+<section class="lex-section" id="servicios" aria-label="Áreas de práctica">
+  <div class="container-global mx-auto">
+    <div class="lex-section__head">
+      <div>
+        <p class="lex-eyebrow">{{ servicios_pretitle or "Áreas de práctica" }}</p>
+        <h2 class="lex-section__title">{{ servicios_title or "Especialistas en lo laboral. Solo en lo laboral." }}</h2>
+      </div>
+      <p class="lex-section__intro">{{ servicios_subtitle or "No somos un despacho generalista. Toda nuestra estructura está diseñada para resolver conflictos laborales con la máxima especialización." }}</p>
+    </div>
+
+    <div class="lex-cards-grid">
+      {% for s in global.servicios_list %}{% if loop.index <= 6 %}
+      <a href="/servicios/{{ s.slug }}/" class="lex-card">
+        <div class="lex-card__icon" aria-hidden="true">
+          {% set k = s.slug %}
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square">
+            {% if k == "despidos" %}<path d="M3 21 H13"/><path d="M5 17 L11 11"/><path d="M9 5 L19 15"/><path d="M7 7 L13 1 M11 11 L17 5"/>
+            {% elif k == "incapacidad-permanente" or k == "discapacidad" %}<circle cx="12" cy="5" r="2"/><path d="M5 9 H19"/><path d="M9 9 V14 M15 9 V14"/><path d="M9 14 L7 21 M15 14 L17 21"/>
+            {% elif k == "centros-especiales-de-empleo" %}<rect x="4" y="3" width="16" height="18"/><path d="M8 7 H10 M14 7 H16 M8 11 H10 M14 11 H16 M8 15 H10 M14 15 H16"/>
+            {% elif k == "accidentes-laborales" %}<path d="M12 3 L20 6 V12 C20 16 16 20 12 21 C8 20 4 16 4 12 V6 Z"/>
+            {% elif k == "inspecciones-de-trabajo" %}<rect x="5" y="3" width="14" height="18"/><path d="M8 8 H16 M8 12 H16 M8 16 H13"/>
+            {% elif k == "seguros-vida-invalidez" %}<path d="M12 3 L20 6 V12 C20 16 16 20 12 21 C8 20 4 16 4 12 V6 Z"/>
+            {% elif k == "jubilacion" %}<circle cx="9" cy="9" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 19 C3 15 6 14 9 14 C12 14 15 15 15 19"/><path d="M14 19 C14 17 16 15.5 18 15.5 C20 15.5 21 17 21 19"/>
+            {% else %}<path d="M12 4 V20"/><path d="M4 8 H20"/><circle cx="6" cy="14" r="3"/><circle cx="18" cy="14" r="3"/>{% endif %}
+          </svg>
+        </div>
+        <h3 class="lex-card__title">{{ s.title }}</h3>
+        <p class="lex-card__desc">{{ s.intro or s.tagline }}</p>
+        <span class="lex-card__link">Saber más →</span>
+      </a>
+      {% endif %}{% endfor %}
+    </div>
+  </div>
+</section>

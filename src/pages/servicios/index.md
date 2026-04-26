@@ -6,70 +6,74 @@ metaDescription: "Áreas de actuación: despidos, incapacidad permanente, accide
 metaKeywords: "servicios abogado laboral, despidos españa, incapacidad permanente españa, accidentes laborales, centros especiales de empleo"
 metaRobots: "index, follow"
 title: "Servicios"
+eyebrow: "Áreas de actuación · Cobertura nacional"
+page_title: "Servicios de derecho laboral en toda España"
+page_subtitle: "Asesoramiento jurídico integral para trabajadores y empresas en derecho laboral, seguridad social y procedimientos de incapacidad. Atención presencial en Sevilla y videoconsulta en cualquier provincia. Primera consulta <strong>gratuita y confidencial</strong>."
+
+servicios_pretitle: "Áreas de práctica"
+servicios_title: "Especialistas en lo laboral. Solo en lo laboral."
+servicios_subtitle: "No somos un despacho generalista. Toda nuestra estructura está diseñada para resolver conflictos laborales con la máxima especialización."
 ---
 
-<section class="bg-color ptr-64 pbr-32">
-  <div class="container">
-    <nav aria-label="Migas de pan" class="text-14-r mb-24" style="color:var(--c-gray);">
-      <a href="/" class="footer-link">Inicio</a> › <span>Servicios</span>
-    </nav>
+{% include "templates/lex-hero-page.njk" %}
 
-    <p class="text-14-b mb-8" style="color:var(--c-primary);text-transform:uppercase;letter-spacing:.05em;">Áreas de actuación · Cobertura nacional</p>
-    <h1 class="fluid-3-l mb-16">Servicios de derecho laboral en toda España</h1>
-    <p class="fluid-7-r mb-32" style="color:var(--c-gray);max-width:780px;">
-      Asesoramiento jurídico integral para trabajadores y empresas en derecho laboral, seguridad social y procedimientos de incapacidad. Atención presencial en Sevilla y videoconsulta en cualquier provincia del territorio nacional. Primera consulta <strong>gratuita y confidencial</strong>.
-    </p>
-  </div>
-</section>
-
-<section class="bg-color pbr-64">
-  <div class="container">
-    <div class="row" style="gap:24px 0;">
+{# Lista completa de áreas (no limitada a 6) #}
+<section class="lex-section" aria-label="Áreas de práctica completas">
+  <div class="container-global mx-auto">
+    <div class="lex-cards-grid">
       {% for s in global.servicios_list %}
-      <article class="col-xs-12 col-sm-6 col-md-4 mb-24">
-        <a href="/servicios/{{ s.slug }}/" class="servicio-card" style="display:block;height:100%;padding:24px;background:#fff;border:1px solid #eee;border-radius:8px;text-decoration:none;color:inherit;">
-          <h2 class="fluid-9-b mb-8">{{ s.title }}</h2>
-          <p class="text-14-r mb-12" style="color:var(--c-primary);font-weight:600;">{{ s.tagline }}</p>
-          <p class="fluid-9-r mb-16" style="color:var(--c-gray);">{{ s.intro }}</p>
-          <span style="color:var(--c-primary);font-weight:600;">Saber más →</span>
-        </a>
-      </article>
+      <a href="/servicios/{{ s.slug }}/" class="lex-card">
+        <div class="lex-card__icon" aria-hidden="true">
+          {% set k = s.slug %}
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square">
+            {% if k == "despidos" %}<path d="M3 21 H13"/><path d="M5 17 L11 11"/><path d="M9 5 L19 15"/><path d="M7 7 L13 1 M11 11 L17 5"/>
+            {% elif k == "incapacidad-permanente" or k == "discapacidad" %}<circle cx="12" cy="5" r="2"/><path d="M5 9 H19"/><path d="M9 9 V14 M15 9 V14"/><path d="M9 14 L7 21 M15 14 L17 21"/>
+            {% elif k == "centros-especiales-de-empleo" %}<rect x="4" y="3" width="16" height="18"/><path d="M8 7 H10 M14 7 H16 M8 11 H10 M14 11 H16 M8 15 H10 M14 15 H16"/>
+            {% elif k == "accidentes-laborales" or k == "seguros-vida-invalidez" %}<path d="M12 3 L20 6 V12 C20 16 16 20 12 21 C8 20 4 16 4 12 V6 Z"/>
+            {% elif k == "inspecciones-de-trabajo" %}<rect x="5" y="3" width="14" height="18"/><path d="M8 8 H16 M8 12 H16 M8 16 H13"/>
+            {% elif k == "jubilacion" %}<circle cx="9" cy="9" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 19 C3 15 6 14 9 14 C12 14 15 15 15 19"/><path d="M14 19 C14 17 16 15.5 18 15.5 C20 15.5 21 17 21 19"/>
+            {% else %}<path d="M12 4 V20"/><path d="M4 8 H20"/><circle cx="6" cy="14" r="3"/><circle cx="18" cy="14" r="3"/>{% endif %}
+          </svg>
+        </div>
+        <h2 class="lex-card__title">{{ s.title }}</h2>
+        <p class="lex-card__desc">{{ s.intro or s.tagline }}</p>
+        <span class="lex-card__link">Saber más →</span>
+      </a>
       {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="bg-light ptr-64 pbr-64">
-  <div class="container">
-    <p class="text-14-b mb-8" style="color:var(--c-primary);text-transform:uppercase;letter-spacing:.05em;text-align:center;">Por qué elegirnos</p>
-    <h2 class="fluid-4-l mb-16" style="text-align:center;">Tres pilares que nos diferencian</h2>
-    <p class="fluid-7-r mb-48" style="color:var(--c-gray);max-width:780px;margin-left:auto;margin-right:auto;text-align:center;">
-      Combinamos especialización absoluta en derecho laboral, transparencia total en honorarios y cobertura nacional efectiva mediante tecnología (videoconsulta, LexNET, firma electrónica). Por eso somos el despacho que recomiendan nuestros clientes.
-    </p>
-
-    <div class="row" style="gap:24px 0;">
-      <div class="col-xs-12 col-md-4 mb-24">
-        <div style="background:#fff;border:1px solid #eee;border-radius:8px;padding:24px;height:100%;">
-          <h3 class="fluid-8-b mb-12">Especialización</h3>
-          <p class="fluid-9-r" style="color:var(--c-gray);">Solo derecho laboral y seguridad social. Nada más. Esto nos permite tener un dominio profundo de la materia y de la jurisprudencia más reciente del Tribunal Supremo.</p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-4 mb-24">
-        <div style="background:#fff;border:1px solid #eee;border-radius:8px;padding:24px;height:100%;">
-          <h3 class="fluid-8-b mb-12">Transparencia</h3>
-          <p class="fluid-9-r" style="color:var(--c-gray);">Hoja de encargo por escrito antes de empezar, con honorarios cerrados. En reclamaciones de incapacidad y muchos despidos trabajamos a <strong>cuota litis</strong>: si no ganamos, no pagas.</p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-4 mb-24">
-        <div style="background:#fff;border:1px solid #eee;border-radius:8px;padding:24px;height:100%;">
-          <h3 class="fluid-8-b mb-12">Claridad</h3>
-          <p class="fluid-9-r" style="color:var(--c-gray);">Cada cliente accede a una <strong>extranet jurídica</strong> donde puede ver, en tiempo real, el estado de su expediente, los próximos plazos y los escritos presentados.</p>
-        </div>
+{# Tres pilares — bloque CEE-style pero sobre fondo claro #}
+<section class="lex-section" aria-label="Tres pilares" style="background:#f5f7fc;border-top:1px solid #e3e8f3;border-bottom:1px solid #e3e8f3;">
+  <div class="container-global mx-auto">
+    <div class="lex-section__head lex-section__head--narrow">
+      <div>
+        <p class="lex-eyebrow">Por qué elegirnos</p>
+        <h2 class="lex-section__title">Tres pilares que nos diferencian</h2>
+        <p class="lex-section__intro">Combinamos especialización absoluta en derecho laboral, transparencia total en honorarios y cobertura nacional efectiva mediante tecnología (videoconsulta, LexNET, firma electrónica).</p>
       </div>
     </div>
 
-    <div class="text-center mt-48">
-      <a class="btn btn-primary btn--big" href="/contacto/" data-cta="servicios_index_consulta">¿No ves tu caso? Cuéntanoslo gratis</a>
+    <div class="lex-cards-grid">
+      <div class="lex-card">
+        <h3 class="lex-card__title">Especialización</h3>
+        <p class="lex-card__desc">Solo derecho laboral y seguridad social. Nada más. Esto nos permite tener un dominio profundo de la materia y de la jurisprudencia más reciente del Tribunal Supremo.</p>
+      </div>
+      <div class="lex-card">
+        <h3 class="lex-card__title">Transparencia</h3>
+        <p class="lex-card__desc">Hoja de encargo por escrito antes de empezar, con honorarios cerrados. En reclamaciones de incapacidad y muchos despidos trabajamos a <strong>cuota litis</strong>: si no ganamos, no pagas.</p>
+      </div>
+      <div class="lex-card">
+        <h3 class="lex-card__title">Claridad</h3>
+        <p class="lex-card__desc">Cada cliente accede a una <strong>extranet jurídica</strong> donde puede ver, en tiempo real, el estado de su expediente, los próximos plazos y los escritos presentados.</p>
+      </div>
     </div>
   </div>
 </section>
+
+{% include "templates/lex-cee.njk" %}
+
+{% include "templates/lex-cta-final.njk" %}
+
+{% include "templates/lex-styles.njk" %}

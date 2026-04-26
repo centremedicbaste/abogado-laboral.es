@@ -4,7 +4,7 @@ subtitle: "33 días de salario por año trabajado, con un máximo de 24 mensuali
 date: 2026-04-15
 fecha: "15 de abril de 2026"
 tags: ["post", "despidos"]
-image: /assets/static/images/checklist.webp
+image: /assets/static/images/abogada.jpg
 imageAlt: "Cómo calcular la indemnización por despido improcedente"
 metaTitle: "Calcular indemnización despido improcedente 2026 | Fórmula y ejemplo"
 metaDescription: "Fórmula completa para calcular la indemnización por despido improcedente: 33 días por año, salario diario, prorrata pagas. Ejemplo numérico real."

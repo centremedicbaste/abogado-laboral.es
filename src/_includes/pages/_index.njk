@@ -3,51 +3,32 @@ layout: layout/base.njk
 colorHeader: has-light-menu
 ---
 
-{% import "macros/_insert.njk" as insert %}
+<article class="main-article lex-page">
 
-<article class="main-article">
-  {# 1. Hero #}
-  {% include "templates/introCta_2.njk" %}
+  {# Hero split (título + foto + tarjetas flotantes + stats) #}
+  {% include "templates/lex-hero-home.njk" %}
 
-  {# 2. Tira de credenciales / colegios — refuerza EEAT desde el primer scroll #}
-  {% include "templates/credenciales.njk" %}
+  {# Áreas de práctica (6 cards · 3 columnas) #}
+  {% include "templates/lex-servicios.njk" %}
 
-  {# 3. Bienvenida / sobre el despacho #}
-  {% include "templates/introBenefits_2.njk" %}
+  {# Bloque navy CEE / Discapacidad #}
+  {% include "templates/lex-cee.njk" %}
 
-  {# 4. Cards de servicios con iconos #}
-  {% include "templates/servicios.njk" %}
+  {# Equipo (placeholders si no hay global.team) #}
+  {% include "templates/lex-equipo.njk" %}
 
-  {# 5. Banner CTA intermedio con teléfono prominente — punto alto de conversión #}
-  {% include "templates/cta_phone_banner.njk" %}
+  {# Testimonios (solo se renderiza si hay reseñas reales en global.testimonios) #}
+  {% include "templates/lex-testimonios.njk" %}
 
-  {# 6. Bloque de texto SEO largo + 4 features (densidad keywords) — replica del competidor #}
-  {% include "templates/seo_block.njk" %}
+  {# Blog (3 últimos posts) #}
+  {% include "templates/lex-blog.njk" %}
 
-  {# 7. 3 pilares diferenciadores (CEE, extranet, YouTube) #}
-  {% include "templates/content_2.njk" %}
+  {# FAQ split #}
+  {% include "templates/lex-faq.njk" %}
 
-  {# 8. Servicios trabajadores/empresas #}
-  {% include "templates/benefits_2.njk" %}
+  {# Contacto (info + formulario) #}
+  {% include "templates/lex-contacto.njk" %}
 
-  {# 9. Filosofía Amat victoria curam #}
-  {% include "templates/content_5.njk" %}
-
-  {# 10. Equipo (solo si global.team está poblado) #}
-  {% include "templates/team_1.njk" %}
-
-  {# 11. Testimonios — solo se renderiza cuando global.testimonios tenga reseñas reales #}
-  {% include "templates/testimonios_placeholder.njk" %}
-
-  {# 12. Box image parallax con CTA #}
-  {% include "templates/box_img.njk" %}
-
-  {# 13. FAQ con schema FAQPage #}
-  {% include "templates/faqs.njk" %}
-
-  {# 14. Formulario de contacto #}
-  {% include "templates/contacta_4.njk" %}
-
-  {# 15. Mapa + dirección física (NAP local SEO) #}
-  {% include "templates/contacta_5.njk" %}
 </article>
+
+{% include "templates/lex-styles.njk" %}

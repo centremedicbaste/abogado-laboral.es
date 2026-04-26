@@ -1,0 +1,31 @@
+<!-- lex-testimonios.njk -->
+<!-- lex-testimonios.njk — Reseñas reales (solo si global.testimonios tiene datos) -->
+{% if global.testimonios and global.testimonios.length %}
+<section class="lex-testimonios" aria-label="Lo que dicen nuestros clientes">
+  <div class="container-global mx-auto lex-testimonios__wrap">
+    <p class="lex-eyebrow">Lo que dicen quienes ya han pasado por aquí</p>
+    <h2 class="lex-section__title lex-section__title--big">
+      {% if global.aggregateRating %}{{ global.aggregateRating.count }} reseñas. Una media de {{ global.aggregateRating.value }} sobre 5.{% else %}La confianza es nuestro mejor aval.{% endif %}
+    </h2>
+
+    <div class="lex-testimonios__grid">
+      {% for t in global.testimonios %}
+      <article class="lex-testimonio">
+        {% if t.rating %}
+        <div class="lex-testimonio__stars" aria-label="{{ t.rating }} de 5 estrellas">
+          {% for i in range(0, 5) %}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="{% if i < t.rating %}#f5b400{% else %}none{% endif %}" stroke="#f5b400" stroke-width="1.6" aria-hidden="true"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20 L12 16.6 L6.4 20 L8 13.8 L3 9.5 L9.5 9 Z"/></svg>
+          {% endfor %}
+        </div>
+        {% endif %}
+        <p class="lex-testimonio__text">"{{ t.text }}"</p>
+        <footer class="lex-testimonio__foot">
+          <div class="lex-testimonio__name">{{ t.author }}</div>
+          {% if t.case or t.location %}<div class="lex-testimonio__case">{{ t.case or t.location }}</div>{% endif %}
+        </footer>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

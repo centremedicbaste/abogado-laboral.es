@@ -1,0 +1,24 @@
+<!-- lex-cta-final.njk -->
+<!-- lex-cta-final.njk — Banner final navy reutilizable -->
+<section class="lex-cta-final" aria-label="Llamada a la acción">
+  <div class="container-global mx-auto">
+    <div class="lex-cta-final__box">
+      <span class="lex-cta-final__dot" aria-hidden="true"></span>
+      <div>
+        <p class="lex-eyebrow lex-eyebrow--light">
+          <span class="lex-eyebrow__bar" aria-hidden="true"></span>
+          {{ cta_eyebrow or "¿Hablamos?" }}
+        </p>
+        <h2 class="lex-cta-final__title">{{ cta_title or "Cuéntanos tu caso. La primera consulta es gratis." }}</h2>
+        <p class="lex-cta-final__text">{{ cta_text or "Te respondemos en menos de 60 minutos en horario laboral. Atención presencial en Sevilla y videoconsulta en toda España." }}</p>
+      </div>
+      <div class="lex-cta-final__actions">
+        <a href="/contacto/" class="lex-btn lex-btn--accent" data-cta="cta_final_consulta">
+          {{ cta_btn_primary or "Reserva tu consulta" }}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12 H19 M14 7 L19 12 L14 17" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        </a>
+        <a href="https://wa.me/{{ global.whatsapp }}" target="_blank" rel="noopener" class="lex-btn lex-btn--ghost" data-cta="cta_final_wa">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>

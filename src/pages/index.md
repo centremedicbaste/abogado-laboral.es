@@ -7,7 +7,7 @@ metaKeywords: "abogado laboral, abogado laboralista, abogado despido improcedent
 metaRobots: "index, follow, max-snippet:-1, max-image-preview:large"
 title: "Abogado Laboral"
 ogImage: "/assets/static/images/og-default.jpg"
-heroImage: "/assets/static/images/casa2.webp"
+heroImage: "/assets/static/images/abogado-laboral-sevilla_a.jpg"
 
 hero_title: "Tu abogado laboralista de confianza en toda España"
 hero_description: "Despacho especializado exclusivamente en **derecho laboral**, **seguridad social**, **incapacidad permanente** y **centros especiales de empleo**. Asesoramos indistintamente a trabajadores, empresas y asociaciones en cualquier provincia del territorio nacional."

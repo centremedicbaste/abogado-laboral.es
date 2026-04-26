@@ -5,25 +5,17 @@ metaTitle: "Sobre nosotros | Abogado Laboral — Despacho con cobertura nacional
 metaDescription: "Quiénes somos: despacho de abogados laboralistas con sede en Sevilla y cobertura nacional. Especialistas en derecho laboral, incapacidades y centros especiales de empleo desde 2009."
 metaRobots: "index, follow"
 title: "Sobre nosotros"
+eyebrow: "El despacho · Cobertura nacional"
+page_title: "Asesoría jurídica integral en derecho laboral"
+page_subtitle: "<strong>Abogado Laboral</strong> se compone de un equipo de expertos en derecho del trabajo, seguridad social, incapacidad permanente y centros especiales de empleo. Defendemos de forma integral, elaborando una solución para lo que antes era un problema."
 ---
 
-<section class="bg-color ptr-64 pbr-32">
-  <div class="container">
-    <nav aria-label="Migas de pan" class="text-14-r mb-24" style="color:var(--c-gray);">
-      <a href="/" class="footer-link">Inicio</a> › <span>Sobre nosotros</span>
-    </nav>
-    <p class="text-14-b mb-8" style="color:var(--c-primary);text-transform:uppercase;letter-spacing:.05em;">El despacho · Cobertura nacional</p>
-    <h1 class="fluid-3-l mb-16">Asesoría jurídica integral en derecho laboral</h1>
-    <p class="fluid-7-r mb-32" style="color:var(--c-gray);max-width:780px;">
-      <strong>Abogado Laboral</strong> se compone de un equipo de expertos en derecho del trabajo, seguridad social, incapacidad permanente y centros especiales de empleo. La misión de nuestros profesionales es defenderte de forma integral, elaborando una solución para lo que antes era un problema.
-    </p>
-  </div>
-</section>
+{% include "templates/lex-hero-page.njk" %}
 
-<section class="bg-color pbr-64">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-md-8">
+<section class="lex-section">
+  <div class="container-global mx-auto">
+    <div class="lex-about__grid">
+      <div class="lex-prose">
 
 ## Quiénes somos
 
@@ -38,7 +30,7 @@ Surgimos de la sinergia de profesionales especializados en la gestión y asesora
 - **Seguridad Social**: incapacidad permanente, jubilación, viudedad, orfandad y prestaciones.
 - **Prevención de riesgos laborales**: recargo de prestaciones, accidentes y enfermedades profesionales, indemnización por daños.
 - **Inspección de Trabajo**: asistencia, recurso de actas, sanciones y defensa de empresas.
-- **Centros Especiales de Empleo**: calificación, gestión, subvenciones y asesoramiento integral (referencia en Andalucía con cobertura nacional).
+- **Centros Especiales de Empleo**: calificación, gestión, subvenciones y asesoramiento integral.
 - **Herencias y sucesiones laborales**: capitales pendientes de seguros colectivos, mejoras voluntarias de convenio, planes de pensiones empresariales.
 
 ## Cómo trabajamos: nuestros tres pilares
@@ -52,45 +44,74 @@ Surgimos de la sinergia de profesionales especializados en la gestión y asesora
 ## Por qué trabajar con Abogado Laboral
 
 - **Desde 2009** ejerciendo exclusivamente derecho laboral y de la Seguridad Social.
-- **Cobertura nacional**: presencial en Sevilla, videoconsulta en cualquier provincia. Si hay juicio en otra plaza, lo presentamos con LexNET y, si procede, nos desplazamos.
-- **Equipo multidisciplinar**: abogados, graduados sociales, peritos médicos colaboradores especializados (traumatólogos, psiquiatras, cardiólogos, oncólogos…).
+- **Cobertura nacional**: presencial en Sevilla, videoconsulta en cualquier provincia.
+- **Equipo multidisciplinar**: abogados, graduados sociales, peritos médicos colaboradores.
 - **Primera consulta gratuita** y confidencial.
 - **Tecnología moderna**: extranet de cliente, LexNET, firma electrónica, vista virtual.
 - **Vosotros habláis por nosotros.** Nuestra mejor publicidad son las recomendaciones de quienes ya han confiado en nosotros.
 
       </div>
-      <aside class="col-xs-12 col-md-4">
-        <div style="position:sticky;top:32px;background:var(--bg-light);padding:24px;border-radius:8px;border:1px solid #eee;">
-          <h2 class="fluid-8-b mb-16">Habla con nosotros</h2>
-          <p class="text-14-r mb-16" style="color:var(--c-gray);">Primera consulta gratuita. Videoconsulta disponible en toda España. Te respondemos en menos de 60 minutos en horario laboral.</p>
-          <a class="btn btn-primary btn--full mb-12" href="/contacto/" data-cta="about_consulta">Reservar consulta</a>
-          <a class="btn btn-secondary btn--full mb-12" href="tel:{{ global.telefono_e164 }}" data-cta="about_tel">📞 {{ global.telefono }}</a>
-          <a class="btn btn-secondary btn--full" href="https://wa.me/{{ global.whatsapp }}?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20Sobre%20nosotros" target="_blank" rel="noopener" data-cta="about_whatsapp">💬 WhatsApp</a>
+
+      <aside class="lex-about__aside">
+        <div class="lex-about__cta">
+          <p class="lex-eyebrow lex-eyebrow--light"><span class="lex-eyebrow__bar" aria-hidden="true"></span>Habla con nosotros</p>
+          <h2 class="lex-about__cta-title">Estudio gratuito de tu caso en 24 h.</h2>
+          <p class="lex-about__cta-text">Primera consulta gratuita por videollamada o presencial. Te respondemos en menos de 60 minutos en horario laboral.</p>
+          <a href="/contacto/" class="lex-btn lex-btn--accent lex-btn--full" data-cta="about_consulta">
+            Reservar consulta
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12 H19 M14 7 L19 12 L14 17" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+          </a>
+          <a href="tel:{{ global.telefono_e164 }}" class="lex-about__tel" data-cta="about_tel">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4 H9 L11 9 L8 11 C9 14 10 15 13 16 L15 13 L20 15 V19 C20 20 19 21 18 21 C10 21 3 14 3 6 C3 5 4 4 5 4 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>
+            {{ global.telefono }}
+          </a>
         </div>
       </aside>
     </div>
   </div>
 </section>
 
-<section class="bg-light ptr-64 pbr-64">
-  <div class="container">
-    <p class="text-14-b mb-8" style="color:var(--c-primary);text-transform:uppercase;letter-spacing:.05em;text-align:center;">Servicios</p>
-    <h2 class="fluid-4-l mb-16" style="text-align:center;">Áreas en las que somos especialistas</h2>
-    <p class="fluid-7-r mb-48" style="color:var(--c-gray);max-width:780px;margin-left:auto;margin-right:auto;text-align:center;">
-      Brindamos atención personalizada para ayudar a empresas y trabajadores a defender sus derechos. Ofrecemos asesoramiento integral en gestión administrativa laboral (despidos, modificaciones de condiciones, Seguridad Social) y unimos la asesoría jurídica con la representación procesal para el éxito de tu caso.
-    </p>
+{% include "templates/lex-equipo.njk" %}
+{% include "templates/lex-cta-final.njk" %}
 
-    <div class="row" style="gap:24px 0;">
-      {% for s in global.servicios_list %}
-      <article class="col-xs-12 col-sm-6 col-md-3 mb-24">
-        <a href="/servicios/{{ s.slug }}/" class="servicio-card" style="display:block;height:100%;padding:20px;background:#fff;border:1px solid #eee;border-radius:8px;text-decoration:none;color:inherit;">
-          <h3 class="fluid-9-b mb-8">{{ s.title }}</h3>
-          <p class="text-14-r" style="color:var(--c-gray);">{{ s.tagline }}</p>
-        </a>
-      </article>
-      {% endfor %}
-    </div>
-  </div>
-</section>
+{% include "templates/lex-styles.njk" %}
 
-{% include "templates/contacta_4.njk" %}
+<style>
+.lex-about__grid{display:grid;grid-template-columns:1fr;gap:48px;}
+@media(min-width:992px){.lex-about__grid{grid-template-columns:minmax(0,1fr) 320px;gap:80px;}}
+
+.lex-prose{font-family:var(--font-sans);font-size:17px;line-height:1.78;color:#1f2a44;max-width:760px;}
+.lex-prose > p:first-of-type{font-size:19px;color:var(--c-primary);}
+.lex-prose p{margin:0 0 1.4em;}
+.lex-prose strong{color:var(--c-primary);font-weight:600;}
+.lex-prose h2{
+  font-family:var(--font-display);font-weight:500;
+  font-size:clamp(28px,3.4vw,40px);line-height:1.08;letter-spacing:-0.022em;
+  color:var(--c-primary);margin:2.2em 0 .6em;padding-top:.4em;border-top:1px solid #e3e8f3;
+}
+.lex-prose h2:first-child{border-top:0;padding-top:0;margin-top:0;}
+.lex-prose ul{padding-left:1.4em;margin:0 0 1.4em;}
+.lex-prose li{margin-bottom:.5em;}
+.lex-prose ul li::marker{color:var(--c-accent);}
+
+.lex-about__aside{position:relative;}
+.lex-about__cta{
+  position:sticky;top:96px;
+  background:var(--c-primary,#0b1e4f);color:#dde4f5;
+  border-radius:14px;padding:28px 24px;
+}
+.lex-about__cta-title{
+  font-family:var(--font-display);font-weight:500;
+  font-size:22px;line-height:1.2;letter-spacing:-0.015em;
+  color:#fff;margin:8px 0 8px;
+}
+.lex-about__cta-text{font-size:13.5px;line-height:1.55;color:#b8c3e0;margin:0 0 18px;}
+.lex-about__tel{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin-top:10px;color:#dde4f5;text-decoration:none;
+  font-family:var(--font-sans);font-size:14px;
+  padding:12px 18px;border:1px solid #1f3573;border-radius:8px;
+  transition:border-color .15s ease;
+}
+.lex-about__tel:hover{border-color:var(--c-accent);color:#fff;opacity:1;}
+</style>

@@ -1,0 +1,66 @@
+<!-- lex-hero-home.njk -->
+<!-- lex-hero-home.njk — Hero split estilo Lex Garantía -->
+<section class="lex-hero">
+  <div class="container-global mx-auto lex-hero__wrap">
+    <div class="lex-hero__grid">
+      <div class="lex-hero__col-text">
+        <span class="lex-pill"><span class="lex-pill__dot"></span> Despacho activo · Respuesta en 24 h</span>
+        <h1 class="lex-hero__title">
+          {{ hero_title or "Defendemos tu trabajo, tu salud y tu indemnización." }}
+        </h1>
+        {% if hero_description %}
+        <p class="lex-hero__lead">{{ hero_description | safe | replace("**", "") }}</p>
+        {% endif %}
+        {% if hero_description2 %}
+        <p class="lex-hero__lead lex-hero__lead--small">{{ hero_description2 | safe }}</p>
+        {% endif %}
+        <div class="lex-hero__actions">
+          <a href="/contacto/" class="lex-btn lex-btn--primary" data-cta="hero_consulta">
+            {{ hero_btn or "Estudiar mi caso gratis" }}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12 H19 M14 7 L19 12 L14 17" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+          </a>
+          <a href="tel:{{ global.telefono_e164 }}" class="lex-btn lex-btn--ghost" data-cta="hero_tel">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4 H9 L11 9 L8 11 C9 14 10 15 13 16 L15 13 L20 15 V19 C20 20 19 21 18 21 C10 21 3 14 3 6 C3 5 4 4 5 4 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>
+            {{ global.telefono }}
+          </a>
+        </div>
+
+        <div class="lex-hero__trust">
+          <div class="lex-hero__trust-item">
+            <div class="lex-hero__trust-num">+15 años</div>
+            <div class="lex-hero__trust-lbl">solo derecho<br/>laboral</div>
+          </div>
+          <div class="lex-hero__trust-divider"></div>
+          <div class="lex-hero__trust-item">
+            <div class="lex-hero__trust-num">Cobertura</div>
+            <div class="lex-hero__trust-lbl">nacional con<br/>videoconsulta</div>
+          </div>
+          <div class="lex-hero__trust-divider"></div>
+          <div class="lex-hero__trust-item">
+            <div class="lex-hero__trust-num">1ª consulta</div>
+            <div class="lex-hero__trust-lbl">gratis y sin<br/>compromiso</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lex-hero__col-art">
+        <div class="lex-hero__photo">
+          {% if heroImage %}
+          <img src="{{ heroImage }}" alt="Despacho Abogado Laboral" loading="eager" decoding="async" width="640" height="640"/>
+          {% else %}
+          <span class="lex-hero__photo-label">// despacho</span>
+          {% endif %}
+          <span class="lex-hero__photo-dot" aria-hidden="true"></span>
+        </div>
+        <div class="lex-hero__card lex-hero__card--light">
+          <div class="lex-eyebrow">Caso reciente</div>
+          <p>Despido improcedente revertido en gran superficie. Indemnización: <strong>48.300 €</strong> + readmisión.</p>
+        </div>
+        <div class="lex-hero__card lex-hero__card--dark">
+          <div class="lex-eyebrow lex-eyebrow--light">Honorarios</div>
+          <p>Cobramos solo si <em>ganamos</em> tu caso de despido.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

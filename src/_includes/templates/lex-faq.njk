@@ -1,0 +1,34 @@
+<!-- lex-faq.njk -->
+<!-- lex-faq.njk — FAQ split (título + acordeón) -->
+{% set faqsList = faqSchema or global.faq %}
+{% if faqsList and faqsList.length %}
+<section class="lex-faq" id="faq" aria-label="Preguntas frecuentes">
+  <div class="container-global mx-auto lex-faq__wrap">
+    <div class="lex-faq__grid">
+      <div class="lex-faq__head">
+        <p class="lex-eyebrow">Dudas frecuentes</p>
+        <h2 class="lex-section__title">Las preguntas que llegan cada semana al despacho.</h2>
+        <p class="lex-section__intro">Si no encuentras tu caso, llámanos. La primera consulta es gratuita y sin compromiso.</p>
+        <a href="tel:{{ global.telefono_e164 }}" class="lex-btn lex-btn--primary" data-cta="faq_tel">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4 H9 L11 9 L8 11 C9 14 10 15 13 16 L15 13 L20 15 V19 C20 20 19 21 18 21 C10 21 3 14 3 6 C3 5 4 4 5 4 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>
+          Llamar ahora
+        </a>
+      </div>
+
+      <div class="lex-faq__list">
+        {% for item in faqsList %}
+        {% set q = item.q or item.faq_question %}
+        {% set a = item.a or item.faq_answer %}
+        <details class="lex-faq__item" {% if loop.index == 1 %}open{% endif %}>
+          <summary>
+            <span>{{ q }}</span>
+            <span class="lex-faq__plus" aria-hidden="true"></span>
+          </summary>
+          <div class="lex-faq__answer">{{ a }}</div>
+        </details>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}

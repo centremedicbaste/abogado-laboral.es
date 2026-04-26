@@ -4,7 +4,7 @@ subtitle: "Reclamación previa al INSS, demanda al Juzgado de lo Social y plazos
 date: 2026-04-08
 fecha: "8 de abril de 2026"
 tags: ["post", "incapacidad"]
-image: /assets/static/images/libro.webp
+image: /assets/static/images/centros.jpg
 imageAlt: "Reclamar incapacidad permanente denegada"
 metaTitle: "Incapacidad permanente denegada: cómo reclamar paso a paso | 2026"
 metaDescription: "El INSS deniega la mayoría de incapacidades en primera instancia. Plazos, reclamación previa, demanda y consejos prácticos para ganar en juicio."

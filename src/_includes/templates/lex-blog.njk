@@ -1,0 +1,38 @@
+<!-- lex-blog.njk -->
+<!-- lex-blog.njk — 3 últimos posts del blog -->
+{% if collections.post and collections.post.length %}
+<section class="lex-section lex-blog" id="blog" aria-label="Blog y recursos">
+  <div class="container-global mx-auto">
+    <div class="lex-section__head">
+      <div>
+        <p class="lex-eyebrow">Recursos</p>
+        <h2 class="lex-section__title">Guías y artículos del despacho</h2>
+      </div>
+      <a href="/blog/" class="lex-link">Ver todos los artículos →</a>
+    </div>
+
+    <div class="lex-blog__grid">
+      {% set sortedPosts = collections.post | reverse %}
+      {% for post in sortedPosts %}{% if loop.index <= 3 %}
+      <article class="lex-blog__card">
+        <a href="{{ post.url }}" class="lex-blog__card-link">
+          <div class="lex-blog__card-media">
+            {% if post.data.image %}
+            <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt or post.data.title }}" loading="lazy" decoding="async" width="600" height="338"/>
+            {% else %}
+            <span class="lex-blog__card-label">// portada</span>
+            {% endif %}
+            <span class="lex-blog__card-dot" aria-hidden="true"></span>
+          </div>
+          {% if post.data.tags and post.data.tags.length > 1 %}
+          <span class="lex-pill lex-pill--small">{{ post.data.tags[1] | capitalize }}</span>
+          {% endif %}
+          <h3 class="lex-blog__card-title">{{ post.data.title }}</h3>
+          {% if post.data.fecha %}<div class="lex-blog__card-meta">Lectura · {{ post.data.fecha }}</div>{% endif %}
+        </a>
+      </article>
+      {% endif %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
