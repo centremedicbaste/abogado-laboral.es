@@ -3,52 +3,208 @@ layout: layout/base.njk
 colorHeader: has-light-menu
 ---
 
-<article class="servicio-detail">
-  <header class="servicio-hero bg-light ptr-64 pbr-64">
-    <div class="container">
-      <nav aria-label="Migas de pan" class="text-14-r mb-24" style="color:var(--c-gray);">
-        <a href="/" class="footer-link">Inicio</a> ›
-        <a href="/servicios/" class="footer-link">Servicios</a> ›
-        <span>{{ title }}</span>
+<!-- _servicio.njk · Detalle de servicio (sistema visual lex-) -->
+<article class="lex-servicio">
+
+  {# ─── HERO ─────────────────────────────────────────────────────── #}
+  <section class="lex-hero-page lex-servicio__hero">
+    <div class="container-global mx-auto lex-hero-page__wrap">
+      <nav class="lex-crumbs" aria-label="Migas de pan">
+        <a href="/">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <a href="/servicios/">Servicios</a>
+        <span aria-hidden="true">/</span>
+        <span class="lex-crumbs__current">{{ title }}</span>
       </nav>
-      <p class="text-14-b mb-8" style="color:var(--c-primary);text-transform:uppercase;letter-spacing:.05em;">Servicio · Cobertura nacional</p>
-      <h1 class="fluid-3-l mb-16">{{ title }}</h1>
-      {% if tagline %}<p class="fluid-7-r mb-24" style="color:var(--c-gray);max-width:780px;">{{ tagline }}</p>{% endif %}
+      <p class="lex-eyebrow">Servicio · Cobertura nacional</p>
+      <h1 class="lex-hero-page__title">{{ title }}</h1>
+      {% if tagline or page_subtitle or subtitle %}
+        <p class="lex-hero-page__lead">{{ (tagline or page_subtitle or subtitle) | safe }}</p>
+      {% endif %}
 
-      <div class="is-flex" style="gap:16px;flex-wrap:wrap;">
-        <a class="btn btn-primary btn--big" href="/contacto/" data-cta="servicio_consulta">Reserva tu consulta gratuita</a>
-        <a class="btn btn-secondary btn--big" href="tel:{{ global.telefono_e164 }}" data-cta="servicio_tel">📞 {{ global.telefono }}</a>
-      </div>
-    </div>
-  </header>
-
-  <section class="servicio-content bg-color ptr-64 pbr-64">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-md-8">
-          {{ content | safe }}
-        </div>
-        <aside class="col-xs-12 col-md-4">
-          <div class="cta-sticky" style="position:sticky;top:32px;background:var(--bg-light);padding:24px;border-radius:8px;border:1px solid #eee;">
-            <h2 class="fluid-8-b mb-16">Atendemos toda España</h2>
-            <p class="text-14-r mb-16" style="color:var(--c-gray);">Videoconsulta segura en cualquier provincia.</p>
-            <a class="btn btn-primary btn--full mb-12" href="/contacto/" data-cta="aside_consulta">Reservar consulta</a>
-            <a class="btn btn-secondary btn--full" href="https://wa.me/{{ global.whatsapp }}?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20de%20{{ title | urlencode }}" target="_blank" rel="noopener" data-cta="aside_whatsapp">💬 WhatsApp</a>
-            <hr style="margin:20px 0;border:0;border-top:1px solid #ddd;">
-            <p class="text-12-r mb-8" style="color:var(--c-gray);">Otros servicios:</p>
-            <ul class="list-clear text-14-r">
-              {% for s in global.servicios_list %}{% if s.slug != slug %}
-                <li class="mb-8"><a class="footer-link" href="/servicios/{{ s.slug }}/" style="color:var(--c-primary);">{{ s.title }}</a></li>
-              {% endif %}{% endfor %}
-            </ul>
-          </div>
-        </aside>
+      <div class="lex-servicio__cta-row">
+        <a class="lex-btn lex-btn--accent" href="/contacto/" data-cta="servicio_consulta">
+          Reserva tu consulta gratuita
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12 H19 M14 7 L19 12 L14 17" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        </a>
+        <a class="lex-btn lex-btn--ghost" href="tel:{{ global.telefono_e164 }}" data-cta="servicio_tel">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4 H9 L11 9 L8 11 C9 14 10 15 13 16 L15 13 L20 15 V19 C20 20 19 21 18 21 C10 21 3 14 3 6 C3 5 4 4 5 4 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>
+          {{ global.telefono }}
+        </a>
       </div>
     </div>
   </section>
 
+  {# ─── CONTENIDO + ASIDE ────────────────────────────────────────── #}
+  <section class="lex-section lex-servicio__body">
+    <div class="container-global mx-auto">
+      <div class="lex-servicio__grid">
+
+        <div class="lex-prose">
+          {{ content | safe }}
+        </div>
+
+        <aside class="lex-servicio__aside" aria-label="Resumen y contacto">
+          <div class="lex-servicio__cta">
+            <p class="lex-eyebrow lex-eyebrow--light">Atendemos toda España</p>
+            <h2 class="lex-servicio__cta-title">Estudio gratuito de tu caso.</h2>
+            <p class="lex-servicio__cta-text">Videoconsulta segura en cualquier provincia. Primera consulta gratuita y confidencial.</p>
+            <a class="lex-btn lex-btn--accent lex-btn--full" href="/contacto/" data-cta="aside_consulta">
+              Reservar consulta
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12 H19 M14 7 L19 12 L14 17" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+            </a>
+            <a class="lex-servicio__wa" href="https://wa.me/{{ global.whatsapp }}?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20de%20{{ title | urlencode }}" target="_blank" rel="noopener" data-cta="aside_whatsapp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 L6 15 C4 11 5 7 9 5 C13 3 18 5 19 9 C20 13 17 18 13 19 L9 18 Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+              WhatsApp
+            </a>
+            <a class="lex-servicio__tel" href="tel:{{ global.telefono_e164 }}" data-cta="aside_tel">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4 H9 L11 9 L8 11 C9 14 10 15 13 16 L15 13 L20 15 V19 C20 20 19 21 18 21 C10 21 3 14 3 6 C3 5 4 4 5 4 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>
+              {{ global.telefono }}
+            </a>
+          </div>
+
+          <nav class="lex-servicio__nav" aria-label="Otros servicios">
+            <p class="lex-servicio__nav-title">Otros servicios</p>
+            <ul class="lex-servicio__nav-list">
+              {% for s in global.servicios_list %}{% if s.slug != slug %}
+                <li><a href="/servicios/{{ s.slug }}/">{{ s.title }}</a></li>
+              {% endif %}{% endfor %}
+            </ul>
+          </nav>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  {# ─── FAQ ──────────────────────────────────────────────────────── #}
   {% if faqSchema %}
-    {% include "templates/faqs.njk" %}
+    {% include "templates/lex-faq.njk" %}
   {% endif %}
-  {% include "templates/contacta_4.njk" %}
+
+  {# ─── CTA FINAL ────────────────────────────────────────────────── #}
+  {% include "templates/lex-cta-final.njk" %}
+
 </article>
+
+{% include "templates/lex-styles.njk" %}
+
+<style>
+/* ─── HERO ─────────────────────────────────────────────────────── */
+.lex-servicio__hero{background:#fff;border-bottom:1px solid #e3e8f3;}
+.lex-servicio__hero .lex-hero-page__wrap{padding:clamp(48px, 7vw, 80px) 0 clamp(40px, 6vw, 64px);}
+.lex-servicio__cta-row{
+  display:flex;flex-wrap:wrap;gap:12px;
+  margin-top:28px;
+}
+
+/* ─── BODY GRID ────────────────────────────────────────────────── */
+.lex-servicio__body{padding-top:clamp(48px, 7vw, 72px);padding-bottom:clamp(48px, 7vw, 72px);}
+.lex-servicio__grid{
+  display:grid;grid-template-columns:1fr;gap:48px;
+}
+@media(min-width:992px){
+  .lex-servicio__grid{grid-template-columns:minmax(0,1fr) 320px;gap:64px;}
+}
+
+/* ─── PROSE ────────────────────────────────────────────────────── */
+.lex-prose{
+  font-family:var(--font-sans);font-size:17px;line-height:1.78;
+  color:#1f2a44;max-width:760px;
+}
+.lex-prose > p:first-of-type{font-size:19px;color:var(--c-primary);}
+.lex-prose p{margin:0 0 1.4em;}
+.lex-prose strong{color:var(--c-primary);font-weight:600;}
+.lex-prose a{color:var(--c-accent);text-decoration:underline;text-underline-offset:3px;}
+.lex-prose a:hover{opacity:.8;}
+.lex-prose h2{
+  font-family:var(--font-display);font-weight:500;
+  font-size:clamp(28px,3.4vw,40px);line-height:1.08;letter-spacing:-0.022em;
+  color:var(--c-primary);margin:2.2em 0 .6em;padding-top:.6em;
+  border-top:1px solid #e3e8f3;
+}
+.lex-prose h2:first-child{border-top:0;padding-top:0;margin-top:0;}
+.lex-prose h3{
+  font-family:var(--font-display);font-weight:500;
+  font-size:clamp(20px,2.4vw,26px);line-height:1.2;letter-spacing:-0.015em;
+  color:var(--c-primary);margin:1.8em 0 .4em;
+}
+.lex-prose ul,.lex-prose ol{padding-left:1.4em;margin:0 0 1.4em;}
+.lex-prose li{margin-bottom:.5em;}
+.lex-prose ul li::marker{color:var(--c-accent);}
+.lex-prose ol li::marker{color:var(--c-accent);font-weight:600;}
+.lex-prose blockquote{
+  border-left:3px solid var(--c-accent);
+  padding:.4em 0 .4em 1.2em;margin:1.6em 0;
+  color:#1f2a44;font-style:italic;background:#f5f7fc;border-radius:0 6px 6px 0;
+}
+.lex-prose table{
+  width:100%;border-collapse:collapse;margin:1.4em 0;
+  font-size:15.5px;
+}
+.lex-prose th,.lex-prose td{
+  text-align:left;padding:12px 14px;border-bottom:1px solid #e3e8f3;
+  vertical-align:top;
+}
+.lex-prose th{
+  background:#f5f7fc;color:var(--c-primary);font-weight:600;
+  font-size:13.5px;text-transform:uppercase;letter-spacing:.04em;
+}
+.lex-prose code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  background:#f5f7fc;padding:2px 6px;border-radius:4px;font-size:.92em;
+}
+.lex-prose hr{border:0;border-top:1px solid #e3e8f3;margin:2.4em 0;}
+
+/* ─── ASIDE ────────────────────────────────────────────────────── */
+.lex-servicio__aside{position:relative;}
+.lex-servicio__cta{
+  position:sticky;top:96px;
+  background:var(--c-primary,#0b1e4f);color:#dde4f5;
+  border-radius:14px;padding:28px 24px;
+}
+.lex-servicio__cta-title{
+  font-family:var(--font-display);font-weight:500;
+  font-size:22px;line-height:1.2;letter-spacing:-0.015em;
+  color:#fff;margin:8px 0 8px;
+}
+.lex-servicio__cta-text{
+  font-size:13.5px;line-height:1.55;color:#b8c3e0;margin:0 0 18px;
+}
+.lex-servicio__wa,
+.lex-servicio__tel{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin-top:10px;color:#dde4f5;text-decoration:none;
+  font-family:var(--font-sans);font-size:14px;
+  padding:12px 18px;border:1px solid #1f3573;border-radius:8px;
+  transition:border-color .15s ease, color .15s ease;
+}
+.lex-servicio__wa:hover,
+.lex-servicio__tel:hover{border-color:var(--c-accent);color:#fff;opacity:1;}
+
+/* ─── NAV OTROS SERVICIOS ──────────────────────────────────────── */
+.lex-servicio__nav{
+  margin-top:24px;padding:24px;
+  background:#f5f7fc;border:1px solid #e3e8f3;border-radius:14px;
+}
+.lex-servicio__nav-title{
+  font-family:var(--font-sans);font-size:12px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.18em;
+  color:var(--c-accent);margin:0 0 14px;
+}
+.lex-servicio__nav-list{list-style:none;padding:0;margin:0;}
+.lex-servicio__nav-list li{margin:0;padding:0;}
+.lex-servicio__nav-list a{
+  display:block;padding:10px 0;
+  font-family:var(--font-sans);font-size:14.5px;color:var(--c-primary);
+  text-decoration:none;border-bottom:1px solid #e3e8f3;
+  transition:color .15s ease, padding-left .15s ease;
+}
+.lex-servicio__nav-list li:last-child a{border-bottom:0;}
+.lex-servicio__nav-list a:hover{color:var(--c-accent);padding-left:6px;opacity:1;}
+
+/* ─── ASIDE NO STICKY EN MOBILE ────────────────────────────────── */
+@media(max-width:991px){
+  .lex-servicio__cta{position:static;}
+}
+</style>

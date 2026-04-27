@@ -1096,12 +1096,23 @@ margin-top: -100px;
 }
 
 /* ─── HEADER refinado ─── */
+/* OJO: el blur va en ::before, no en el propio header, porque
+   backdrop-filter en un ancestro crea containing block y rompe
+   el position:fixed del drawer #menu-mobile. */
 .site-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: box-shadow .25s ease, background-color .25s ease;
+  isolation: isolate;
+}
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: saturate(160%) blur(12px);
   -webkit-backdrop-filter: saturate(160%) blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  transition: box-shadow .25s ease, background-color .25s ease;
+  z-index: -1;
+  pointer-events: none;
 }
 .scrolled .site-header,
 body.scrolled .site-header {

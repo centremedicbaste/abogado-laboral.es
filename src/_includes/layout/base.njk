@@ -103,8 +103,12 @@
       .site-footer .fluid-7-b,.site-footer h1,.site-footer h2,.site-footer h3{color:#fff;}
       .site-footer address a,.site-footer ul a{color:rgba(255,255,255,.85);}
 
-      /* Header — sticky con blur sutil */
-      .site-header{background:rgba(255,255,255,.92);backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid rgba(0,0,0,.06);position:sticky;top:0;z-index:50;transition:box-shadow .25s ease;}
+      /* Header — sticky con blur sutil
+         OJO: el blur va en ::before, no en el propio header, porque
+         backdrop-filter en un ancestro crea containing block y rompe
+         el position:fixed del drawer #menu-mobile. */
+      .site-header{border-bottom:1px solid rgba(0,0,0,.06);position:sticky;top:0;z-index:50;transition:box-shadow .25s ease;isolation:isolate;}
+      .site-header::before{content:"";position:absolute;inset:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);z-index:-1;pointer-events:none;}
       .site-header .container-global.site-header__bar{display:flex;align-items:center;gap:24px;padding-top:14px;padding-bottom:14px;}
       .site-header__logo{flex:0 0 auto;display:inline-flex;align-items:center;text-decoration:none;}
       .site-header__logo img{display:block;height:44px;width:auto;}
