@@ -4,7 +4,7 @@ subtitle: "El plazo es de 20 días hábiles desde la fecha del despido. Es de ca
 date: 2026-04-22
 fecha: "22 de abril de 2026"
 tags: ["post", "despidos"]
-image: /assets/static/images/plazo-reclamar-despido-improcedente.jpg
+image: /assets/static/images/reclamar.png
 imageAlt: "Plazo de 20 días hábiles para reclamar un despido improcedente — plazo de caducidad"
 metaTitle: "Plazo para reclamar un despido improcedente — 20 días hábiles | 2026"
 metaDescription: "Tras un despido improcedente, tienes 20 días hábiles para reclamar. Cómo se cuentan, qué hacer cada día y por qué no hay segunda oportunidad."
