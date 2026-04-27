@@ -11,7 +11,7 @@ heroImage: "/assets/static/images/abogado-laboral-sevilla_a.jpg"
 
 hero_title: "Tu abogado laboralista de confianza en toda España"
 hero_description: "Despacho especializado exclusivamente en **derecho laboral**, **seguridad social**, **incapacidad permanente** y **centros especiales de empleo**. Asesoramos indistintamente a trabajadores, empresas y asociaciones en cualquier provincia del territorio nacional."
-hero_description2: "Primera consulta gratuita por videollamada o presencial en Sevilla. Te respondemos en menos de 60 minutos."
+hero_description2: "Primera consulta gratuita por videollamada o presencial en Sevilla."
 hero_btn: "Reserva tu consulta gratuita"
 
 introbenefits2_subtitle: "Asesoramiento jurídico integral en derecho laboral"

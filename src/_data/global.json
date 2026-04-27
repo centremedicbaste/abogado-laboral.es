@@ -76,13 +76,13 @@
   "container_padding": "24px",
 
   "banner_title": "Cuéntanos tu caso",
-  "banner_text": "Te respondemos en menos de 60 minutos en horario laboral.",
+  "banner_text": "Te respondemos lo antes posible en horario laboral.",
   "banner_claim": "Primera consulta gratuita por videollamada o presencial. Cobertura nacional.",
   "banner_button": "Reservar consulta gratis",
 
   "phone_banner_pretitle": "¿Necesitas un abogado laboralista hoy?",
   "phone_banner_title": "Llámanos. Primera consulta gratuita.",
-  "phone_banner_subtitle": "Atendemos clientes en cualquier provincia de España, presencial en Sevilla o por videollamada. Te respondemos en menos de 60 minutos.",
+  "phone_banner_subtitle": "Atendemos clientes en cualquier provincia de España, presencial en Sevilla o por videollamada.",
 
   "credenciales": [
     { "label": "Iltre. Colegio de Abogados de Sevilla", "icon": "scale" },

@@ -2,7 +2,7 @@
 layout: layout/base.njk
 permalink: /gracias/
 metaTitle: "Gracias por contactar | Abogado Laboral"
-metaDescription: "Gracias por contactar con Abogado Laboral. En breve te responderemos o llamaremos por teléfono. Te respondemos en menos de 60 minutos en horario laboral."
+metaDescription: "Gracias por contactar con Abogado Laboral. En breve te responderemos o llamaremos por teléfono."
 metaRobots: "noindex, follow"
 title: "Gracias"
 ---
@@ -12,7 +12,7 @@ title: "Gracias"
     <div class="mb-32" style="font-size:64px;">✅</div>
     <h1 class="fluid-3-l mb-16">¡Gracias por contactar con nosotros!</h1>
     <p class="fluid-7-r mb-32" style="color:var(--c-gray);">
-      En breve te responderemos o te llamaremos por teléfono. Te contactamos en menos de <strong>60 minutos</strong> en horario laboral. Si nos has escrito fuera de horario, te responderemos a primera hora del próximo día hábil.
+      En breve te responderemos o te llamaremos por teléfono. Si nos has escrito fuera de horario, te responderemos a primera hora del próximo día hábil.
     </p>
 
     <div class="is-flex content-center" style="gap:16px;flex-wrap:wrap;">

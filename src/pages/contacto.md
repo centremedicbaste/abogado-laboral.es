@@ -2,7 +2,7 @@
 layout: layout/base.njk
 permalink: /contacto/
 metaTitle: "Contacto | Abogado Laboral — 1ª consulta gratuita en toda España"
-metaDescription: "Contacta con Abogado Laboral: teléfono, WhatsApp, email y formulario. Te respondemos en menos de 60 minutos. Cobertura nacional con videoconsulta. Sede en Sevilla."
+metaDescription: "Contacta con Abogado Laboral: teléfono, WhatsApp, email y formulario. Cobertura nacional con videoconsulta. Sede en Sevilla."
 metaRobots: "index, follow"
 title: "Contacto"
 eyebrow: "Contacto · Cobertura nacional"

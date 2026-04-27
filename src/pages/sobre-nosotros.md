@@ -56,7 +56,7 @@ Surgimos de la sinergia de profesionales especializados en la gestión y asesora
         <div class="lex-about__cta">
           <p class="lex-eyebrow lex-eyebrow--light"><span class="lex-eyebrow__bar" aria-hidden="true"></span>Habla con nosotros</p>
           <h2 class="lex-about__cta-title">Estudio gratuito de tu caso en 24 h.</h2>
-          <p class="lex-about__cta-text">Primera consulta gratuita por videollamada o presencial. Te respondemos en menos de 60 minutos en horario laboral.</p>
+          <p class="lex-about__cta-text">Primera consulta gratuita por videollamada o presencial.</p>
           <a href="/contacto/" class="lex-btn lex-btn--accent lex-btn--full" data-cta="about_consulta">
             Reservar consulta
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12 H19 M14 7 L19 12 L14 17" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
