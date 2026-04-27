@@ -1,6 +1,6 @@
 ---
 layout: layout/base.njk
-permalink: /servicios/
+permalink: false
 metaTitle: "Servicios de Derecho Laboral en España | Abogado Laboral"
 metaDescription: "Áreas de actuación: despidos, incapacidad permanente, accidentes laborales, jubilaciones, inspecciones de trabajo y centros especiales de empleo. Cobertura nacional. Primera consulta gratuita."
 metaKeywords: "servicios abogado laboral, despidos españa, incapacidad permanente españa, accidentes laborales, centros especiales de empleo"
