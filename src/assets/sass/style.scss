@@ -1347,13 +1347,17 @@ details.accordion {
 
 /* ─── BUBBLE WHATSAPP elegante ─── */
 .bubble-whatsapp {
-  width: 60px;
-  height: 60px;
-  box-shadow: 0 10px 24px rgba(37, 211, 102, 0.35);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(37, 211, 102, 0.32);
   transition: transform .25s ease, box-shadow .25s ease;
+  svg { width: 24px; height: 24px; display: block; fill: #fff; }
   &:hover {
     transform: scale(1.06);
-    box-shadow: 0 14px 30px rgba(37, 211, 102, 0.45);
+    box-shadow: 0 12px 24px rgba(37, 211, 102, 0.42);
   }
 }
 

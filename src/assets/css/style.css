@@ -12823,8 +12823,8 @@ strong {
   position: fixed;
   right: 16px;
   bottom: 16px;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   background: #25D366;
   border-radius: 50%;
   display: flex;
@@ -12835,9 +12835,10 @@ strong {
   text-decoration: none;
 }
 .bubble-whatsapp svg {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   fill: #fff;
+  display: block;
 }
 .bubble-whatsapp:hover {
   transform: scale(1.05);
@@ -15334,8 +15335,8 @@ html.has-scroll-dragging {
   position: fixed;
   right: 16px;
   bottom: 16px;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   background: #25D366;
   border-radius: 50%;
   display: flex;
@@ -15346,9 +15347,10 @@ html.has-scroll-dragging {
   text-decoration: none;
 }
 .bubble-whatsapp svg {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   fill: #fff;
+  display: block;
 }
 .bubble-whatsapp:hover {
   transform: scale(1.05);
@@ -16174,44 +16176,35 @@ body.menu-open {
 }
 
 .bubble-whatsapp {
-  width: 50px;
-  height: 50px;
-  display: block;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
-  bottom: 15px;
-  right: 15px;
+  bottom: 16px;
+  right: 16px;
   cursor: pointer;
-  text-align: center;
-  line-height: 60px;
   background: #25d366;
-  border-radius: 100%;
+  border-radius: 50%;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.3);
   z-index: 1000;
 }
 .bubble-whatsapp:hover {
-  opacity: 0.6;
+  opacity: 0.85;
 }
 
-.bubble-whatsapp svg#bubble-whatsapp-icon {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  top: 9px;
-  left: 10px;
-  opacity: 1;
-  overflow: hidden;
-  transition: opacity 160ms ease-in-out;
-  fill: #fff;
-}
-.bubble-whatsapp svg#bubble-whatsapp-icon path {
-  fill: #fff;
-}
-
+.bubble-whatsapp svg,
+.bubble-whatsapp svg#bubble-whatsapp-icon,
 svg#bubble-whatsapp-icon {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
+  display: block;
   fill: #fff;
+  transition: opacity 160ms ease-in-out;
 }
+.bubble-whatsapp svg path,
+.bubble-whatsapp svg#bubble-whatsapp-icon path,
 svg#bubble-whatsapp-icon path {
   fill: #fff;
 }
@@ -18201,14 +18194,23 @@ details.accordion summary::-webkit-details-marker {
 
 /* ─── BUBBLE WHATSAPP elegante ─── */
 .bubble-whatsapp {
-  width: 60px;
-  height: 60px;
-  box-shadow: 0 10px 24px rgba(37, 211, 102, 0.35);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(37, 211, 102, 0.32);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.bubble-whatsapp svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+  fill: #fff;
 }
 .bubble-whatsapp:hover {
   transform: scale(1.06);
-  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.45);
+  box-shadow: 0 12px 24px rgba(37, 211, 102, 0.42);
 }
 
 /* ─── FORMULARIOS ─── */

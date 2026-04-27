@@ -18,12 +18,10 @@ const mdOptions = {
 };
 
 const mdAnchorOpts = {
-  permalink: markdownItAnchor.permalink.ariaHidden({
-    placement: 'before',
-    class: 'anchor-link',
-    symbol: '#',
-    level: [1, 2, 3, 4],
-  })
+  // Mantener IDs en los headings (necesarios para el TOC y enlaces internos),
+  // pero sin generar el "#" decorativo delante del título.
+  permalink: false,
+  level: [1, 2, 3, 4],
 };
 
 module.exports = function (eleventyConfig) {

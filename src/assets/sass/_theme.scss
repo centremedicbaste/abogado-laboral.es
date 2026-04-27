@@ -83,8 +83,8 @@
   position: fixed;
   right: 16px;
   bottom: 16px;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   background: #25D366;
   border-radius: 50%;
   display: flex;
@@ -93,7 +93,7 @@
   box-shadow: 0 4px 12px rgba(0,0,0,.18);
   z-index: 50;
   text-decoration: none;
-  svg { width: 32px; height: 32px; fill: #fff; }
+  svg { width: 24px; height: 24px; fill: #fff; display: block; }
   &:hover { transform: scale(1.05); }
 }
 

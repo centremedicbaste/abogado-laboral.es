@@ -1,42 +1,30 @@
 .bubble-whatsapp {
-  width: 50px;
-  height: 50px;
-  display: block;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
-  bottom: 15px;
-  right: 15px;
+  bottom: 16px;
+  right: 16px;
   cursor: pointer;
-  text-align: center;
-  line-height: 60px;
   background: #25d366;
-  border-radius: 100%;
+  border-radius: 50%;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.3);
   z-index: 1000;
   &:hover {
-    opacity: 0.6;
+    opacity: 0.85;
   }
 }
 
-
-
-.bubble-whatsapp svg#bubble-whatsapp-icon {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  top: 9px;
-  left: 10px;
-  opacity: 1;
-  overflow: hidden;
-  transition: opacity 160ms ease-in-out;
-  fill: #fff;
-  path {
-    fill: #fff;
-  }
-}
+.bubble-whatsapp svg,
+.bubble-whatsapp svg#bubble-whatsapp-icon,
 svg#bubble-whatsapp-icon {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
+  display: block;
   fill: #fff;
+  transition: opacity 160ms ease-in-out;
   path {
     fill: #fff;
   }
