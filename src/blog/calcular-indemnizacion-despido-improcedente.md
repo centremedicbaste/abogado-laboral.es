@@ -17,6 +17,8 @@ articleSchema:
 
 La indemnización por despido improcedente en España se calcula con una fórmula sencilla **en apariencia**: 33 días de salario por año trabajado, con un máximo de 24 mensualidades. En la práctica, el cálculo del **salario diario** y de las **fracciones de año** suele dar lugar a errores de varios miles de euros.
 
+{% include "templates/lex-calc-indemnizacion.njk" %}
+
 ## La fórmula
 
 > **Indemnización = (Salario diario) × (días por año) × (años + fracción de año)**

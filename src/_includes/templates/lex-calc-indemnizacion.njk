@@ -1,0 +1,105 @@
+<!-- lex-calc-indemnizacion.njk -->
+<!-- lex-calc-indemnizacion.njk — Calculadora de indemnización por despido improcedente -->
+<div class="lex-calc" id="calc-indemnizacion"><div class="lex-calc__head"><p class="lex-eyebrow">Calculadora · Despido improcedente</p><h2 class="lex-calc__title">Calcula tu indemnización en 30 segundos</h2><p class="lex-calc__intro">Introduce tus datos y obtén la indemnización aproximada que te correspondería por despido improcedente. El cálculo aplica la fórmula legal vigente (33 días/año post-2012, tramo doble si tu contrato es anterior, tope de 24 mensualidades).</p></div><div class="lex-calc__grid"><form class="lex-calc__form" id="calc-form" novalidate><fieldset class="lex-calc__fieldset"><legend>Salario bruto</legend><div class="lex-calc__row"><label class="lex-calc__label" for="calc-salario">Salario base mensual bruto (€)<input type="number" id="calc-salario" name="salario" min="0" step="0.01" value="1800" inputmode="decimal"/></label><label class="lex-calc__label" for="calc-pagas">Pagas al año<select id="calc-pagas" name="pagas"><option value="14" selected>14 (extras aparte)</option><option value="12">12 (prorrateadas)</option></select></label></div><div class="lex-calc__row"><label class="lex-calc__label" for="calc-pluses">Pluses fijos mensuales (€/mes)<input type="number" id="calc-pluses" name="pluses" min="0" step="0.01" value="0" inputmode="decimal"/><span class="lex-calc__hint">Transporte, antigüedad, mejora voluntaria…</span></label><label class="lex-calc__label" for="calc-variable">Variable / comisiones anuales (€/año)<input type="number" id="calc-variable" name="variable" min="0" step="0.01" value="0" inputmode="decimal"/><span class="lex-calc__hint">Media de los últimos 12 meses cobrados.</span></label></div></fieldset><fieldset class="lex-calc__fieldset"><legend>Antigüedad</legend><div class="lex-calc__row"><label class="lex-calc__label" for="calc-inicio">Fecha de inicio del contrato<input type="date" id="calc-inicio" name="inicio" value="2020-03-01"/></label><label class="lex-calc__label" for="calc-fin">Fecha del despido<input type="date" id="calc-fin" name="fin"/></label></div></fieldset><button type="button" class="lex-btn lex-btn--primary lex-btn--full" id="calc-go">Calcular indemnización</button><p class="lex-calc__legal">Cálculo orientativo. No sustituye al asesoramiento de un abogado. Para un análisis completo (variables, plus de antigüedad de convenio, tope de 42 meses por contratos pre-2012, etc.), <a href="/contacto/">reserva una consulta gratuita</a>.</p></form><aside class="lex-calc__results" id="calc-results" aria-live="polite"><div class="lex-calc__result-card"><p class="lex-calc__result-eyebrow">Indemnización aproximada</p><div class="lex-calc__result-amount" id="calc-amount">—</div><div class="lex-calc__result-cap" id="calc-cap" hidden></div></div><dl class="lex-calc__breakdown"><div class="lex-calc__br-row"><dt>Salario bruto anual</dt><dd id="calc-anual">—</dd></div><div class="lex-calc__br-row"><dt>Salario diario</dt><dd id="calc-diario">—</dd></div><div class="lex-calc__br-row"><dt>Antigüedad</dt><dd id="calc-antig">—</dd></div><div class="lex-calc__br-row" id="calc-pre-row" hidden><dt>Tramo pre-12/02/2012 (45 d/año)</dt><dd id="calc-pre">—</dd></div><div class="lex-calc__br-row" id="calc-post-row" hidden><dt>Tramo post-12/02/2012 (33 d/año)</dt><dd id="calc-post">—</dd></div><div class="lex-calc__br-row"><dt>Días de indemnización</dt><dd id="calc-dias">—</dd></div><div class="lex-calc__br-row"><dt>Tope (24 mensualidades)</dt><dd id="calc-tope">—</dd></div></dl><a class="lex-btn lex-btn--accent lex-btn--full" href="/contacto/" data-cta="calc_consulta">Quiero que un abogado revise mi caso</a></aside></div></div>
+<style>
+.lex-calc{--lc-ink:var(--c-primary,#0b1e4f);--lc-ink2:#1f2a44;--lc-accent:var(--c-accent,#2563eb);--lc-muted:#5b6b8f;--lc-line:#e3e8f3;--lc-soft:#f5f7fc;background:#fff;border:1px solid var(--lc-line);border-radius:16px;padding:clamp(24px,3vw,40px);margin:32px 0;font-family:var(--font-sans);color:var(--lc-ink2);}
+.lex-calc__head{margin-bottom:28px;}
+.lex-calc__title{font-family:var(--font-display);font-weight:500;font-size:clamp(24px,3vw,34px);line-height:1.1;letter-spacing:-0.02em;color:var(--lc-ink);margin:6px 0 10px;}
+.lex-calc__intro{font-size:15px;line-height:1.55;color:var(--lc-muted);max-width:680px;margin:0;}
+.lex-calc__grid{display:grid;grid-template-columns:1fr;gap:28px;}
+@media(min-width:900px){.lex-calc__grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:36px;}}
+.lex-calc__form{display:flex;flex-direction:column;gap:18px;min-width:0;}
+.lex-calc__fieldset{border:1px solid var(--lc-line);border-radius:12px;padding:18px 20px 22px;margin:0;background:var(--lc-soft);}
+.lex-calc__fieldset legend{font-family:var(--font-sans);font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.18em;color:var(--lc-accent);padding:0 8px;}
+.lex-calc__row{display:grid;grid-template-columns:1fr;gap:14px;}
+@media(min-width:560px){.lex-calc__row{grid-template-columns:1fr 1fr;}}
+.lex-calc__row + .lex-calc__row{margin-top:14px;}
+.lex-calc__label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--lc-ink);font-weight:500;min-width:0;}
+.lex-calc__label input,.lex-calc__label select{font:inherit;font-size:15px;font-weight:400;padding:11px 14px;border:1px solid var(--lc-line);border-radius:8px;background:#fff;color:var(--lc-ink);outline:none;transition:border-color .15s ease,box-shadow .15s ease;width:100%;box-sizing:border-box;}
+.lex-calc__label input:focus,.lex-calc__label select:focus{border-color:var(--lc-accent);box-shadow:0 0 0 3px rgba(37,99,235,.12);}
+.lex-calc__hint{font-size:11.5px;color:var(--lc-muted);font-weight:400;margin-top:2px;}
+.lex-calc__legal{font-size:11.5px;line-height:1.5;color:var(--lc-muted);margin:6px 0 0;}
+.lex-calc__legal a{color:var(--lc-accent);}
+.lex-calc__results{display:flex;flex-direction:column;gap:16px;min-width:0;}
+.lex-calc__result-card{background:var(--lc-ink);color:#fff;border-radius:14px;padding:22px 24px;}
+.lex-calc__result-eyebrow{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.18em;color:#7dd3fc;margin:0 0 6px;}
+.lex-calc__result-amount{font-family:var(--font-display);font-weight:500;font-size:clamp(34px,5vw,48px);line-height:1.05;letter-spacing:-0.02em;color:#fff;}
+.lex-calc__result-cap{font-size:12.5px;color:#b8c3e0;margin-top:6px;}
+.lex-calc__breakdown{display:flex;flex-direction:column;gap:0;margin:0;padding:0;border:1px solid var(--lc-line);border-radius:12px;overflow:hidden;background:#fff;}
+.lex-calc__br-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:11px 16px;border-top:1px solid var(--lc-line);font-size:13.5px;}
+.lex-calc__br-row:first-child{border-top:0;}
+.lex-calc__br-row dt{margin:0;color:var(--lc-muted);font-weight:400;}
+.lex-calc__br-row dd{margin:0;color:var(--lc-ink);font-weight:600;font-variant-numeric:tabular-nums;text-align:right;}
+.lex-calc .lex-btn{margin-top:4px;}
+</style>
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var form = $('calc-form'); if(!form) return;
+  var fmtEUR = function(n){ if(!isFinite(n)) return '—'; return n.toLocaleString('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:2}); };
+  var fmtN = function(n,d){ if(!isFinite(n)) return '—'; return n.toLocaleString('es-ES',{minimumFractionDigits:d||0,maximumFractionDigits:d||2}); };
+  var REFORMA = new Date('2012-02-12T00:00:00');
+  var todayISO = new Date().toISOString().slice(0,10);
+  if($('calc-fin') && !$('calc-fin').value){ $('calc-fin').value = todayISO; }
+  function diffDays(a,b){ return Math.max(0,(b-a)/(1000*60*60*24)); }
+  function calc(){
+    var salario = parseFloat($('calc-salario').value)||0;
+    var pagas = parseInt($('calc-pagas').value,10)||14;
+    var pluses = parseFloat($('calc-pluses').value)||0;
+    var variable = parseFloat($('calc-variable').value)||0;
+    var ini = $('calc-inicio').value ? new Date($('calc-inicio').value+'T00:00:00') : null;
+    var fin = $('calc-fin').value ? new Date($('calc-fin').value+'T00:00:00') : null;
+    if(!ini || !fin || isNaN(ini) || isNaN(fin) || fin<=ini){
+      $('calc-amount').textContent = '—';
+      $('calc-cap').hidden = true;
+      ['calc-anual','calc-diario','calc-antig','calc-dias','calc-tope'].forEach(function(id){ $(id).textContent='—'; });
+      $('calc-pre-row').hidden = true; $('calc-post-row').hidden = true;
+      return;
+    }
+    var brutoAnual = (salario * pagas) + (pluses * 12) + variable;
+    var diario = brutoAnual / 365;
+    var mensualidad = brutoAnual / 12;
+    var totalDias = diffDays(ini, fin);
+    var totalAnios = totalDias / 365.25;
+    var diasIndem = 0, diasPre = 0, diasPost = 0;
+    if(ini < REFORMA){
+      var diasPreCal = diffDays(ini, REFORMA);
+      var diasPostCal = diffDays(REFORMA, fin);
+      var aniosPre = diasPreCal/365.25;
+      var aniosPost = diasPostCal/365.25;
+      diasPre = aniosPre * 45;
+      diasPost = aniosPost * 33;
+      diasIndem = diasPre + diasPost;
+      $('calc-pre-row').hidden = false; $('calc-post-row').hidden = false;
+      $('calc-pre').textContent = fmtN(aniosPre,2)+' años → '+fmtN(diasPre,2)+' días';
+      $('calc-post').textContent = fmtN(aniosPost,2)+' años → '+fmtN(diasPost,2)+' días';
+    } else {
+      diasIndem = totalAnios * 33;
+      $('calc-pre-row').hidden = true; $('calc-post-row').hidden = true;
+    }
+    var indem = diario * diasIndem;
+    var tope = mensualidad * 24;
+    var indemFinal = indem;
+    var topada = false;
+    if(indem > tope){ indemFinal = tope; topada = true; }
+    $('calc-anual').textContent = fmtEUR(brutoAnual);
+    $('calc-diario').textContent = fmtEUR(diario);
+    var aniosEnt = Math.floor(totalAnios);
+    var mesesEnt = Math.round((totalAnios - aniosEnt)*12);
+    $('calc-antig').textContent = aniosEnt+' años, '+mesesEnt+' meses ('+fmtN(totalAnios,2)+' años)';
+    $('calc-dias').textContent = fmtN(diasIndem,2)+' días';
+    $('calc-tope').textContent = fmtEUR(tope);
+    $('calc-amount').textContent = fmtEUR(indemFinal);
+    if(topada){
+      $('calc-cap').hidden = false;
+      $('calc-cap').textContent = 'Aplicado el tope de 24 mensualidades. Sin tope serían '+fmtEUR(indem)+'.';
+    } else {
+      $('calc-cap').hidden = true;
+    }
+  }
+  form.addEventListener('input', calc);
+  form.addEventListener('change', calc);
+  var btn = $('calc-go'); if(btn) btn.addEventListener('click', calc);
+  calc();
+})();
+</script>

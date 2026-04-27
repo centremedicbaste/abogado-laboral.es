@@ -2,49 +2,22 @@
 <!-- lex-equipo.njk — Equipo (3 columnas). Si no hay global.team usa placeholders. -->
 <section class="lex-section lex-equipo" id="equipo" aria-label="Equipo">
   <div class="container-global mx-auto">
-    <div class="lex-section__head lex-section__head--narrow">
-      <div>
-        <p class="lex-eyebrow">{{ team1_subtitle or "Equipo" }}</p>
-        <h2 class="lex-section__title">{{ team1_title or "Quien lleva tu caso, lo conoces antes de firmar." }}</h2>
-        <p class="lex-section__intro">{{ team1_descripción or team1_description or "Nada de call centers. Hablas directamente con el abogado o abogada que va a defenderte." }}</p>
-      </div>
-    </div>
-
-    {% set teamList = global.team %}
+    <div class="lex-section__head lex-section__head--narrow"><div><p class="lex-eyebrow">{{ team1_subtitle or "Equipo" }}</p><h2 class="lex-section__title">{{ team1_title or "Quien lleva tu caso, lo conoces antes de firmar." }}</h2><p class="lex-section__intro">{{ team1_descripción or team1_description or "Nada de call centers. Hablas directamente con el abogado o abogada que va a defenderte." }}</p></div></div>
+    {%- set teamList = global.team -%}
     <div class="lex-team-grid">
-      {% if teamList and teamList.length %}
-        {% for t in teamList %}
-        <article class="lex-team-card">
-          <div class="lex-team-card__photo">
-            {% if t.team_img %}
-            <img src="/assets/static/images/{{ t.team_img }}" alt="{{ t.team_name }}, {{ t.team_position }}" loading="lazy" decoding="async" width="400" height="400"/>
-            {% else %}
-            <span class="lex-team-card__photo-label">// retrato · {{ t.team_name | first }}</span>
-            {% endif %}
-            <span class="lex-team-card__photo-dot" aria-hidden="true"></span>
-          </div>
-          <h3 class="lex-team-card__name">{{ t.team_name }}</h3>
-          <div class="lex-team-card__role">{{ t.team_position }}</div>
-          {% if t.team_meta %}<div class="lex-team-card__meta">{{ t.team_meta }}</div>{% endif %}
-        </article>
-        {% endfor %}
-      {% else %}
-        {% for t in [
+      {%- if teamList and teamList.length -%}
+        {%- for t in teamList -%}
+        <article class="lex-team-card"><div class="lex-team-card__photo">{% if t.team_img %}<img src="/assets/static/images/{{ t.team_img }}" alt="{{ t.team_name }}, {{ t.team_position }}" loading="lazy" decoding="async" width="400" height="400"/>{% else %}<span class="lex-team-card__photo-label">// retrato · {{ t.team_name | first }}</span>{% endif %}<span class="lex-team-card__photo-dot" aria-hidden="true"></span></div><h3 class="lex-team-card__name">{{ t.team_name }}</h3><div class="lex-team-card__role">{{ t.team_position }}</div>{% if t.team_meta %}<div class="lex-team-card__meta">{{ t.team_meta }}</div>{% endif %}</article>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for t in [
           { name: "Abogado/a director/a", role: "Especialista en derecho laboral · Colegiado/a ICAS", years: "+15 años de experiencia", img: "nosotros_1.jpg" },
           { name: "Responsable procesal", role: "Sala de lo Social · Reclamaciones SMAC", years: "Despidos · Cantidades · Mobbing", img: "nosotros_2.jpg" },
           { name: "Responsable Discapacidad y CEE", role: "Calificación CEE · Subvenciones", years: "Empleo protegido en toda España", img: "nosotros_3.jpg" }
-        ] %}
-        <article class="lex-team-card">
-          <div class="lex-team-card__photo">
-            <img src="/assets/static/images/{{ t.img }}" alt="{{ t.name }}, {{ t.role }}" loading="lazy" decoding="async" width="400" height="500"/>
-            <span class="lex-team-card__photo-dot" aria-hidden="true"></span>
-          </div>
-          <h3 class="lex-team-card__name">{{ t.name }}</h3>
-          <div class="lex-team-card__role">{{ t.role }}</div>
-          <div class="lex-team-card__meta">{{ t.years }}</div>
-        </article>
-        {% endfor %}
-      {% endif %}
+        ] -%}
+        <article class="lex-team-card"><div class="lex-team-card__photo"><img src="/assets/static/images/{{ t.img }}" alt="{{ t.name }}, {{ t.role }}" loading="lazy" decoding="async" width="400" height="500"/><span class="lex-team-card__photo-dot" aria-hidden="true"></span></div><h3 class="lex-team-card__name">{{ t.name }}</h3><div class="lex-team-card__role">{{ t.role }}</div><div class="lex-team-card__meta">{{ t.years }}</div></article>
+        {%- endfor -%}
+      {%- endif -%}
     </div>
   </div>
 </section>

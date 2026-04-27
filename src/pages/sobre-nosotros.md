@@ -12,10 +12,7 @@ page_subtitle: "<strong>Abogado Laboral</strong> se compone de un equipo de expe
 
 {% include "templates/lex-hero-page.njk" %}
 
-<section class="lex-section">
-  <div class="container-global mx-auto">
-    <div class="lex-about__grid">
-      <div class="lex-prose">
+<section class="lex-section"><div class="container-global mx-auto"><div class="lex-about__grid"><div class="lex-prose">
 
 ## Quiénes somos
 
@@ -50,26 +47,7 @@ Surgimos de la sinergia de profesionales especializados en la gestión y asesora
 - **Tecnología moderna**: extranet de cliente, LexNET, firma electrónica, vista virtual.
 - **Vosotros habláis por nosotros.** Nuestra mejor publicidad son las recomendaciones de quienes ya han confiado en nosotros.
 
-      </div>
-
-      <aside class="lex-about__aside">
-        <div class="lex-about__cta">
-          <p class="lex-eyebrow lex-eyebrow--light"><span class="lex-eyebrow__bar" aria-hidden="true"></span>Habla con nosotros</p>
-          <h2 class="lex-about__cta-title">Estudio gratuito de tu caso.</h2>
-          <p class="lex-about__cta-text">Primera consulta gratuita por videollamada o presencial.</p>
-          <a href="/contacto/" class="lex-btn lex-btn--accent lex-btn--full" data-cta="about_consulta">
-            Reservar consulta
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12 H19 M14 7 L19 12 L14 17" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
-          </a>
-          <a href="tel:{{ global.telefono_e164 }}" class="lex-about__tel" data-cta="about_tel">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4 H9 L11 9 L8 11 C9 14 10 15 13 16 L15 13 L20 15 V19 C20 20 19 21 18 21 C10 21 3 14 3 6 C3 5 4 4 5 4 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>
-            {{ global.telefono }}
-          </a>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
+</div><aside class="lex-about__aside"><div class="lex-about__cta"><p class="lex-eyebrow lex-eyebrow--light">Habla con nosotros</p><h2 class="lex-about__cta-title">Estudio gratuito de tu caso.</h2><p class="lex-about__cta-text">Primera consulta gratuita por videollamada o presencial.</p><a href="/contacto/" class="lex-btn lex-btn--accent lex-btn--full" data-cta="about_consulta">Reservar consulta <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12 H19 M14 7 L19 12 L14 17" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></a><a href="tel:{{ global.telefono_e164 }}" class="lex-about__tel" data-cta="about_tel"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4 H9 L11 9 L8 11 C9 14 10 15 13 16 L15 13 L20 15 V19 C20 20 19 21 18 21 C10 21 3 14 3 6 C3 5 4 4 5 4 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> {{ global.telefono }}</a></div></aside></div></div></section>
 
 {% include "templates/lex-equipo.njk" %}
 {% include "templates/lex-cta-final.njk" %}
