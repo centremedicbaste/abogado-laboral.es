@@ -192,9 +192,9 @@ b {
   }
 }
 
-svg{
-  fill: transparent!important;
-}
+/* Override global eliminado: rompía iconos como el bubble de WhatsApp.
+   Para iconos decorativos sin fill usar las clases .svg-deco o svg.is-decorative
+   definidas en style.scss. */
 
 .btn.btn--big{
   font-size: 12px;
