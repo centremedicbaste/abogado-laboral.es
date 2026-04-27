@@ -2,18 +2,20 @@
 layout: layout/base.njk
 ---
 {# ============================================================
-   BLOGPOST — Diseño "Lex Garantía Post"
-   Estructura: hero soft (breadcrumb + tags + título con highlight + autor)
-   3 columnas: TOC + share | article | takeaways + ayuda urgente
-   Author card · Related · Final CTA accent
+   BLOGPOST — Alineado con el sistema Lex del resto del sitio
+   - Hero compacto (lex-hero-page) con eyebrow + título + lead + meta
+   - Imagen featured opcional (mismo estilo que media de lex-blog)
+   - Body 2 columnas: TOC sticky + cuerpo (patrón de _servicio.njk)
+   - Related posts con lex-blog__grid
+   - CTA final reutilizando lex-cta-final.njk
    ============================================================ #}
 
 <article class="lex-post">
 
-  {# ── HERO ───────────────────────────────────────────────── #}
-  <section class="lex-post__hero">
-    <div class="container-global mx-auto lex-post__hero-wrap">
-      <nav class="lex-post__crumbs" aria-label="Migas de pan">
+  {# ── HERO (estilo lex-hero-page) ────────────────────────── #}
+  <section class="lex-hero-page lex-post__hero">
+    <div class="container-global mx-auto lex-hero-page__wrap">
+      <nav class="lex-crumbs" aria-label="Migas de pan">
         <a href="/">Inicio</a>
         <span aria-hidden="true">/</span>
         <a href="/blog/">Blog</a>
@@ -21,159 +23,109 @@ layout: layout/base.njk
           <span aria-hidden="true">/</span>
           <a href="/blog/">{{ tags[1] | capitalize }}</a>
         {% endif %}
-        <span aria-hidden="true">/</span>
-        <span class="lex-post__crumbs-current">{{ title }}</span>
       </nav>
 
-      <div class="lex-post__hero-grid">
-        <div class="lex-post__hero-text">
-          <div class="lex-post__pills">
-            {% if tags %}{% for tag in tags %}{% if tag != "post" %}
-              <span class="lex-pill lex-pill--white">{{ tag | capitalize }}</span>
-            {% endif %}{% endfor %}{% endif %}
-            {% if fecha %}<span class="lex-pill lex-pill--white">Actualizado · {{ fecha }}</span>{% endif %}
-          </div>
+      {% if tags and tags.length > 1 %}
+      <p class="lex-eyebrow lex-eyebrow--bar">
+        <span class="lex-eyebrow__bar" aria-hidden="true"></span>
+        {{ tags[1] | capitalize }}
+      </p>
+      {% endif %}
 
-          <h1 class="lex-post__title">{{ title }}</h1>
+      <h1 class="lex-hero-page__title">{{ title }}</h1>
 
-          {% if subtitle %}
-          <p class="lex-post__lead">{{ subtitle }}</p>
-          {% endif %}
+      {% if subtitle %}
+      <p class="lex-hero-page__lead">{{ subtitle }}</p>
+      {% endif %}
 
-          <div class="lex-post__meta">
-            <div class="lex-post__author-mini">
-              <div class="lex-post__avatar" aria-hidden="true">{{ (global.author or "Abogado Laboral") | first }}{{ (global.author or "L")[1] }}</div>
-              <div>
-                <div class="lex-post__author-name">{{ global.author or "Equipo Abogado Laboral" }}</div>
-                <div class="lex-post__author-role">Despacho especializado en derecho laboral</div>
-              </div>
-            </div>
-            <div class="lex-post__meta-divider"></div>
-            <div class="lex-post__meta-item">Lectura · <strong>{{ reading_time or "8 min" }}</strong></div>
-            {% if fecha %}
-            <div class="lex-post__meta-divider"></div>
-            <div class="lex-post__meta-item">Publicado · <strong>{{ fecha }}</strong></div>
-            {% endif %}
-          </div>
-        </div>
-
-        {% if image and not noheroimage %}
-        <div class="lex-post__hero-photo">
-          <img src="{{ image }}" alt="{{ imageAlt or title }}" loading="eager" decoding="async" width="640" height="420"/>
-          <span class="lex-post__hero-photo-dot" aria-hidden="true"></span>
-        </div>
-        {% else %}
-        <div class="lex-post__hero-photo lex-post__hero-photo--placeholder">
-          <span class="lex-post__hero-photo-label">// portada · {{ tags[1] | lower if tags and tags.length > 1 else "post" }}</span>
-          <span class="lex-post__hero-photo-dot" aria-hidden="true"></span>
-        </div>
+      <div class="lex-post__meta">
+        {% if fecha %}
+        <span class="lex-post__meta-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          {{ fecha }}
+        </span>
         {% endif %}
+        <span class="lex-post__meta-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="1.6"/></svg>
+          {{ global.author or "Equipo Abogado Laboral" }}
+        </span>
+        <span class="lex-post__meta-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Lectura · {{ reading_time or "8 min" }}
+        </span>
       </div>
     </div>
   </section>
 
-  {# ── ARTICLE BODY · 3 COLUMNAS ─────────────────────────── #}
+  {# ── IMAGEN FEATURED (opcional) ─────────────────────────── #}
+  {% if image and not noheroimage %}
+  <div class="container-global mx-auto lex-post__cover-wrap">
+    <div class="lex-post__cover">
+      <img src="{{ image }}" alt="{{ imageAlt or title }}" width="1200" height="675" loading="eager" decoding="async"/>
+      <span class="lex-post__cover-dot" aria-hidden="true"></span>
+    </div>
+  </div>
+  {% endif %}
+
+  {# ── BODY 2 COLUMNAS (TOC sticky + contenido) ───────────── #}
   <section class="lex-post__main">
-    <div class="container-global mx-auto lex-post__main-wrap">
+    <div class="container-global mx-auto">
       <div class="lex-post__grid">
 
-        {# ─ TOC + SHARE (izquierda) ─ #}
-        <aside class="lex-post__rail-left" aria-label="Índice y compartir">
-          <div class="lex-post__rail-sticky">
-            <div>
-              <p class="lex-mono-eyebrow">// índice</p>
-              <div class="lex-post__toc">
+        <aside class="lex-post__aside" aria-label="Índice y contacto">
+          <div class="lex-post__aside-sticky">
+            <div class="lex-post__toc">
+              <p class="lex-eyebrow lex-eyebrow--bar">
+                <span class="lex-eyebrow__bar" aria-hidden="true"></span>
+                En este artículo
+              </p>
+              <div class="lex-post__toc-content">
                 {{ content | toc | safe }}
               </div>
             </div>
-            <div class="lex-post__share">
-              <p class="lex-mono-eyebrow">// compartir</p>
-              <div class="lex-post__share-row">
-                <a class="lex-post__share-btn" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url={{ global.url }}{{ page.url }}&text={{ title | urlencode }}" aria-label="Compartir en X">X</a>
-                <a class="lex-post__share-btn" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url={{ global.url }}{{ page.url }}" aria-label="Compartir en LinkedIn">in</a>
-                <a class="lex-post__share-btn" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u={{ global.url }}{{ page.url }}" aria-label="Compartir en Facebook">f</a>
-                <a class="lex-post__share-btn" href="mailto:?subject={{ title | urlencode }}&body={{ global.url }}{{ page.url }}" aria-label="Compartir por email">@</a>
-              </div>
-            </div>
-          </div>
-        </aside>
 
-        {# ─ ARTICLE BODY (centro) ─ #}
-        <div class="lex-post__body">
-          {{ content | safe }}
-
-          <hr class="lex-post__hr"/>
-          <p class="lex-post__update">
-            Última actualización: {{ fecha or "abril de 2026" }}. Este artículo refleja la doctrina y normativa vigente a la fecha. Si tu caso es urgente, llámanos: los plazos no esperan a nadie.
-          </p>
-        </div>
-
-        {# ─ RIGHT RAIL: takeaways + ayuda urgente ─ #}
-        <aside class="lex-post__rail-right" aria-label="Claves y ayuda">
-          <div class="lex-post__rail-sticky">
-            {% if takeaways and takeaways.length %}
-            <div class="lex-post__takeaways">
-              <p class="lex-mono-eyebrow">// claves</p>
-              <h4 class="lex-post__takeaways-title">Lo que tienes que recordar</h4>
-              <ul>
-                {% for t in takeaways %}
-                <li>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M4 12 L10 18 L20 6"/></svg>
-                  <span>{{ t }}</span>
-                </li>
-                {% endfor %}
-              </ul>
-            </div>
-            {% endif %}
-
-            <div class="lex-post__urgent">
-              <p class="lex-mono-eyebrow lex-mono-eyebrow--light">// ayuda urgente</p>
-              <h4 class="lex-post__urgent-title">¿Necesitas ayuda hoy?</h4>
-              <p class="lex-post__urgent-text">Llámanos antes de firmar nada. Estudio del caso gratuito en 24 h.</p>
-              <a href="tel:{{ global.telefono_e164 }}" class="lex-btn lex-btn--accent lex-btn--full" data-cta="post_urgent_tel">
+            <div class="lex-post__aside-cta">
+              <p class="lex-eyebrow lex-eyebrow--light lex-eyebrow--bar">
+                <span class="lex-eyebrow__bar" aria-hidden="true"></span>
+                Habla con nosotros
+              </p>
+              <h3 class="lex-post__aside-cta-title">¿Necesitas ayuda con tu caso?</h3>
+              <p class="lex-post__aside-cta-text">Estudio gratuito en 24 h. Atención presencial en Sevilla y videoconsulta en toda España.</p>
+              <a class="lex-btn lex-btn--accent lex-btn--full" href="/contacto/" data-cta="post_aside_consulta">Reservar consulta</a>
+              <a class="lex-btn lex-btn--ghost lex-btn--full lex-post__aside-tel" href="tel:{{ global.telefono_e164 }}" data-cta="post_aside_tel">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true"><path d="M5 4 H9 L11 9 L8 11 C9 14 10 15 13 16 L15 13 L20 15 V19 C20 20 19 21 18 21 C10 21 3 14 3 6 C3 5 4 4 5 4 Z"/></svg>
                 {{ global.telefono }}
               </a>
             </div>
           </div>
         </aside>
-      </div>
-    </div>
-  </section>
 
-  {# ── AUTHOR CARD ────────────────────────────────────────── #}
-  <section class="lex-post__author-card">
-    <div class="container-global mx-auto lex-post__author-card-wrap">
-      <div class="lex-post__author-card-grid">
-        <div class="lex-post__author-photo" aria-hidden="true">
-          <span>{{ (global.author or "AL") | first }}{{ (global.author or "AL")[1] }}</span>
-        </div>
-        <div>
-          <p class="lex-mono-eyebrow">// autor</p>
-          <h3 class="lex-post__author-card-name">{{ global.author or "Equipo Abogado Laboral" }}</h3>
-          <div class="lex-post__author-card-role">Despacho especializado en derecho laboral, Seguridad Social y Centros Especiales de Empleo desde 2009.</div>
-          <p class="lex-post__author-card-bio">
-            Asesoramos a trabajadores, empresas y CEE en toda España. Ejercemos exclusivamente derecho laboral: solo lo laboral, nada más.
+        <div class="lex-post__body">
+          {{ content | safe }}
+
+          <hr class="lex-post__body-hr"/>
+          <p class="lex-post__body-update">
+            Última actualización: {{ fecha or "abril de 2026" }}. Este artículo refleja la doctrina y normativa vigente a la fecha. Si tu caso es urgente, llámanos: los plazos no esperan.
           </p>
-          <div class="lex-post__author-card-actions">
-            <a href="/sobre-nosotros/" class="lex-btn lex-btn--ghost lex-btn--small">Ver el despacho</a>
-            <a href="/blog/" class="lex-btn lex-btn--ghost lex-btn--small">Más artículos</a>
-          </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  {# ── RELATED POSTS (excluye el actual, máx 3) ─────────── #}
+  {# ── RELATED POSTS (lex-blog grid) ──────────────────────── #}
   {% if collections.post and collections.post.length > 1 %}
   <section class="lex-section lex-post__related">
     <div class="container-global mx-auto">
       <div class="lex-section__head">
         <div>
-          <p class="lex-mono-eyebrow">// también te puede interesar</p>
-          <h2 class="lex-section__title">Sigue leyendo</h2>
+          <p class="lex-eyebrow lex-eyebrow--bar">
+            <span class="lex-eyebrow__bar" aria-hidden="true"></span>
+            Sigue leyendo
+          </p>
+          <h2 class="lex-section__title">Otros artículos del despacho</h2>
         </div>
-        <a href="/blog/" class="lex-link">Ver todo el blog →</a>
+        <a href="/blog/" class="lex-link">Ver todos los artículos →</a>
       </div>
       <div class="lex-blog__grid">
         {% set shown = 0 %}
@@ -194,7 +146,7 @@ layout: layout/base.njk
                 <span class="lex-pill lex-pill--small">{{ p.data.tags[1] | capitalize }}</span>
                 {% endif %}
                 <h3 class="lex-blog__card-title">{{ p.data.title }}</h3>
-                {% if p.data.fecha %}<div class="lex-blog__card-meta">Lectura · {{ p.data.fecha }}</div>{% endif %}
+                {% if p.data.fecha %}<div class="lex-blog__card-meta">{{ p.data.fecha }}</div>{% endif %}
               </a>
             </article>
           {% endif %}
@@ -204,38 +156,8 @@ layout: layout/base.njk
   </section>
   {% endif %}
 
-  {# ── FINAL CTA — fondo accent ───────────────────────────── #}
-  <section class="lex-post__final-cta">
-    <div class="container-global mx-auto lex-post__final-cta-wrap">
-      <div class="lex-post__final-cta-grid">
-        <div>
-          <h2 class="lex-post__final-cta-title">Tu caso no espera. Tu indemnización tampoco.</h2>
-          <p class="lex-post__final-cta-text">
-            Si te han despedido, te han denegado una incapacidad o no sabes si tu caso tiene viabilidad — escríbenos hoy. La consulta es gratuita y la respuesta llega en menos de 24 horas.
-          </p>
-          <div class="lex-post__final-cta-actions">
-            <a href="/contacto/" class="lex-post__final-cta-btn lex-post__final-cta-btn--solid" data-cta="post_final_consulta">
-              Estudiar mi caso ahora
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12 H19 M14 7 L19 12 L14 17" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
-            </a>
-            <a href="tel:{{ global.telefono_e164 }}" class="lex-post__final-cta-btn lex-post__final-cta-btn--ghost" data-cta="post_final_tel">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true"><path d="M5 4 H9 L11 9 L8 11 C9 14 10 15 13 16 L15 13 L20 15 V19 C20 20 19 21 18 21 C10 21 3 14 3 6 C3 5 4 4 5 4 Z"/></svg>
-              {{ global.telefono }}
-            </a>
-          </div>
-        </div>
-        <div class="lex-post__final-cta-checks">
-          <p class="lex-post__final-cta-checks-title">Lo que viene después</p>
-          {% for s in ["Confirmación en 5 minutos", "Estudio de tu caso en 24 h", "Plan de acción y plazos", "Decides tú — sin compromiso"] %}
-          <div class="lex-post__final-cta-check">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M4 12 L10 18 L20 6"/></svg>
-            <span>{{ s }}</span>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </section>
+  {# ── CTA FINAL (reutiliza el include compartido) ───────── #}
+  {% include "templates/lex-cta-final.njk" %}
 
 </article>
 
@@ -243,7 +165,8 @@ layout: layout/base.njk
 
 <style>
 /* ============================================================
-   POST · estilo Lex Garantía (sobre los tokens lex-*)
+   POST · estilos específicos sobre el sistema Lex
+   Tokens compartidos via :root (--c-primary, --c-accent...)
    ============================================================ */
 .lex-post{
   --lp-ink: var(--c-primary, #0b1e4f);
@@ -251,176 +174,146 @@ layout: layout/base.njk
   --lp-accent: var(--c-accent, #2563eb);
   --lp-muted: #5b6b8f;
   --lp-line: #e3e8f3;
-  --lp-soft: #f3f6fc;
-  --lp-highlight: #fff7b8;
+  --lp-soft: var(--bg-light, #f5f7fc);
   background:#fff;color:var(--lp-ink2);font-family:var(--font-sans);
 }
 
-/* ── HERO ── */
-.lex-post__hero{background:var(--lp-soft);border-bottom:1px solid var(--lp-line);}
-.lex-post__hero-wrap{padding:32px 0 64px;}
-.lex-post__crumbs{font-size:13px;color:var(--lp-muted);margin-bottom:28px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.lex-post__crumbs a{color:var(--lp-muted);text-decoration:none;transition:color .15s ease;}
-.lex-post__crumbs a:hover{color:var(--lp-accent);opacity:1;}
-.lex-post__crumbs-current{color:var(--lp-ink);}
-
-.lex-post__hero-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center;}
-@media(min-width:992px){.lex-post__hero-grid{grid-template-columns:1.4fr 1fr;gap:56px;}}
-
-.lex-post__pills{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap;}
-.lex-pill--white{background:#fff;}
-
-.lex-post__title{
-  font-family:var(--font-display);font-weight:500;
-  font-size:clamp(34px,5.5vw,64px);line-height:1.05;letter-spacing:-0.025em;
-  color:var(--lp-ink);margin:0 0 24px;
-}
-.lex-post__title em,
-.lex-post__body em{
-  color:var(--lp-accent);font-style:italic;font-family:var(--font-display);font-weight:500;
-}
-.lex-post__title mark,
-.lex-post__body mark{
-  background:var(--lp-highlight);color:inherit;
-  padding:0 4px;border-radius:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone;
-}
-
-.lex-post__lead{
-  font-family:var(--font-sans);font-size:clamp(17px,1.7vw,19px);line-height:1.55;
-  color:var(--lp-muted);margin:0 0 28px;max-width:580px;
-}
-
+/* ── HERO meta (debajo del lead) ── */
+.lex-post__hero .lex-hero-page__wrap{padding-bottom:clamp(32px, 5vw, 56px);}
 .lex-post__meta{
   display:flex;align-items:center;gap:24px;flex-wrap:wrap;
-  padding-top:24px;border-top:1px solid var(--lp-line);
+  margin-top:32px;padding-top:24px;border-top:1px solid var(--lp-line);
+  font-family:var(--font-sans);font-size:14px;color:var(--lp-muted);
 }
-.lex-post__meta-divider{width:1px;height:32px;background:var(--lp-line);}
-.lex-post__meta-item{font-size:13px;color:var(--lp-muted);}
-.lex-post__meta-item strong{color:var(--lp-ink);font-weight:500;}
+.lex-post__meta-item{display:inline-flex;align-items:center;gap:8px;}
+.lex-post__meta-item svg{color:var(--lp-accent);}
 
-.lex-post__author-mini{display:flex;align-items:center;gap:12px;}
-.lex-post__avatar{
-  width:44px;height:44px;border-radius:999px;
-  background:var(--lp-ink);color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-display);font-size:18px;text-transform:uppercase;
-  flex-shrink:0;
+/* ── IMAGEN FEATURED ── */
+.lex-post__cover-wrap{padding:0;}
+.lex-post__cover{
+  position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;
+  background:#e6ecf7;border:1px solid #d6deef;
+  margin:clamp(24px,4vw,40px) auto 0;max-width:1100px;
 }
-.lex-post__author-name{font-size:14px;color:var(--lp-ink);font-weight:500;}
-.lex-post__author-role{font-size:12.5px;color:var(--lp-muted);}
+.lex-post__cover img{width:100%;height:100%;object-fit:cover;display:block;}
+.lex-post__cover-dot{
+  position:absolute;right:14px;top:14px;
+  width:10px;height:10px;border-radius:999px;background:var(--lp-accent);
+}
 
-.lex-post__hero-photo{
-  position:relative;aspect-ratio:4/3;border-radius:20px;overflow:hidden;
-  border:1px solid #d6deef;
-  background:repeating-linear-gradient(135deg, #e6ecf7 0 14px, rgba(11,30,79,0.05) 14px 28px);
-}
-.lex-post__hero-photo img{width:100%;height:100%;object-fit:cover;display:block;}
-.lex-post__hero-photo-label{
-  position:absolute;left:14px;bottom:12px;
-  font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;
-  color:var(--lp-muted);background:rgba(255,255,255,.7);padding:4px 8px;border-radius:6px;
-}
-.lex-post__hero-photo-dot{position:absolute;right:14px;top:14px;width:10px;height:10px;border-radius:999px;background:var(--lp-accent);}
-
-/* ── MAIN GRID 3 COLUMNAS ── */
-.lex-post__main{background:#fff;}
-.lex-post__main-wrap{padding:80px 0;}
+/* ── MAIN GRID 2 COLUMNAS ── */
+.lex-post__main{padding:clamp(56px, 8vw, 96px) 0;}
 .lex-post__grid{display:grid;grid-template-columns:1fr;gap:48px;}
-@media(min-width:992px){.lex-post__grid{grid-template-columns:220px minmax(0,1fr) 280px;gap:48px;}}
-.lex-post__rail-sticky{position:sticky;top:100px;display:flex;flex-direction:column;gap:32px;}
-
-.lex-mono-eyebrow{
-  font-family:'JetBrains Mono',ui-monospace,monospace;
-  font-size:11.5px;letter-spacing:.18em;text-transform:lowercase;
-  color:var(--lp-accent);margin:0 0 14px;
+@media(min-width:992px){
+  .lex-post__grid{grid-template-columns:280px minmax(0,1fr);gap:72px;}
 }
-.lex-mono-eyebrow--light{color:#7dd3fc;}
 
-/* TOC */
-.lex-post__toc nav,
-.lex-post__toc > ul,
-.lex-post__toc .toc{font-family:var(--font-sans);}
-.lex-post__toc ul{list-style:none;padding:0;margin:0;}
-.lex-post__toc ul ul{margin-top:4px;padding-left:0;}
-.lex-post__toc li{margin:0;}
-.lex-post__toc a{
-  color:var(--lp-muted);text-decoration:none;
-  font-size:14px;line-height:1.5;display:block;
+/* ── ASIDE: TOC + CTA sticky ── */
+.lex-post__aside{order:2;}
+@media(min-width:992px){.lex-post__aside{order:1;}}
+.lex-post__aside-sticky{position:sticky;top:96px;display:flex;flex-direction:column;gap:20px;}
+
+.lex-post__toc{
+  background:var(--lp-soft);border:1px solid var(--lp-line);
+  border-radius:14px;padding:22px 22px 24px;
+}
+.lex-post__toc-content{margin-top:14px;}
+.lex-post__toc-content nav,
+.lex-post__toc-content > ul,
+.lex-post__toc-content .toc{font-family:var(--font-sans);}
+.lex-post__toc-content ul{list-style:none;padding:0;margin:0;}
+.lex-post__toc-content ul ul{padding-left:0;margin-top:4px;}
+.lex-post__toc-content li{margin:0;}
+.lex-post__toc-content a{
+  color:var(--lp-muted);text-decoration:none;display:block;
+  font-size:14px;line-height:1.5;
   padding:6px 0 6px 14px;border-left:2px solid var(--lp-line);
   transition:color .15s ease, border-color .15s ease;
 }
-.lex-post__toc a:hover,
-.lex-post__toc a.active{color:var(--lp-ink);border-color:var(--lp-accent);}
-
-/* Share */
-.lex-post__share-row{display:flex;gap:8px;}
-.lex-post__share-btn{
-  width:36px;height:36px;border-radius:999px;
-  border:1px solid var(--lp-line);background:#fff;
-  display:inline-flex;align-items:center;justify-content:center;
-  font-size:13px;color:var(--lp-ink);text-decoration:none;
-  transition:border-color .15s ease, color .15s ease;
+.lex-post__toc-content a:hover,
+.lex-post__toc-content a.active{
+  color:var(--lp-ink);border-color:var(--lp-accent);opacity:1;
 }
-.lex-post__share-btn:hover{border-color:var(--lp-accent);color:var(--lp-accent);opacity:1;}
+
+.lex-post__aside-cta{
+  background:var(--lp-ink);color:#dde4f5;
+  border-radius:14px;padding:24px 22px;
+}
+.lex-post__aside-cta-title{
+  font-family:var(--font-display);font-weight:500;
+  font-size:22px;line-height:1.2;color:#fff;
+  margin:10px 0 8px;letter-spacing:-0.012em;
+}
+.lex-post__aside-cta-text{
+  font-family:var(--font-sans);font-size:14px;line-height:1.55;
+  color:#b8c3e0;margin:0 0 18px;
+}
+.lex-post__aside-cta .lex-btn{margin-bottom:10px;}
+.lex-post__aside-cta .lex-btn:last-child{margin-bottom:0;}
+.lex-post__aside-cta .lex-btn--accent{background:var(--lp-accent);color:#fff;}
+.lex-post__aside-cta .lex-btn--accent:hover{background:#1d4ed8;color:#fff;opacity:1;}
+.lex-post__aside-cta .lex-btn--ghost{
+  background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);
+}
+.lex-post__aside-cta .lex-btn--ghost:hover{
+  background:rgba(255,255,255,.08);color:#fff;border-color:#fff;opacity:1;
+}
+.lex-post__aside-tel{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:14px;}
 
 /* ── BODY del artículo ── */
-.lex-post__body{font-family:var(--font-sans);font-size:18px;line-height:1.75;color:#2a3656;max-width:760px;}
-.lex-post__body > p:first-of-type{font-size:21px;line-height:1.6;color:var(--lp-ink);margin-bottom:36px;}
-.lex-post__body p{margin:0 0 22px;}
+.lex-post__body{
+  order:1;
+  font-family:var(--font-sans);
+  font-size:18px;line-height:1.78;color:#2a3656;max-width:760px;
+}
+@media(min-width:992px){.lex-post__body{order:2;}}
+
+.lex-post__body > p:first-of-type{
+  font-size:21px;line-height:1.6;color:var(--lp-ink);margin-bottom:32px;
+}
+.lex-post__body p{margin:0 0 1.4em;}
 .lex-post__body strong{color:var(--lp-ink);font-weight:600;}
+.lex-post__body em{color:var(--lp-accent);font-style:italic;font-family:var(--font-display);font-weight:500;}
+
 .lex-post__body a:not(.lex-btn){
   color:var(--lp-accent);text-decoration:underline;
-  text-decoration-thickness:1px;text-underline-offset:3px;
+  text-underline-offset:3px;text-decoration-thickness:1px;
   transition:color .15s ease;
 }
 .lex-post__body a:not(.lex-btn):hover{color:var(--lp-ink);opacity:1;}
 
 .lex-post__body h2{
-  font-family:var(--font-display);font-weight:500;letter-spacing:-0.02em;
+  font-family:var(--font-display);font-weight:500;letter-spacing:-0.022em;
   font-size:clamp(28px,3.4vw,38px);line-height:1.15;color:var(--lp-ink);
-  margin:56px 0 18px;
+  margin:2.4em 0 .6em;padding-top:.6em;border-top:1px solid var(--lp-line);
 }
+.lex-post__body h2:first-child{border-top:0;padding-top:0;margin-top:0;}
 .lex-post__body h3{
   font-family:var(--font-display);font-weight:500;letter-spacing:-0.012em;
-  font-size:clamp(22px,2.4vw,26px);line-height:1.2;color:var(--lp-ink);
-  margin:40px 0 14px;
+  font-size:clamp(22px,2.4vw,28px);line-height:1.2;color:var(--lp-ink);
+  margin:1.8em 0 .5em;
 }
 .lex-post__body h4{
   font-family:var(--font-sans);font-size:18px;font-weight:600;
-  margin:28px 0 8px;color:var(--lp-ink);
+  margin:1.6em 0 .4em;color:var(--lp-ink);
 }
 .lex-post__body ul,
-.lex-post__body ol{padding-left:22px;margin:0 0 22px;}
-.lex-post__body li{margin-bottom:10px;line-height:1.7;}
+.lex-post__body ol{padding-left:1.4em;margin:0 0 1.4em;}
+.lex-post__body li{margin-bottom:.6em;line-height:1.7;}
 .lex-post__body ul li::marker{color:var(--lp-accent);}
 .lex-post__body ol li::marker{color:var(--lp-accent);font-weight:600;}
 
 .lex-post__body blockquote{
+  margin:2em 0;padding:24px 28px;
   border-left:3px solid var(--lp-accent);
-  margin:32px 0;padding:8px 0 8px 24px;
-  font-family:var(--font-display);font-size:clamp(22px,2.4vw,26px);
-  line-height:1.4;color:var(--lp-ink);font-style:italic;
+  background:var(--lp-soft);border-radius:0 12px 12px 0;
+  font-family:var(--font-display);font-style:italic;
+  font-size:clamp(20px,2.2vw,24px);line-height:1.45;color:var(--lp-ink);
 }
 .lex-post__body blockquote p{margin:0;font-family:inherit;font-size:inherit;line-height:inherit;}
-.lex-post__body blockquote p::after{display:none;}
-
-/* Callout reusable: usa la sintaxis markdown-it con `> ⚠️` o un wrapper .callout */
-.lex-post__body .callout{
-  background:var(--lp-soft);border-radius:14px;padding:24px 28px;margin:32px 0;
-  border-left:3px solid var(--lp-accent);font-size:16px;line-height:1.65;
-}
-.lex-post__body .callout--dark{background:var(--lp-ink);color:#dde4f5;border-left-color:var(--lp-accent);}
-.lex-post__body .callout--dark strong,
-.lex-post__body .callout--dark a{color:#fff;}
-.lex-post__body .callout-title{
-  font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;
-  letter-spacing:.18em;text-transform:lowercase;color:var(--lp-accent);
-  margin-bottom:8px;display:block;
-}
-.lex-post__body .callout--dark .callout-title{color:#7dd3fc;}
 
 .lex-post__body table{
-  width:100%;border-collapse:collapse;margin:32px 0;font-size:15px;
+  width:100%;border-collapse:collapse;margin:2em 0;font-size:15px;
   border:1px solid var(--lp-line);border-radius:12px;overflow:hidden;
 }
 .lex-post__body thead th{
@@ -434,7 +327,7 @@ layout: layout/base.njk
 .lex-post__body code{
   background:var(--lp-soft);color:var(--lp-ink);
   padding:2px 6px;border-radius:4px;font-size:.92em;
-  font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,monospace;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   border:1px solid var(--lp-line);
 }
 .lex-post__body pre{
@@ -442,131 +335,21 @@ layout: layout/base.njk
   padding:18px 20px;border-radius:12px;overflow-x:auto;font-size:14px;
 }
 .lex-post__body pre code{background:none;padding:0;color:inherit;border:0;}
+.lex-post__body img{max-width:100%;height:auto;border-radius:12px;margin:2em 0;border:1px solid var(--lp-line);}
+.lex-post__body hr{border:0;border-top:1px solid var(--lp-line);margin:2.5em 0;}
 
-.lex-post__body img{max-width:100%;height:auto;border-radius:14px;margin:28px 0;border:1px solid var(--lp-line);}
-.lex-post__body hr{border:0;border-top:1px solid var(--lp-line);margin:40px 0;}
+/* anchor-link (markdown-it-anchor): mantenerlo discreto */
+.lex-post__body .anchor-link{
+  opacity:0;margin-right:.35em;text-decoration:none;
+  color:var(--lp-muted);font-weight:400;transition:opacity .15s;
+}
+.lex-post__body h2:hover .anchor-link,
+.lex-post__body h3:hover .anchor-link,
+.lex-post__body h4:hover .anchor-link{opacity:.5;}
 
-.lex-post__hr{border:0;border-top:1px solid var(--lp-line);margin:56px 0 32px;}
-.lex-post__update{font-size:14px;color:var(--lp-muted);font-style:italic;}
-
-/* ── RIGHT RAIL ── */
-.lex-post__takeaways{
-  background:var(--lp-soft);border:1px solid var(--lp-line);
-  border-radius:16px;padding:24px;
-}
-.lex-post__takeaways-title{
-  font-family:var(--font-display);font-weight:500;
-  font-size:22px;line-height:1.2;color:var(--lp-ink);
-  margin:0 0 14px;letter-spacing:-0.012em;
-}
-.lex-post__takeaways ul{list-style:none;padding:0;margin:0;}
-.lex-post__takeaways li{
-  display:flex;gap:10px;align-items:flex-start;
-  padding:12px 0;border-bottom:1px solid var(--lp-line);
-  font-size:14px;line-height:1.55;color:var(--lp-ink2);
-}
-.lex-post__takeaways li:last-child{border-bottom:0;}
-.lex-post__takeaways svg{color:var(--lp-accent);flex-shrink:0;margin-top:3px;}
-
-.lex-post__urgent{
-  background:var(--lp-ink);color:#dde4f5;
-  border-radius:16px;padding:24px;
-}
-.lex-post__urgent-title{
-  font-family:var(--font-display);font-weight:500;
-  font-size:22px;line-height:1.2;color:#fff;
-  margin:0 0 8px;letter-spacing:-0.012em;
-}
-.lex-post__urgent-text{
-  font-size:14px;line-height:1.55;color:#b8c3e0;
-  margin:0 0 18px;
-}
-.lex-post__urgent .lex-btn--accent{
-  background:var(--lp-accent);border-radius:999px;
-  box-shadow:0 8px 18px -8px var(--lp-accent);
-}
-.lex-post__urgent .lex-btn--accent:hover{background:#1d4ed8;color:#fff;}
-
-/* ── AUTHOR CARD ── */
-.lex-post__author-card{background:var(--lp-soft);border-top:1px solid var(--lp-line);border-bottom:1px solid var(--lp-line);}
-.lex-post__author-card-wrap{padding:64px 0;max-width:980px;margin:0 auto;}
-.lex-post__author-card-grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:center;}
-@media(min-width:768px){.lex-post__author-card-grid{grid-template-columns:180px 1fr;gap:40px;}}
-.lex-post__author-photo{
-  width:180px;height:180px;border-radius:999px;
-  background:var(--lp-ink);color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-display);font-size:60px;text-transform:uppercase;
-  border:1px solid #d6deef;
-}
-.lex-post__author-card-name{
-  font-family:var(--font-display);font-weight:500;
-  font-size:32px;line-height:1.1;letter-spacing:-0.02em;
-  color:var(--lp-ink);margin:6px 0 8px;
-}
-.lex-post__author-card-role{
-  font-size:14px;color:var(--lp-accent);font-weight:500;margin-bottom:14px;
-}
-.lex-post__author-card-bio{
-  font-size:15.5px;line-height:1.6;color:var(--lp-muted);
-  margin:0 0 16px;max-width:620px;
-}
-.lex-post__author-card-actions{display:flex;gap:12px;flex-wrap:wrap;}
-.lex-post__author-card .lex-btn--small{
-  padding:10px 16px;font-size:13px;border-radius:999px;
-}
+.lex-post__body-hr{border:0;border-top:1px solid var(--lp-line);margin:48px 0 24px;}
+.lex-post__body-update{font-size:14px;color:var(--lp-muted);font-style:italic;margin:0;}
 
 /* ── RELATED ── */
-.lex-post__related{padding:96px 0;}
-
-/* ── FINAL CTA (fondo accent) ── */
-.lex-post__final-cta{background:var(--lp-accent);color:#fff;}
-.lex-post__final-cta-wrap{padding:80px 0;}
-.lex-post__final-cta-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center;}
-@media(min-width:992px){.lex-post__final-cta-grid{grid-template-columns:1.4fr 1fr;gap:48px;}}
-.lex-post__final-cta-title{
-  font-family:var(--font-display);font-weight:500;
-  font-size:clamp(34px,4.4vw,52px);line-height:1.05;letter-spacing:-0.02em;
-  color:#fff;margin:0 0 16px;
-}
-.lex-post__final-cta-text{
-  font-size:17px;line-height:1.55;color:rgba(255,255,255,.85);
-  margin:0 0 28px;max-width:600px;
-}
-.lex-post__final-cta-actions{display:flex;gap:12px;flex-wrap:wrap;}
-.lex-post__final-cta-btn{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:16px 26px;border-radius:999px;
-  font-family:var(--font-sans);font-weight:500;font-size:16px;
-  text-decoration:none;transition:transform .15s ease, background .15s ease, color .15s ease;
-}
-.lex-post__final-cta-btn--solid{background:#fff;color:var(--lp-ink);}
-.lex-post__final-cta-btn--solid:hover{background:var(--lp-ink);color:#fff;opacity:1;transform:translateY(-1px);}
-.lex-post__final-cta-btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);}
-.lex-post__final-cta-btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.08);color:#fff;opacity:1;}
-
-.lex-post__final-cta-checks{
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
-  border-radius:16px;padding:28px;
-}
-.lex-post__final-cta-checks-title{
-  font-family:var(--font-sans);font-size:12px;
-  letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(255,255,255,.7);margin:0 0 16px;
-}
-.lex-post__final-cta-check{
-  display:flex;align-items:center;gap:12px;
-  padding:10px 0;border-bottom:1px solid rgba(255,255,255,.12);
-  font-size:15px;color:#fff;
-}
-.lex-post__final-cta-check:last-child{border-bottom:0;}
-.lex-post__final-cta-check svg{color:#fff;flex-shrink:0;}
-
-/* Responsive: ocultar TOC y right rail en mobile */
-@media(max-width:991px){
-  .lex-post__rail-left,
-  .lex-post__rail-right{display:none;}
-  .lex-post__main-wrap{padding:48px 0;}
-  .lex-post__hero-wrap{padding:24px 0 48px;}
-}
+.lex-post__related{background:var(--lp-soft);border-top:1px solid var(--lp-line);}
 </style>
